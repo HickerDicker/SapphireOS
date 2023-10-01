@@ -1,0 +1,62 @@
+;Install File and Service for HIDUSBF lower filter
+;Win 98+, Win 2000+, Win x64+ supported
+
+[Version]
+Signature=$CHICAGO$
+Provider=%MFGNAME%
+
+[SourceDisksNames]
+1=%INSTDISK%,,,
+
+[SourceDisksFiles]
+hidusbf.sys=1,98me
+
+[SourceDisksFiles.x86]
+hidusbf.sys=1,ntx86
+
+[SourceDisksFiles.amd64]
+hidusbf.sys=1,amd64
+
+[DestinationDirs]
+DefaultDestDir=10,system32\drivers
+DriverCopyFiles=10,system32\drivers
+DriverCopyFilesNT=12
+
+[DriverCopyFiles]
+hidusbf.sys,,,0x04
+
+[DriverCopyFilesNT]
+hidusbf.sys,,,0x04
+
+[hidusbfService]
+ServiceType=1
+StartType=3
+ErrorControl=1
+ServiceBinary=%12%\hidusbf.sys
+DisplayName=%Description%
+
+;------------------------------------------------------------------------------
+;  Windows 2000+ Sections
+;------------------------------------------------------------------------------
+
+[DefaultInstall.nt]
+CopyFiles=DriverCopyFilesNT
+
+[DefaultInstall.nt.services]
+AddService=hidusbf,,hidusbfService
+
+;------------------------------------------------------------------------------
+;  Windows 98+ Sections
+;------------------------------------------------------------------------------
+
+[DefaultInstall]
+CopyFiles=DriverCopyFiles
+
+;------------------------------------------------------------------------------
+;  String Definitions
+;------------------------------------------------------------------------------
+
+[Strings]
+MFGNAME="SweetLow"
+INSTDISK="USB Mouse Rate Adjuster"
+DESCRIPTION="USB Mouse Rate Adjuster Lower Filter by SweetLow"

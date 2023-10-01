@@ -1,0 +1,263 @@
+// made by Black_Baroness
+// github.com/Black_Baroness
+
+THEME_NAME              = "Dark"
+
+// Font
+FONT_NAME = "Lucida Sans Unicode"
+FONT_SIZE = 14
+
+// Main window
+MAINWND_WX               = 1094
+MAINWND_WY               = 856
+MAINWND_MINX             = 480
+MAINWND_MINY             = 369
+MAINWND_INSIDE_COLOR     = 0x0b0b0b
+
+// Popup
+POPUP_FONT_SIZE          = 11
+POPUP_WX                 = 450
+POPUP_WY                 = 13
+POPUP_INSIDE_COLOR       = 0x151515
+POPUP_TEXT_COLOR         = 0xFFFFFF
+
+// Popup, driver comparsion
+POPUP_HWID_COLOR         = 0xFF9090
+POPUP_CMP_BETTER_COLOR   = 0x00A000
+POPUP_CMP_INVALID_COLOR  = 0x0000FF
+
+// Popup, driver list
+POPUP_LST_BETTER_COLOR   = 0x00A000
+POPUP_LST_WORSE_COLOR    = 0x0000FF
+POPUP_LST_INVALID_COLOR  = 0xC3C3C3
+POPUP_LST_SELECTED_COLOR = 0xFFFFFF
+
+// Progress bar (active)
+PROGR_OUTLINE_COLOR      = 0x777777
+PROGR_OUTLINE_ROUND      = 0
+
+// Checkbox (selected via the keyboard)
+KBHLT_INSIDE_COLOR       = 0x009999
+
+// Items on left panel
+//PANEL_LIST_OFSX          = 4
+PNLITEM_OFSX             = 4
+PNLITEM_OFSY             = 3
+PNLITEM_WY               = PANEL_WY
+
+
+// Checkboxes on left panel
+CHKBOX_TEXT_OFSX         = 22
+CHKBOX_TEXT_COLOR        = 0xE6E6E6
+CHKBOX_TEXT_COLOR_H      = 0x32CD32
+CHKBOX_SIZE              = 19
+
+// Buttons on left panel
+BUTTON_OUTLINE_WIDTH     = -1
+
+BUTTON_INSIDE_COLOR      = 0x0b0b0b
+BUTTON_INSIDE_COLOR_H    = 0x0b0b0b
+BUTTON_OUTLINE_COLOR     = 0x0b0b0b
+BUTTON_OUTLINE_COLOR_H   = 0x0b0b0b
+BUTTON_BITMAP_FILENAME   = "dark\thinblue.webp"
+BUTTON_BITMAP_FILENAME_H = "dark\thinblue_h.webp"
+BUTTON_BITMAP_ANCHOR     = top_left
+BUTTON_BITMAP_FILL       = hstra
+BUTTON_BITMAP_ANCHOR_H   = top_left
+BUTTON_BITMAP_FILL_H     = hstra
+
+
+// Panel, generic
+PANEL_OFSX               = 8
+PANEL_OFSY               = 10
+PANEL_WX                 = 230
+PANEL_WY                 = 21
+PANEL_INSIDE_COLOR       = 0x151515
+PANEL_OUTLINE_COLOR      = 0x707070
+PANEL_OUTLINE_ROUND      = 0
+
+// Panel, sysinfo
+PANEL1_OFSX              = 16
+PANEL1_OFSY              = 14
+PANEL1_WX                = 216
+PANEL1_WY                = 23
+PANEL1_INSIDE_COLOR      = 0x202020
+
+// Panel, install
+PANEL2_OFSX              = PANEL_OFSX
+//PANEL2_OFSY              = 0
+PANEL2_WX                = PANEL_WX
+PANEL2_WY                = 600
+PANEL2_INSIDE_COLOR      = 0x0b0b0b
+PANEL2_OUTLINE_WIDTH     = 0
+PANEL2_BITMAP_FILENAME   = ""
+
+// Panel, lang_theme
+PANEL3_OFSX              = PANEL_OFSX
+PANEL3_OFSY              = 98
+PANEL3_WX                = PANEL_WX
+PANEL3_WY                = PANEL_WY
+PANEL3_INSIDE_COLOR      = 0xFF202020
+
+// Panel, actions
+PANEL4_OFSX              = PANEL_OFSX
+PANEL4_OFSY              = 418
+PANEL4_WX                = PANEL_WX
+PANEL4_WY                = PANEL_WY
+PANEL4_OUTLINE_WIDTH     = 0
+PANEL4_INSIDE_COLOR      = 0xFF000000
+
+// Panel, filters (found)
+PANEL5_OFSX              = 12
+PANEL5_OFSY              = 516
+PANEL5_WX                = 222
+PANEL5_WY                = 22
+
+// Panel, filters (not found)
+PANEL6_OFSX              = 12
+PANEL6_OFSY              = 686
+PANEL6_WX                = 222
+
+// Panel, filters (special)
+PANEL7_OFSX              = 12
+PANEL7_OFSY              = 751
+PANEL7_WX                = 222
+
+// Panel, revision
+PANEL8_OFSX              = PANEL_OFSX
+PANEL8_WX                = PANEL_WX
+
+// Panel, install button
+PANEL9_OFSX              = PANEL_OFSX
+PANEL9_OFSY              = 221
+PANEL9_WX                = PANEL_WX
+PANEL9_WY                = 48
+PANEL9_OUTLINE_WIDTH     = -1
+
+PANEL9_INSIDE_COLOR      = 0x0b990b
+PANEL9_INSIDE_COLOR_H    = 0x0b700b
+PANEL9_OUTLINE_COLOR     = 0x0b0b0b
+PANEL9_OUTLINE_COLOR_H   = 0x0b0b0b
+
+// Panel, selectall button
+//PANEL10_WX                = PANEL_WX
+PANEL10_WY                = 26
+PANEL10_OFSY              = 270
+PANEL10_OUTLINE_WIDTH     = -1
+ 
+PANEL10_INSIDE_COLOR      = 0xff00a2
+PANEL10_INSIDE_COLOR_H    = 0xff0087
+PANEL10_OUTLINE_COLOR     = 0x0b0b0b
+PANEL10_OUTLINE_COLOR_H   = 0x0b0b0b
+
+// Panel, selectnone button
+//PANEL11_WX                = PANEL_WX
+PANEL11_WY                = PANEL10_WY
+PANEL11_OFSY              = 297
+PANEL11_OUTLINE_WIDTH     = -1
+
+PANEL11_INSIDE_COLOR      = 0xff00a2
+PANEL11_INSIDE_COLOR_H    = 0xff0087
+PANEL11_OUTLINE_COLOR     = 0x0b0b0b
+PANEL11_OUTLINE_COLOR_H   = 0x0b0b0b
+	
+// Extra options
+// Panel, options
+PANEL12_OFSX             = 12
+PANEL12_OFSY             = 337
+PANEL12_WX               = 222
+PANEL12_WY               = 22
+PANEL12_INSIDE_COLOR     = PANEL10_INSIDE_COLOR
+
+// Driver list
+DRVLIST_OFSX             = 240
+DRVLIST_OFSY             = 2
+DRVLIST_INSIDE_COLOR     = 0x0b0b0b
+DRVLIST_OUTLINE_ROUND    = 0
+DRVLIST_BITMAP_FILENAME  = "RES_211"
+DRVLIST_BITMAP_ANCHOR    = bottom_right
+
+// Driver items
+DRVITEM_WX               = -20
+DRVITEM_OFSX             = 15
+DRVITEM_OFSY             = 10
+DRVITEM_DIST_Y0          = 39
+DRVITEM_DIST_Y2          = 10
+
+// Driver item content
+ITEM_CHECKBOX_SIZE       = 23
+ITEM_EXPAND_UP = "dark\up.webp"
+ITEM_EXPAND_UP_H = "dark\up.webp"
+ITEM_EXPAND_DOWN = "dark\down.webp"
+ITEM_EXPAND_DOWN_H = "dark\down_h.webp"
+
+// Driver item (generic style)
+DRVITEM_INSIDE_COLOR     = 0x0b0b0b
+DRVITEM_OUTLINE_COLOR    = 0x909090
+DRVITEM_OUTLINE_ROUND    = 0
+DRVITEM_INSIDE_COLOR_H   = 0x494343
+DRVITEM_OUTLINE_COLOR_H  = 0x5C5C5C
+DRVITEM_INSIDE_COLOR_DE  = 0x8989a9
+DRVITEM_LINE_COLOR = 0xAEAEAE
+DRVITEM_TEXT1_COLOR      = 0xc0c0c0
+
+
+//      >>>          COLORS OF DRIVER TYPES          <<<
+
+
+			//           >>          BETTER              <<
+
+	// better and new
+	DRVITEM_TEXT2_COLOR_BN 		= 0x009F00
+
+	// better cur
+	DRVITEM_TEXT2_COLOR_BC 		= DRVITEM_TEXT2_COLOR_BN
+
+	// better and old
+	DRVITEM_TEXT2_COLOR_BO		= DRVITEM_TEXT2_COLOR_BN
+
+
+
+			//           >>          SAME                <<
+
+	// same and new
+	DRVITEM_TEXT2_COLOR_SN		= DRVITEM_TEXT2_COLOR_BN
+
+	// same but old
+	DRVITEM_TEXT2_COLOR_SO		= 0x0BDBE1
+
+
+
+			//           >>         WORST               <<
+
+	// worst and old
+	DRVITEM_TEXT2_COLOR_WO		= 0x1027BF
+
+
+
+			//           >>         ERROR               <<
+
+	// missing
+	DRVITEM_TEXT2_COLOR_MS		= 0x1027BF
+
+	// not found, installed unknown
+	DRVITEM_INSIDE_COLOR_NU		= DRVITEM_INSIDE_COLOR
+	DRVITEM_TEXT1_COLOR_NU      = DRVITEM_TEXT1_COLOR
+	DRVITEM_INSIDE_COLOR_NU_H   = DRVITEM_INSIDE_COLOR_H
+
+	// not found, installed standart
+	DRVITEM_INSIDE_COLOR_NS		= 0xEEEEEE
+	DRVITEM_INSIDE_COLOR_NS     = DRVITEM_INSIDE_COLOR
+	DRVITEM_INSIDE_COLOR_NS_H   = DRVITEM_INSIDE_COLOR_H
+
+	// missing
+	DRVITEM_TEXT2_COLOR_MS		= 0x1027BF
+
+	// invalid
+	DRVITEM_TEXT2_COLOR_IN		= 0x1027BF
+
+	// not found, missing
+	DRVITEM_TEXT2_COLOR_NM		= 0x1027BF
+
+	// not found, installed unknown
+	DRVITEM_TEXT2_COLOR_NU		= 0x0BDBE1

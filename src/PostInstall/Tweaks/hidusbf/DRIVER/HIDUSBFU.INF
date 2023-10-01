@@ -1,0 +1,41 @@
+;Uninstall File and Service for HIDUSBF lower filter
+;Win 98+, Win 2000+, Win x64+ supported
+
+[Version]
+Signature=$CHICAGO$
+Provider=%MFGNAME%
+
+[DestinationDirs]
+DefaultDestDir=10,system32\drivers
+DriverDelFiles=10,system32\drivers
+DriverDelFilesNT=12
+
+[DriverDelFiles]
+hidusbf.sys
+
+[DriverDelFilesNT]
+hidusbf.sys
+
+;------------------------------------------------------------------------------
+;  Windows 2000+ Sections
+;------------------------------------------------------------------------------
+
+[DefaultInstall.nt]
+DelFiles=DriverDelFilesNT
+
+[DefaultInstall.nt.services]
+DelService=hidusbf
+
+;------------------------------------------------------------------------------
+;  Windows 98+ Sections
+;------------------------------------------------------------------------------
+
+[DefaultInstall]
+DelFiles=DriverDelFiles
+
+;------------------------------------------------------------------------------
+;  String Definitions
+;------------------------------------------------------------------------------
+
+[Strings]
+MFGNAME="SweetLow"

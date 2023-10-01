@@ -1,0 +1,2 @@
+bcdedit /set bootmenupolicy standard
+

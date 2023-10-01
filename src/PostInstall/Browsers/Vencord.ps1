@@ -1,0 +1,1 @@
+ iwr "https://raw.githubusercontent.com/Vencord/Installer/main/install.ps1" -UseBasicParsing | iex 
