@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Preset xmlns="urn:schemas-nliteos-com:pn.v1">
-	<Date>10/01/2023 09:20:05</Date>
+	<Date>10/05/2023 10:43:11</Date>
 	<AppInfo>
-		<Version>2023.9.9419</Version>
+		<Version>2023.10.9432</Version>
 		<Licensed>Yes</Licensed>
 		<Protections>Yes</Protections>
 		<Host>Windows Server 2022 Standard 21H2 x64 - 10.0.20348.1906 (en-US)</Host>
 	</AppInfo>
 	<ImageInfo>
-		<Version mode="offline">Windows 10 Professional 22H2 x64 - 10.0.19045.3516 (en-US)</Version>
-		<GUID>{7E73186C-1F93-3EB4-8A35-BF9B19835F8E}</GUID>
+		<Version mode="offline">Windows 10 Professional 22H2 x64 - 10.0.19045.3448 (en-US)</Version>
+		<GUID>{4CA8A08E-2CCB-39A1-DD25-51508A1D75CE}</GUID>
 	</ImageInfo>
 	<RemoveComponents AppRemovalMode="Custom">
 		<c>accessibility_magnifier 'Screen Magnifier'</c>
@@ -17,7 +17,6 @@
 		<c>actioncenter 'Action Center'</c>
 		<c>asimov 'Telemetry Client'</c>
 		<c>assembly.net '.NET assembly cache'</c>
-		<c>axinstall 'ActiveX Installer Service'</c>
 		<c>backup 'Backup and Restore'</c>
 		<c>biometric 'Biometric - Support'</c>
 		<c>biometricservice 'Biometric - Service'</c>
@@ -65,8 +64,6 @@
 		<c>hwsupport_smartcard 'Smartcard'</c>
 		<c>hwsupport_telephony 'Telephony'</c>
 		<c>insiderhub 'Windows Insider Program'</c>
-		<c>internetexplorer 'Internet Explorer'</c>
-		<c>internetexplorer32 'Internet Explorer - 32 bit'</c>
 		<c>kerneldebug 'Kernel Debugging'</c>
 		<c>lcu 'Cumulative Update cache (LCU)'</c>
 		<c>location 'Location Service'</c>
@@ -77,10 +74,6 @@
 		<c>mapcontrol 'Map Control'</c>
 		<c>mcupdate 'Processor Microcode Update'</c>
 		<c>mcupdatesvc 'Processor Microcode Update - Servicing'</c>
-		<c>mediaplayer 'Windows Media Player'</c>
-		<c>mediaplayer32 'Windows Media Player - 32 bit'</c>
-		<c>mediaplayernetworksharing 'WMP Network Sharing Service'</c>
-		<c>mediaplayernetworksharing32 'WMP Network Sharing Service - 32 bit'</c>
 		<c>microsoft.549981c3f5f10 'Cortana'</c>
 		<c>microsoft.advertising.xaml 'Microsoft Advertising SDK for XAML'</c>
 		<c>microsoft.bingweather 'MSN Weather'</c>
@@ -284,6 +277,7 @@
 			<TweakGroup name="AutoLogger">
 				<Tweak name="DefenderApiLogger\Start">0</Tweak>
 				<Tweak name="DefenderAuditLogger\Start">0</Tweak>
+				<Tweak name="DiagLog\Start">0</Tweak>
 				<Tweak name="Diagtrack-Listener\Start">0</Tweak>
 				<Tweak name="Microsoft-Windows-Rdp-Graphics-RdpIdd-Trace\Start">0</Tweak>
 			</TweakGroup>
@@ -295,6 +289,8 @@
 				<Tweak name="Explorer\AltTabSettings">1</Tweak>
 				<Tweak name="Personalize\AppsUseLightTheme">0</Tweak>
 				<Tweak name="Personalize\SystemUsesLightTheme">0</Tweak>
+				<Tweak name="Explorer\HideSCAMeetNow">1</Tweak>
+				<Tweak name="Feeds\ShellFeedsTaskbarViewMode">2</Tweak>
 				<Tweak name="Explorer\DisableNotificationCenter">1</Tweak>
 				<Tweak name="PushNotifications\NoCloudApplicationNotification">1</Tweak>
 				<Tweak name="Mouse\MouseSpeed">0</Tweak>
@@ -315,6 +311,7 @@
 				<Tweak name="Microsoft-Windows-Security-SPP-UX-Notifications\ActionCenter\Enabled">0</Tweak>
 				<Tweak name="Microsoft-Windows-Shell-ConnectedAccountState\ActionCenter\Enabled">0</Tweak>
 				<Tweak name="Microsoft-Windows-Shell-Core\ActionCenter\Enabled">0</Tweak>
+				<Tweak name="Microsoft-Windows-SearchUI\Operational\Enabled">0</Tweak>
 				<Tweak name="Microsoft-Windows-UniversalTelemetryClient\Operational\Enabled">0</Tweak>
 				<Tweak name="Microsoft-Windows-UserPnp\ActionCenter\Enabled">0</Tweak>
 				<Tweak name="Microsoft-Windows-WindowsBackup\ActionCenter\Enabled">0</Tweak>

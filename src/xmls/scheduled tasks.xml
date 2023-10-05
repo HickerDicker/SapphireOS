@@ -113,9 +113,6 @@
 			<TweakGroup name="Tree\Microsoft\Windows\BrokerInfrastructure">
 				<Tweak name="BgTaskRegistrationMaintenanceTask\BgTaskRegistrationMaintenanceTask">remove</Tweak>
 			</TweakGroup>
-			<TweakGroup name="Tree\Microsoft\Windows\CloudExperienceHost">
-				<Tweak name="CreateObjectTask\CreateObjectTask">remove</Tweak>
-			</TweakGroup>
 			<TweakGroup name="Tree\Microsoft\Windows\Defrag">
 				<Tweak name="ScheduledDefrag\ScheduledDefrag">remove</Tweak>
 			</TweakGroup>
