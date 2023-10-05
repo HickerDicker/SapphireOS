@@ -1,0 +1,520 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Preset xmlns="urn:schemas-nliteos-com:pn.v1">
+	<Date>10/05/2023 10:43:11</Date>
+	<AppInfo>
+		<Version>2023.10.9432</Version>
+		<Licensed>Yes</Licensed>
+		<Protections>Yes</Protections>
+		<Host>Windows Server 2022 Standard 21H2 x64 - 10.0.20348.1906 (en-US)</Host>
+	</AppInfo>
+	<ImageInfo>
+		<Version mode="offline">Windows 10 Professional 22H2 x64 - 10.0.19045.3448 (en-US)</Version>
+		<GUID>{4CA8A08E-2CCB-39A1-DD25-51508A1D75CE}</GUID>
+	</ImageInfo>
+	<RemoveComponents AppRemovalMode="Custom">
+		<c>accessibility_magnifier 'Screen Magnifier'</c>
+		<c>accessibility_narrator 'Narrator'</c>
+		<c>actioncenter 'Action Center'</c>
+		<c>asimov 'Telemetry Client'</c>
+		<c>assembly.net '.NET assembly cache'</c>
+		<c>backup 'Backup and Restore'</c>
+		<c>biometric 'Biometric - Support'</c>
+		<c>biometricservice 'Biometric - Service'</c>
+		<c>c5e2524a-ea46-4f67-841f-6a9465d9d515 'File Explorer (Legacy)'</c>
+		<c>clouddownload 'Windows Recovery (WinRE) - Cloud download'</c>
+		<c>cloudnotifications 'Cloud Notifications'</c>
+		<c>driver_c_barcodescanner.inf</c>
+		<c>driver_c_biometric.inf</c>
+		<c>driver_c_cashdrawer.inf</c>
+		<c>driver_c_fdc.inf</c>
+		<c>driver_c_floppydisk.inf</c>
+		<c>driver_c_linedisplay.inf</c>
+		<c>driver_c_magneticstripereader.inf</c>
+		<c>driver_c_receiptprinter.inf</c>
+		<c>driver_c_smartcard.inf</c>
+		<c>driver_c_smartcardfilter.inf</c>
+		<c>driver_c_smartcardreader.inf</c>
+		<c>driver_fdc.inf</c>
+		<c>driver_flpydisk.inf</c>
+		<c>driver_hidscanner.inf</c>
+		<c>driver_idtsec.inf</c>
+		<c>driver_kdnic.inf</c>
+		<c>driver_mgtdyn.inf</c>
+		<c>driver_msclmd.inf</c>
+		<c>driver_pcmcia.inf</c>
+		<c>driver_perceptionsimulationheadset.inf</c>
+		<c>driver_remoteposdrv.inf</c>
+		<c>driver_scrawpdo.inf</c>
+		<c>driver_scunknown.inf</c>
+		<c>driver_tpmvsc.inf</c>
+		<c>driver_usbcciddriver.inf</c>
+		<c>driver_wudfusbcciddriver.inf</c>
+		<c>easeofaccessthemes 'Ease Of Access Themes'</c>
+		<c>edgeupdate 'Microsoft Edge Update'</c>
+		<c>embeddedexperience 'Device Lockdown (Embedded Experience)'</c>
+		<c>embeddedmode 'Embedded Mode'</c>
+		<c>enterprisedataprotection 'Enterprise Data Protection (EDP/WIP)'</c>
+		<c>f46d4000-fd22-4db4-ac8e-4e1ddde828fe 'Add Folder Suggestions dialog'</c>
+		<c>facerecognition 'Face Recognition'</c>
+		<c>firstlogonanim 'First-logon animation'</c>
+		<c>gameexplorer 'Game Explorer'</c>
+		<c>help 'Windows Help content'</c>
+		<c>helpsupport 'Help file support (CHM)'</c>
+		<c>hwsupport_floppy 'Floppy disk'</c>
+		<c>hwsupport_smartcard 'Smartcard'</c>
+		<c>hwsupport_telephony 'Telephony'</c>
+		<c>insiderhub 'Windows Insider Program'</c>
+		<c>kerneldebug 'Kernel Debugging'</c>
+		<c>lcu 'Cumulative Update cache (LCU)'</c>
+		<c>location 'Location Service'</c>
+		<c>lockscreens 'Lock Screen backgrounds'</c>
+		<c>mail 'Windows Mail'</c>
+		<c>mailcommdll 'Windows Mail Communications Library'</c>
+		<c>manifestbackup 'Manifest Backup (WinSxS\Backup)'</c>
+		<c>mapcontrol 'Map Control'</c>
+		<c>mcupdate 'Processor Microcode Update'</c>
+		<c>mcupdatesvc 'Processor Microcode Update - Servicing'</c>
+		<c>microsoft.549981c3f5f10 'Cortana'</c>
+		<c>microsoft.advertising.xaml 'Microsoft Advertising SDK for XAML'</c>
+		<c>microsoft.bingweather 'MSN Weather'</c>
+		<c>microsoft.bioenrollment 'Windows Hello Setup'</c>
+		<c>microsoft.ecapp 'Eye Control'</c>
+		<c>microsoft.gethelp 'Get Help'</c>
+		<c>microsoft.getstarted 'Tips (Get Started)'</c>
+		<c>microsoft.microsoft3dviewer '3D Viewer'</c>
+		<c>microsoft.microsoftedge.stable 'Microsoft Edge (Chromium)'</c>
+		<c>microsoft.microsoftedgedevtoolsclient 'Microsoft Edge DevTools Client'</c>
+		<c>microsoft.microsoftofficehub 'Office'</c>
+		<c>microsoft.microsoftsolitairecollection 'Microsoft Solitaire Collection'</c>
+		<c>microsoft.microsoftstickynotes 'Microsoft Sticky Notes'</c>
+		<c>microsoft.mixedreality.portal 'Mixed Reality Portal'</c>
+		<c>microsoft.mspaint 'Paint 3D'</c>
+		<c>microsoft.office.onenote 'OneNote'</c>
+		<c>microsoft.people 'Microsoft People'</c>
+		<c>microsoft.services.store.engagement 'Microsoft Engagement Framework'</c>
+		<c>microsoft.skypeapp 'Skype'</c>
+		<c>microsoft.wallet 'Microsoft Pay'</c>
+		<c>microsoft.windows.apprep.chxapp 'SmartScreen'</c>
+		<c>microsoft.windows.callingshellapp 'Call'</c>
+		<c>microsoft.windows.capturepicker 'Capture Picker'</c>
+		<c>microsoft.windows.contentdeliverymanager 'Content Delivery Manager'</c>
+		<c>microsoft.windows.narratorquickstart 'Narrator'</c>
+		<c>microsoft.windows.parentalcontrols 'Microsoft family features'</c>
+		<c>microsoft.windows.photos 'Microsoft Photos'</c>
+		<c>microsoft.windows.pinningconfirmationdialog 'PinningConfirmationDialog'</c>
+		<c>microsoft.windows.search 'Windows Search'</c>
+		<c>microsoft.windows.sechealthui 'Windows Defender'</c>
+		<c>microsoft.windows.secureassessmentbrowser 'Take a Test'</c>
+		<c>microsoft.windows.startmenuexperiencehost 'Start Menu'</c>
+		<c>microsoft.windowsalarms 'Windows Alarms &amp; Clock'</c>
+		<c>microsoft.windowscalculator 'Windows Calculator'</c>
+		<c>microsoft.windowscamera 'Windows Camera'</c>
+		<c>microsoft.windowscommunicationsapps 'Mail and Calendar'</c>
+		<c>microsoft.windowsfeedbackhub 'Feedback Hub'</c>
+		<c>microsoft.windowsmaps 'Windows Maps'</c>
+		<c>microsoft.windowssoundrecorder 'Windows Voice Recorder'</c>
+		<c>microsoft.yourphone 'Your Phone'</c>
+		<c>microsoft.zunemusic 'Groove Music'</c>
+		<c>microsoft.zunevideo 'Movies &amp; TV'</c>
+		<c>migwiz 'Easy Transfer'</c>
+		<c>mixedreality 'Windows Mixed Reality'</c>
+		<c>mobilepc_location 'Location notifications'</c>
+		<c>msconfig 'System Configuration tool (MSConfig)'</c>
+		<c>nfc 'Near Field Communication (NFC)'</c>
+		<c>onedrive</c>
+		<c>osk_acc 'On-Screen Keyboard (Accessibility tools)'</c>
+		<c>otherthemes 'Windows Personalization themes'</c>
+		<c>paint</c>
+		<c>paint32 'Paint - 32 bit'</c>
+		<c>payments</c>
+		<c>pdfreader 'Windows Reader (PDF)'</c>
+		<c>phonesvc 'Phone Service'</c>
+		<c>picturepassword 'Picture password'</c>
+		<c>pinsignin 'PIN sign-in support'</c>
+		<c>pos 'Point of Service (POS)'</c>
+		<c>powershellise 'PowerShell ISE'</c>
+		<c>powershellise32 'PowerShell ISE - 32 bit'</c>
+		<c>printmgmt 'Print Management'</c>
+		<c>pushnotificationssvc 'Windows Push Notifications Service (System)'</c>
+		<c>quiethours 'Quiet Hours (Focus Assist)'</c>
+		<c>rasauto 'Remote Access Auto Connection Manager'</c>
+		<c>retaildemo 'Retail Demo Content'</c>
+		<c>screensavers</c>
+		<c>search 'Windows Search (Support)'</c>
+		<c>searchshell 'Shell Search'</c>
+		<c>sendmail 'Send To Mail and Desktop'</c>
+		<c>sfc 'System File Check (SFC)'</c>
+		<c>sharedpc 'Shared PC mode'</c>
+		<c>skypeortc 'Skype ORTC'</c>
+		<c>soundthemes 'Sound Themes'</c>
+		<c>stepsrecorder 'Steps Recorder'</c>
+		<c>systemreset 'System Reset for Windows'</c>
+		<c>systemrestore 'System Restore'</c>
+		<c>tempcache 'Cache and temp files'</c>
+		<c>tpmmmc 'Trusted Platform Module (TPM) (management console)'</c>
+		<c>tpmmmc32 'Trusted Platform Module (TPM) (management console) - 32 bit'</c>
+		<c>tpmvsc 'Virtual Smart Card'</c>
+		<c>wallet 'Wallet Service'</c>
+		<c>wallpapers 'Wallpapers (Themes)'</c>
+		<c>windows.cbspreview 'Windows Barcode Preview'</c>
+		<c>windowstogo 'Windows To Go'</c>
+		<c>winre 'Windows Recovery (WinRE)'</c>
+		<c>wordpad</c>
+		<c>wordpad32 'Wordpad - 32 bit'</c>
+	</RemoveComponents>
+	<Compatibility protectHidden="true">
+		<ComponentFeatures>
+			<Feature enabled="no">AppGuard</Feature>
+			<Feature enabled="no">YubiKey</Feature>
+			<Feature enabled="no">Bluetooth</Feature>
+			<Feature enabled="yes">USBCamera</Feature>
+			<Feature enabled="no">CapFrameX</Feature>
+			<Feature enabled="yes">Discord</Feature>
+			<Feature enabled="yes">FileSharing</Feature>
+			<Feature enabled="no">Hyper-V</Feature>
+			<Feature enabled="no">iCloud</Feature>
+			<Feature enabled="no">ManualSetup</Feature>
+			<Feature enabled="yes">OfficeSupport</Feature>
+			<Feature enabled="yes">AppxSupport</Feature>
+			<Feature enabled="no">Netflix</Feature>
+			<Feature enabled="no">NetworkDiscovery</Feature>
+			<Feature enabled="no">NightLight</Feature>
+			<Feature enabled="yes">NvidiaSetup</Feature>
+			<Feature enabled="yes">OOBE</Feature>
+			<Feature enabled="yes">Printing</Feature>
+			<Feature enabled="no">Recommended-All</Feature>
+			<Feature enabled="no">SamsungSwitch</Feature>
+			<Feature enabled="yes">Scanning</Feature>
+			<Feature enabled="no">ServicingStack</Feature>
+			<Feature enabled="no">ShellSearchSupport</Feature>
+			<Feature enabled="yes">Spotify</Feature>
+			<Feature enabled="no">SFC</Feature>
+			<Feature enabled="yes">DefaultFonts</Feature>
+			<Feature enabled="no">SafeMode</Feature>
+			<Feature enabled="yes">TeamViewer</Feature>
+			<Feature enabled="no">Recommended-Tablet</Feature>
+			<Feature enabled="no">USBModem</Feature>
+			<Feature enabled="yes">USB</Feature>
+			<Feature enabled="yes">VideoPlayback</Feature>
+			<Feature enabled="no">VPN</Feature>
+			<Feature enabled="yes">VisualStudio</Feature>
+			<Feature enabled="no">VSS</Feature>
+			<Feature enabled="yes">ActivationKMS</Feature>
+			<Feature enabled="yes">Activation</Feature>
+			<Feature enabled="yes">WindowsStore</Feature>
+			<Feature enabled="no">WindowsUpdate</Feature>
+			<Feature enabled="yes">WLAN</Feature>
+		</ComponentFeatures>
+		<MachineDrivers>
+			<Machine enabled="no">HostMachine</Machine>
+			<Machine enabled="yes">Hyper-V VM</Machine>
+			<Machine enabled="no">Parallels VM</Machine>
+			<Machine enabled="no">Virtual Box VM</Machine>
+			<Machine enabled="no">VMware VM</Machine>
+		</MachineDrivers>
+	</Compatibility>
+	<Features>
+		<Feature name="DirectPlay">true</Feature>
+		<Feature name="Language.Handwriting~~~en-us~0.0.1.0">false</Feature>
+		<Feature name="Language.OCR~~~en-us~0.0.1.0">false</Feature>
+		<Feature name="Language.TextToSpeech~~~en-us~0.0.1.0">false</Feature>
+		<Feature name="Language.Basic~~~en-us~0.0.1.0">false</Feature>
+		<Feature name="OneCoreUAP.OneSync~~~~0.0.1.0">false</Feature>
+		<Feature name="Browser.InternetExplorer~~~~0.0.11.0">false</Feature>
+		<Feature name="LegacyComponents">true</Feature>
+		<Feature name="MathRecognizer~~~~0.0.1.0">false</Feature>
+		<Feature name="App.Support.QuickAssist~~~~0.0.1.0">false</Feature>
+		<Feature name="Printing-XPSServices-Features">false</Feature>
+		<Feature name="OpenSSH.Client~~~~0.0.1.0">false</Feature>
+		<Feature name="Print.Management.Console~~~~0.0.1.0">false</Feature>
+		<Feature name="Print.Fax.Scan~~~~0.0.1.0">false</Feature>
+		<Feature name="Hello.Face.Migration.18967~~~~0.0.1.0">false</Feature>
+		<Feature name="Hello.Face.18967~~~~0.0.1.0">false</Feature>
+		<Feature name="Media.WindowsMediaPlayer~~~~0.0.12.0">false</Feature>
+		<Feature name="Microsoft.Windows.PowerShell.ISE~~~~0.0.1.0">false</Feature>
+	</Features>
+	<Packages></Packages>
+	<Commands>
+		<PostUpdates>
+			<!--<Command>cmd /c echo Example from [MOUNTDIR]\Windows &amp; pause</Command>-->
+			<!--<Command>dism /image:[MOUNTDIR] /get-intl</Command>-->
+		</PostUpdates>
+	</Commands>
+	<Drivers showHidden="true"></Drivers>
+	<Unattended mode="0">
+		<OEMSetupComplete>false</OEMSetupComplete>
+		<AnswerFileLocationPanther>false</AnswerFileLocationPanther>
+		<AnswerFileLocationBoot>false</AnswerFileLocationBoot>
+		<SaveBothArch>false</SaveBothArch>
+		<EditionPrompt>false</EditionPrompt>
+		<settings pass="windowsPE">
+			<component name="Microsoft-Windows-Setup">
+				<DynamicUpdate>
+					<WillShowUI>OnError</WillShowUI>
+				</DynamicUpdate>
+				<ImageInstall>
+					<OSImage>
+						<WillShowUI>OnError</WillShowUI>
+						<InstallFrom>
+							<MetaData>
+								<Key>/IMAGE/INDEX</Key>
+								<Value>1</Value>
+							</MetaData>
+						</InstallFrom>
+					</OSImage>
+				</ImageInstall>
+				<UserData>
+					<ProductKey>
+						<Key></Key>
+						<WillShowUI>OnError</WillShowUI>
+					</ProductKey>
+				</UserData>
+			</component>
+		</settings>
+	</Unattended>
+	<Tweaks>
+		<Settings>
+			<TweakGroup name="AutoLogger">
+				<Tweak name="DefenderApiLogger\Start">0</Tweak>
+				<Tweak name="DefenderAuditLogger\Start">0</Tweak>
+				<Tweak name="DiagLog\Start">0</Tweak>
+				<Tweak name="Diagtrack-Listener\Start">0</Tweak>
+				<Tweak name="Microsoft-Windows-Rdp-Graphics-RdpIdd-Trace\Start">0</Tweak>
+			</TweakGroup>
+			<TweakGroup name="CrashControl">
+				<Tweak name="CrashControl\AutoReboot">0</Tweak>
+				<Tweak name="CrashControl\CrashDumpEnabled">0</Tweak>
+			</TweakGroup>
+			<TweakGroup name="DesktopTweaks">
+				<Tweak name="Explorer\AltTabSettings">1</Tweak>
+				<Tweak name="Personalize\AppsUseLightTheme">0</Tweak>
+				<Tweak name="Personalize\SystemUsesLightTheme">0</Tweak>
+				<Tweak name="Explorer\HideSCAMeetNow">1</Tweak>
+				<Tweak name="Feeds\ShellFeedsTaskbarViewMode">2</Tweak>
+				<Tweak name="Explorer\DisableNotificationCenter">1</Tweak>
+				<Tweak name="PushNotifications\NoCloudApplicationNotification">1</Tweak>
+				<Tweak name="Mouse\MouseSpeed">0</Tweak>
+				<Tweak name="QuietHours\Enable">0</Tweak>
+				<Tweak name="Search\SearchboxTaskbarMode">0</Tweak>
+				<Tweak name="Advanced\TaskbarGlomLevel">0</Tweak>
+				<Tweak name="Advanced\MMTaskbarEnabled">1</Tweak>
+			</TweakGroup>
+			<TweakGroup name="EventLogs">
+				<Tweak name="Microsoft-Windows-Application-Experience\Program-Telemetry\Enabled">0</Tweak>
+				<Tweak name="Microsoft-Windows-Cleanmgr\Diagnostic\Enabled">0</Tweak>
+				<Tweak name="Microsoft-Windows-Deduplication\Diagnostic\Enabled">0</Tweak>
+				<Tweak name="Microsoft-Windows-DeviceManagement-Enterprise-Diagnostics-Provider\Admin\Enabled">0</Tweak>
+				<Tweak name="Microsoft-Windows-DeviceManagement-Enterprise-Diagnostics-Provider\Operational\Enabled">0</Tweak>
+				<Tweak name="Microsoft-Windows-PushNotification-Platform\Admin\Enabled">0</Tweak>
+				<Tweak name="Microsoft-Windows-PushNotification-Platform\Operational\Enabled">0</Tweak>
+				<Tweak name="Microsoft-Windows-Security-SPP-UX-GenuineCenter-Logging\Operational\Enabled">0</Tweak>
+				<Tweak name="Microsoft-Windows-Security-SPP-UX-Notifications\ActionCenter\Enabled">0</Tweak>
+				<Tweak name="Microsoft-Windows-Shell-ConnectedAccountState\ActionCenter\Enabled">0</Tweak>
+				<Tweak name="Microsoft-Windows-Shell-Core\ActionCenter\Enabled">0</Tweak>
+				<Tweak name="Microsoft-Windows-SearchUI\Operational\Enabled">0</Tweak>
+				<Tweak name="Microsoft-Windows-UniversalTelemetryClient\Operational\Enabled">0</Tweak>
+				<Tweak name="Microsoft-Windows-UserPnp\ActionCenter\Enabled">0</Tweak>
+				<Tweak name="Microsoft-Windows-WindowsBackup\ActionCenter\Enabled">0</Tweak>
+			</TweakGroup>
+			<TweakGroup name="Explorer">
+				<Tweak name="Explorer\EnableAutoTray">1</Tweak>
+				<Tweak name="Explorer\EnableLegacyBalloonNotifications">0</Tweak>
+				<Tweak name="Explorer\NoCDBurning">0</Tweak>
+				<Tweak name=".jpg\PhotoViewer.FileAssoc.Tiff">PhotoViewer.FileAssoc.Tiff</Tweak>
+				<Tweak name="Advanced\ShowSyncProviderNotifications">0</Tweak>
+			</TweakGroup>
+			<TweakGroup name="PowerAndShutdown">
+				<Tweak name="FlyoutMenuSettings\ShowHibernateOption">0</Tweak>
+				<Tweak name="FlyoutMenuSettings\ShowSleepOption">0</Tweak>
+			</TweakGroup>
+			<TweakGroup name="Privacy">
+				<Tweak name="microphone\Value">Allow</Tweak>
+				<Tweak name="userNotificationListener\Value">Deny</Tweak>
+				<Tweak name="System\AllowLocation">0</Tweak>
+				<Tweak name="DataCollection\AllowTelemetry">0</Tweak>
+				<Tweak name="CloudContent\DisableWindowsConsumerFeatures">1</Tweak>
+				<Tweak name="AppCompat\DisableInventory">1</Tweak>
+				<Tweak name="TrainedDataStore\HarvestContacts">0</Tweak>
+				<Tweak name="InputPersonalization\RestrictImplicitTextCollection">1</Tweak>
+				<Tweak name="InputPersonalization\RestrictImplicitInkCollection">1</Tweak>
+				<Tweak name="Windows Search\AllowCortana">0</Tweak>
+				<Tweak name="Search\HistoryViewEnabled">0</Tweak>
+				<Tweak name="Search\DeviceHistoryEnabled">0</Tweak>
+				<Tweak name="Advanced\ShowCortanaButton">0</Tweak>
+				<Tweak name="System\EnableActivityFeed">0</Tweak>
+				<Tweak name="Advanced\Start_TrackProgs">0</Tweak>
+				<Tweak name="Advanced\Start_TrackDocs">0</Tweak>
+				<Tweak name="Settings\AcceptedPrivacyPolicy">0</Tweak>
+				<Tweak name="AppHost\EnableWebContentEvaluation">0</Tweak>
+				<Tweak name="MicrosoftEdge\PhishingFilter\Enabledv9">0</Tweak>
+				<Tweak name="Internet Explorer\PhishingFilter\Enabledv9">0</Tweak>
+				<Tweak name="Explorer\SmartScreenEnabled">Off</Tweak>
+				<Tweak name="CloudContent\DisableWindowsSpotlightFeatures">1</Tweak>
+			</TweakGroup>
+			<TweakGroup name="StartTweaks">
+				<Tweak name="Start\HideHibernate">1</Tweak>
+				<Tweak name="Start\HideSleep">1</Tweak>
+			</TweakGroup>
+			<TweakGroup name="System">
+				<Tweak name="System\EnableFirstLogonAnimation">0</Tweak>
+				<Tweak name="Device\DevicePasswordLessBuildVersion">0</Tweak>
+			</TweakGroup>
+			<TweakGroup name="UAC">
+				<Tweak name="System\EnableLUA">0</Tweak>
+				<Tweak name="System\FilterAdministratorToken">0</Tweak>
+			</TweakGroup>
+			<TweakGroup name="WindowsDefender">
+				<Tweak name="State\AccountProtection_MicrosoftAccount_Disconnected">0</Tweak>
+				<Tweak name="Notifications\DisableNotifications">1</Tweak>
+				<Tweak name="Notifications\DisableEnhancedNotifications">1</Tweak>
+				<Tweak name="Features\TamperProtection">0</Tweak>
+				<Tweak name="Windows Defender\DisableAntiSpyware">1</Tweak>
+			</TweakGroup>
+			<TweakGroup name="WindowsUpdate">
+				<Tweak name="DriverSearching\SearchOrderConfig">0</Tweak>
+				<Tweak name="Preferences\ModelDownloadAllowed">0</Tweak>
+				<Tweak name="Device Metadata\PreventDeviceMetadataFromNetwork">1</Tweak>
+				<Tweak name="DeliveryOptimization\DODownloadMode">100</Tweak>
+				<Tweak name="WindowsUpdate\DisableWUfBSafeguards">1</Tweak>
+				<Tweak name="7971f918-a847-4430-9279-4a52d1efe18d\RegisterWithAU">0</Tweak>
+				<Tweak name="WindowsUpdate\ExcludeWUDriversInQualityUpdate">1</Tweak>
+				<Tweak name="MRT\DontOfferThroughWUAU">1</Tweak>
+				<Tweak name="Settings\HideMCTLink">1</Tweak>
+				<Tweak name="Settings\RestartNotificationsAllowed2">0</Tweak>
+				<Tweak name="AU\NoAutoUpdate">1</Tweak>
+				<Tweak name="AU\AUOptions">2</Tweak>
+			</TweakGroup>
+		</Settings>
+		<Services></Services>
+		<ExtraServices>
+			<TweakGroup name="drivers">
+				<Tweak name="bowser\bowser">1</Tweak>
+				<Tweak name="srv2\srv2">1</Tweak>
+				<Tweak name="mrxsmb20\mrxsmb20">0</Tweak>
+				<Tweak name="mrxsmb\mrxsmb">0</Tweak>
+			</TweakGroup>
+		</ExtraServices>
+		<ScheduledTasks>
+			<TweakGroup name="Tree\Microsoft\Windows\LanguageComponentsInstaller">
+				<Tweak name="ReconcileLanguageResources\ReconcileLanguageResources">remove</Tweak>
+			</TweakGroup>
+		</ScheduledTasks>
+	</Tweaks>
+	<ApplyOptions>
+		<ImageTasks>
+			<Task>imageSaveTrim</Task>
+			<Task>imageFormatWim</Task>
+		</ImageTasks>
+		<AutoIsoFile>NTLite.iso</AutoIsoFile>
+		<AutoIsoLabel>NTLite</AutoIsoLabel>
+		<AutoSplitSize>4000</AutoSplitSize>
+		<CleanHotfixedLeftovers>3</CleanHotfixedLeftovers>
+		<OptimizeAppX>true</OptimizeAppX>
+		<ReuseDriverCache>false</ReuseDriverCache>
+	</ApplyOptions>
+	<Execution>
+		<Remove></Remove>
+		<Change></Change>
+		<Add></Add>
+	</Execution>
+	<Registry>
+		<File>C:\Users\Administrator\Desktop\support windows on ssd(Default).reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\10+.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\7+.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\8+.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\block-enumeration-policy-for-external-devices-incompatible-with-kernel-dma-protection.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\disable-activity-feed.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\disable-appv-client.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\disable-device-health-attestation-monitoring-and-reporting.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\disable-font-providers.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\disable-help-tips.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\disable-hotspot-authentication.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\disable-improve-inking-and-typing-recognition.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\disable-logging.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\disable-scheduled-maintenance.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\disable-system-responsiveness-performance-diagnostics.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\disable-uev.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\disable-wer.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\disable-windows-boot-performance-diagnostics.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\disable-windows-memory-leak-diagnostics.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\disable-windows-shutdown-performance-diagnostics.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\disable-windows-standby-resume-performance-diagnostics.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\disallow-automatic-updates-immediate-installation.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\disallow-clipboard-history.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\disallow-clipboard-synchronization-across-devices.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\disallow-online-tips.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\disallow-publishing-of-user-activities.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\disallow-remote-access-to-the-plug-and-play-interface.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\disallow-suggested-apps-in-windows-ink-workspace.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\disallow-upload-of-user-activities.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\disallow-users-to-access-and-run-troubleshooting-wizards.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\disallow-users-to-access-online-troubleshooting-content-on-microsoft-servers-via-wots.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\disallow-windows-ink-workspace.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\dont-allow-flip3d-invocation.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\dont-connect-to-any-windows-update-internet-locations.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\dont-display-getting-started-welcome-screen-at-logon.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\dont-include-drivers-with-windows-updates.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\dont-send-a-windows-error-report-when-a-generic-driver-is-installed-on-a-device.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\dont-send-additional-data.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\dont-show-windows-tips.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\dont-sync-app-settings.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\dont-sync-apps.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\dont-sync-browser-settings.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\dont-sync-desktop-personalization.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\dont-sync-other-windows-settings.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\dont-sync-passwords.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\dont-sync-personalize.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\dont-sync-settings-over-metered-connections-even-when-roaming.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\dont-sync-settings-over-metered-connections.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\dont-sync-start-settings.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\dont-sync.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\dont-use-uev.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\files-preference-logging-and-tracing.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\folder-options-preference-logging-and-tracing.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\folders-preference-logging-and-tracing.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\ini-files-preference-logging-and-tracing.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\internet-settings-preference-logging-and-tracing.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\local-users-and-groups-preference-logging-and-tracing.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\network-options-preference-logging-and-tracing.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\network-shares-preference-logging-and-tracing.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\power-options-preference-logging-and-tracing.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\prevent-creation-of-a-system-restore-point-during-device-activity-that-would-normally-prompt-creation-of-a-restore-point.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\prevent-device-metadata-retrieval-from-the-internet.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\prevent-media-sharing.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\prevent-windows-from-sending-an-error-report-when-a-device-driver-requests-additional-software-during-installation.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\printers-preference-logging-and-tracing.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\regional-options-preference-logging-and-tracing.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\registry-preference-logging-and-tracing.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\remove-access-to-use-all-windows-update-features.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\scheduled-tasks-preference-logging-and-tracing.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\services-preference-logging-and-tracing.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\shortcuts-preference-logging-and-tracing.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\turn-off-active-help.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\turn-off-app-notifications-on-the-lock-screen.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\turn-off-application-telemetry.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\turn-off-automatic-download-and-install-of-updates.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\turn-off-automatic-learning.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\turn-off-branchcache.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\turn-off-desktop-gadgets.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\turn-off-file-history.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\turn-off-find-my-device.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\turn-off-found-new-hardware-balloons-during-device-installation.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\turn-off-handwriting-personalization-data-sharing.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\turn-off-handwriting-recognition-error-reporting.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\turn-off-lltdio-driver.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\turn-off-location-scripting.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\turn-off-location.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\turn-off-module-logging.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\turn-off-powershell-script-block-logging.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\turn-off-responder-driver.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\turn-off-session-logging.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\turn-off-the-advertising-id.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\turn-off-the-offer-to-update-to-the-latest-version-of-windows.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\turn-off-user-installed-desktop-gadgets.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\turn-off-windows-error-reporting.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\turn-off-windows-location-provider.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\turn-off-windows-messenger-ceip.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\ui-cleanup.reg</File>
+		<File>H:\Users\hickensa\Downloads\regs\use-solid-color-for-start-background.reg</File>
+	</Registry>
+</Preset>
