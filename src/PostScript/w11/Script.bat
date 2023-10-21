@@ -301,7 +301,6 @@ for %%z in (
 	NDU
         luafv
         fvevol
-        CDPSvc
         UsoSvc
         cbdhsvc
         BcastDVRUserService
