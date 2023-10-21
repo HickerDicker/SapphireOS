@@ -2,25 +2,12 @@
 Title SapphireOS 
 setlocal EnableDelayedExpansion
 
-Echo "Installing Visual C Runtimes"
-start /b /wait "" "C:\Windows\TEMP\VisualCPPAIO\install_all.bat" >nul 2>&1
-cls
-
-Echo "Installing 7zip"
-start /b /wait "" "C:\Windows\TEMP\7z2301-x64.msi" /passive >nul 2>&1
-cls
-
-Echo "Disabling Process Mitigations"
-:  Thanks AMIT
-call %WINDIR%\TEMP\disable-process-mitigations.bat
+Echo Setting "Execution Policy To Unrestricted"
+powershell set-executionpolicy unrestricted -force >nul 2>&1
 cls
 
 Echo "Installing LowAudioLatency"
-start /b /wait "" "%WINDIR%\TEMP\LowAudioLatency_2.0.0.0.msi" /passive >nul 2>&1
-cls
-
-Echo Setting "Execution Policy To Unrestricted"
-powershell set-executionpolicy unrestricted -force >nul 2>&1
+start /b /wait "" "%WINDIR%\Temp\LowAudioLatency_2.0.0.0.msi" /passive >nul 2>&1
 cls
 
 Echo Configuring "Keyboard and Mouse Settings"
@@ -195,7 +182,6 @@ for %%a in (
 	DmaRemappingCompatible
 	DmaRemappingCompatibleSelfhost
 ) do for /f "delims=" %%b in ('reg query "HKLM\SYSTEM\CurrentControlSet\Enum" /s /f "%%a" ^| findstr "HKEY"') do reg add "%%b" /v "%%a" /t REG_DWORD /d "0" /f >NUL 2>&1
-powershell.exe %WINDIR%\TEMP\\disable-pnp-powersaving.ps1
 cls
 
 Echo "Set svchost to ffffffff works best for all RAM size"
