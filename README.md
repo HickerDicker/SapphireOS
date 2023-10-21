@@ -132,3 +132,5 @@ driver_tpmvsc.inf
 driver_usbcciddriver.inf
 driver_wudfusbcciddriver.inf
 ```
+
+windows 11 added support for mixed reality but removed support for sysprep and oobe
