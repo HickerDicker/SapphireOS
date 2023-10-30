@@ -162,26 +162,8 @@ fsutil behavior set symlinkevaluation L2L:1 > NUL 2>&1
 fsutil behavior set disabledeletenotify 0 > NUL 2>&1
 cls
 
-
-Echo "Disabling USB Idle"
-for %%a in (
-	EnhancedPowerManagementEnabled
-	AllowIdleIrpInD3
-	EnableSelectiveSuspend
-	DeviceSelectiveSuspended
-	SelectiveSuspendEnabled
-	SelectiveSuspendOn
-	EnumerationRetryCount
-	ExtPropDescSemaphore
-	WaitWakeEnabled
-	D3ColdSupported
-	WdfDirectedPowerTransitionEnable
-	EnableIdlePowerManagement
-	IdleInWorkingState
-	IoLatencyCap
-	DmaRemappingCompatible
-	DmaRemappingCompatibleSelfhost
-) do for /f "delims=" %%b in ('reg query "HKLM\SYSTEM\CurrentControlSet\Enum" /s /f "%%a" ^| findstr "HKEY"') do reg add "%%b" /v "%%a" /t REG_DWORD /d "0" /f >NUL 2>&1
+Echo "Disable Driver PowerSaving"
+%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\powershell.exe -Command "Get-WmiObject MSPower_DeviceEnable -Namespace root\wmi | ForEach-Object { $_.enable = $false; $_.psbase.put(); }"
 cls
 
 Echo "Set svchost to ffffffff works best for all RAM size"
@@ -251,26 +233,26 @@ Reg.exe add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Class\{71a27cdd
 Reg.exe add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Class\{71a27cdd-812a-11d0-bec7-08002be2092f}" /v "UpperFilters" /t REG_MULTI_SZ /d "" /f
 Reg.exe add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Dhcp" /v "DependOnService" /t REG_MULTI_SZ /d "NSI\0Afd" /f
 Reg.exe add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Dnscache" /v "DependOnService" /t REG_MULTI_SZ /d "nsi" /f
-reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SoftwareProtectionPlatform" /v "InactivityShutdownDelay" /t REG_DWORD /d "4294967295" /f
+Reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SoftwareProtectionPlatform" /v "InactivityShutdownDelay" /t REG_DWORD /d "4294967295" /f
 for %%z in (
 	AppVClient
-        AJRouter
-        AppIDSvc
+	AJRouter
+	AppIDSvc
 	DiagTrack
-        DsmSvc
+      DsmSvc
 	DialogBlockingService
 	Diagsvc
-        autotimesvc
-        W32Time
+      autotimesvc
+      W32Time
 	diagnosticshub.standardcollector.service
 	DPS
-        DsSvc
+      DsSvc
 	DusmSvc
 	FontCache
 	FontCache3.0.0.0
 	MsKeyboardFilter
-        icssvc
-        IKEEXT
+      icssvc
+      IKEEXT
 	PcaSvc
 	ShellHWDetection
 	SysMain
@@ -282,14 +264,14 @@ for %%z in (
 	WdiServiceHost
 	SensorDataService
 	SensrSvc
-        SensorService
+      SensorService
 	Beep
 	cdfs
 	cdrom
-        acpiex
-        acpipagr
-        acpipmi
-        acpitime
+      acpiex
+      acpipagr
+      acpipmi
+      acpitime
 	cnghwassist
 	GpuEnergyDrv
 	Telemetry
@@ -299,72 +281,69 @@ for %%z in (
 	lltdio
 	NdisVirtualBus
 	NDU
-        luafv
-        fvevol
-        UsoSvc
-        cbdhsvc
-        BcastDVRUserService
+      luafv
+      UsoSvc
+      cbdhsvc
+      BcastDVRUserService
 	rdyboost
-        rdpbus
-        umbus
-        vdrvroot
-        Vid
-        CompositeBus
+      rdpbus
+      umbus
+      vdrvroot
+      Vid
+      CompositeBus
 	rspndr
 	NdisCap
 	NetBIOS
 	NetBT
 	KSecPkg
 	spaceport
-        VaultSvc
-        EventSystem
+      VaultSvc
+      EventSystem
 	storqosflt
 	bam
 	bowser
-        WarpJITSvc
-        Wecsvc
-        dmwappushservice
-        GraphicsPerfSvc
-        WMPNetworkSvc
-        TermService
-        UmRdpService
-        UnistoreSvc
-        PimIndexMaintenanceSvc
-        UserDataSvc
-        3ware
-        arcsas
-        buttonconverter
-        cdfs
-        circlass
-        Dfsc
-        ErrDev
-        mrxsmb
-        mrxsmb20
-        PEAUTH
-        QWAVEdrv
-        srv
-        SiSRaid2
-        SiSRaid4
-        Tcpip6
-        tcpipreg
-        vsmraid
-        VSTXRAID
-        wcnfs
-        WindowsTrustedRTProxy
-        SstpSvc
-        SSDPSRV
-        SmsRouter
+      WarpJITSvc
+      Wecsvc
+      dmwappushservice
+      GraphicsPerfSvc
+      WMPNetworkSvc
+      TermService
+      UmRdpService
+      UnistoreSvc
+      PimIndexMaintenanceSvc
+      UserDataSvc
+      3ware
+      arcsas
+      buttonconverter
+      cdfs
+      circlass
+      Dfsc
+      ErrDev
+      mrxsmb
+      mrxsmb20
+      PEAUTH
+      QWAVEdrv
+      srv
+      SiSRaid2
+      SiSRaid4
+      Tcpip6
+      tcpipreg
+      vsmraid
+      VSTXRAID
+      wcnfs
+      WindowsTrustedRTProxy
+      SstpSvc
+      SSDPSRV
+      SmsRouter
 	CldFlt
-        DisplayEnhancementService
+      DisplayEnhancementService
 	iphlpsvc
-        IpxlatCfgSvc
-        NetTcpPortSharing
-        KtmRm
-        LanmanWorkstation
-	LanmanServer
+      IpxlatCfgSvc
+      NetTcpPortSharing
+      KtmRm
 	lmhosts
-        MSDTC
-        QWAVE
+      MSDTC
+      QWAVE
 	RmSvc
 	RFCOMM
 	BthEnum
@@ -382,17 +361,17 @@ for %%z in (
 	vmicshutdown
 	vmicheartbeat
 	vmicvmsession
-        vpci
-        TsUsbFlt
-        tsusbhub
-        storflt
-        RDPDR
-        RdpVideominiport
-        bttflt
-        HidBth
-        BthMini
-        BTHPORT
-        BTHUSB
+      vpci
+      TsUsbFlt
+      tsusbhub
+      storflt
+      RDPDR
+      RdpVideominiport
+      bttflt
+      HidBth
+      BthMini
+      BTHPORT
+      BTHUSB
 	vmicrdv
 	vmictimesync
 	vmicvss
