@@ -2,27 +2,13 @@
 Title SapphireOS
 setlocal EnableDelayedExpansion
 
-taskkill /f /im explorer.exe
-
 Echo "Disabling Process Mitigations"
 :  Thanks AMIT
 call %WINDIR%\TEMP\disable-process-mitigations.bat
 cls
 
-Echo "Installing 7zip"
-start /b /wait "" "C:\Windows\TEMP\7z2301-x64.msi" /passive >nul 2>&1
-cls
-
-Echo "Installing Visual C Runtimes"
-start /b /wait "" "C:\Windows\TEMP\VisualCPPAIO\install_all.bat" >nul 2>&1
-cls
-
 Echo "Installing LowAudioLatency"
 start /b /wait "" "%WINDIR%\TEMP\LowAudioLatency_2.0.0.0.msi" /passive >nul 2>&1
-cls
-
-Echo "Installing OpenShell"
-start /b /wait "" "C:\Windows\TEMP\OpenShellSetup_4_4_191.exe" /qn ADDLOCAL=StartMenu >nul 2>&1
 cls
 
 Echo Setting "Execution Policy To Unrestricted"
@@ -39,12 +25,10 @@ for /f %%i in ('wmic path win32_networkadapter get GUID ^| findstr "{"') do (
 )
 cls
 
-echo "Disabling NetBios"
-Reg.exe add "HKLM\SOFTWARE\Microsoft\Internet Explorer\Main" /v "Autorun" /t REG_DWORD /d "0" /f >nul 2>&1
-Reg.exe add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v "NoAutorun" /t REG_DWORD /d "1" /f >nul 2>&1 
-Reg.exe add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v "NoAutoplayfornonVolume" /t REG_DWORD /d "1" /f >nul 2>&1
-Reg.exe add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v "NoDriveTypeAutoRun" /t REG_DWORD /d "255" /f >nul 2>&1 
-Reg.exe add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v "DontSetAutoplayCheckbox" /t REG_DWORD /d "1" /f >nul 2>&1 
+Echo "Disabling NetBIOS over TCP/IP"
+for /f "delims=" %%u in ('reg query "HKLM\SYSTEM\CurrentControlSet\Services\NetBT\Parameters\Interfaces" /s /f "NetbiosOptions" ^| findstr "HKEY"') do (
+    reg add "%%u" /v "NetbiosOptions" /t REG_DWORD /d "2" /f
+)
 cls
 
 Echo "Disabling Write Cache Buffer"
@@ -57,7 +41,7 @@ Echo "Disabling Write Cache Buffer"
 )
 cls
 
-Echo Configuring "Keyboard and Mouse Settings"
+Echo "Configuring "Keyboard and Mouse Settings"
 Reg.exe add "HKCU\Control Panel\Keyboard" /v "InitialKeyboardIndicators" /t REG_SZ /d "0" /f >nul 2>&1
 Reg.exe add "HKCU\Control Panel\Keyboard" /v "KeyboardDelay" /t REG_SZ /d "0" /f >nul 2>&1
 Reg.exe add "HKCU\Control Panel\Keyboard" /v "KeyboardSpeed" /t REG_SZ /d "31" /f >nul 2>&1
@@ -92,47 +76,8 @@ bcdedit /set {current} recoveryenabled no
 bcdedit /timeout 10
 cls
 
-Echo "Visual Effects"
-Reg.exe add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "TaskbarAnimations" /t REG_DWORD /d "0" /f > NUL 2>&1
-Reg.exe add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects" /v "VisualFXSetting" /t REG_DWORD /d "2" /f > NUL 2>&1
-Reg.exe add "HKCU\SOFTWARE\Microsoft\Windows\DWM" /v "Blur" /t REG_DWORD /d "0" /f > NUL 2>&1
-Reg.exe add "HKCU\SOFTWARE\Microsoft\Windows\DWM" /v "Animations" /t REG_DWORD /d "0" /f > NUL 2>&1
-Reg.exe add "HKLM\SOFTWARE\Policies\Microsoft\Windows\DWM" /v "DWMA_TRANSITTIONS_FORCEDISABLED" /t REG_DWORD /d "1" /f > NUL 2>&1
-Reg.exe add "HKLM\SOFTWARE\Policies\Microsoft\Windows\DWM" /v "DisallowAnimations" /t REG_DWORD /d "1" /f > NUL 2>&1
-Reg.exe add "HKLM\SOFTWARE\Policies\Microsoft\Windows\DWM" /v "AnimationAttributionEnabled" /t REG_DWORD /d "0" /f > NUL 2>&1
-Reg.exe add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "UseOLEDTaskbarTransparency" /t REG_DWORD /d "0" /f > NUL 2>&1
-Reg.exe add "HKCU\Control Panel\Desktop\WindowMetrics" /v "MinAnimate" /t REG_DWORD /d "0" /f > NUL 2>&1
-Reg.exe add "HKCU\Control Panel\Desktop\WindowMetrics" /v "MinAnimate" /t REG_SZ /d "0" /f > NUL 2>&1
-Reg.exe add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "ListviewAlphaSelect" /t REG_DWORD /d "0" /f > NUL 2>&1
-Reg.exe add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "IconsOnly" /t REG_DWORD /d "1" /f > NUL 2>&1
-Reg.exe add "HKCU\SOFTWARE\Microsoft\Windows\DWM" /v "EnableAeroPeek" /t REG_DWORD /d "0" /f > NUL 2>&1
-Reg.exe add "HKCU\Control Panel\Desktop" /v "DragFullWindows" /t REG_SZ /d "0" /f > NUL 2>&1
-Reg.exe add "HKCU\Control Panel\Desktop\WindowMetrics" /v "MinAnimate" /t REG_SZ /d "0" /f > NUL 2>&1
-Reg.exe add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize" /v "SystemUsesLightTheme" /t REG_DWORD /d "0" /f > NUL 2>&1
-Reg.exe add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize" /v "AppsUseLightTheme" /t REG_DWORD /d "0" /f > NUL 2>&1
-Reg.exe add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "Hidden" /t REG_DWORD /d "1" /f > NUL 2>&1
-cls
-
-Echo "editing POW & power tweaks"
-: : thanks to Amit
-powercfg /setactive 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c
-powercfg /delete 381b4222-f694-41f0-9685-ff5bb260df2e
-powercfg /delete a1841308-3541-4fab-bc81-f71556f20b4a
-powercfg /setacvalueindex scheme_current 2a737441-1930-4402-8d77-b2bebba308a3 d4e98f31-5ffe-4ce1-be31-1b38b384c009 0
-powercfg /setacvalueindex scheme_current 2a737441-1930-4402-8d77-b2bebba308a3 48e6b7a6-50f5-4782-a5d4-53bb8f07e226 0
-powercfg /setacvalueindex scheme_current 7516b95f-f776-4464-8c53-06167f40cc99 3c0bc021-c8a8-4e07-a973-6b14cbcb2b7e 0
-powercfg /setactive scheme_current
-Reg.exe add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Power" /v "HiberbootEnabled" /t Reg_DWORD /d "0" /f 
-Reg.exe add "HKLM\SYSTEM\CurrentControlSet\Control\Power" /v "HibernateEnabled" /t Reg_DWORD /d "0" /f 
-Reg.exe add "HKLM\SYSTEM\CurrentControlSet\Control\Power" /v "HibernateEnabledDefault" /t Reg_DWORD /d "0" /f 
-Reg.exe add "HKLM\SYSTEM\CurrentControlSet\Control\Power" /v "CoalescingTimerInterval" /t Reg_DWORD /d "0" /f 
-Reg.exe add "HKLM\SYSTEM\CurrentControlSet\Control\Power\PowerThrottling" /v "PowerThrottlingOff" /t Reg_DWORD /d "1" /f 
-Reg.exe add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\FlyoutMenuSettings" /v "ShowHibernateOption" /t Reg_DWORD /d "0" /f 
-Reg.exe add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\FlyoutMenuSettings" /v "ShowLockOption" /t Reg_DWORD /d "0" /f 
-Reg.exe add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\FlyoutMenuSettings" /v "ShowSleepOption" /t Reg_DWORD /d "0" /f
-wevtutil set-log "Microsoft-Windows-SleepStudy/Diagnostic" /e:false
-wevtutil set-log "Microsoft-Windows-Kernel-Processor-Power/Diagnostic" /e:false
-wevtutil set-log "Microsoft-Windows-UserModePowerService/Diagnostic" /e:false
+Echo "Disabling network adapters"
+powershell -NoProfile -Command "Disable-NetAdapterBinding -Name "*" -ComponentID ms_tcpip6, ms_msclient, ms_server, ms_rspndr, ms_lltdio, ms_implat, ms_lldp" >nul 2>&1
 cls
 
 echo "Setting legacy photo viewer as default"
@@ -179,11 +124,6 @@ Echo "Set svchost to ffffffff works best for all RAM size"
 Reg add HKLM\SYSTEM\CurrentControlSet\Control /t REG_DWORD /v SvcHostSplitThresholdInKB /d 0xffffffff /f
 cls
 
-Echo "Remove Share from context menu"
-reg add "HKLM\Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Blocked" /v "{e2bf9676-5f8f-435c-97eb-11607a5bedf7}" /t REG_SZ /d "" /f > nul
-reg add "HKLM\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Shell Extensions\Blocked" /v "{e2bf9676-5f8f-435c-97eb-11607a5bedf7}" /t REG_SZ /d "" /f > nul
-cls
-
 Echo "Changing fsutil behaviors"
 :: Thanks to AMITXV
 fsutil behavior set allowextchar 0 > NUL 2>&1
@@ -200,26 +140,8 @@ fsutil behavior set symlinkevaluation L2L:1 > NUL 2>&1
 fsutil behavior set disabledeletenotify 0 > NUL 2>&1
 cls
 
-Echo "Disabling USB Idle"
-for %%a in (
-	EnhancedPowerManagementEnabled
-	AllowIdleIrpInD3
-	EnableSelectiveSuspend
-	DeviceSelectiveSuspended
-	SelectiveSuspendEnabled
-	SelectiveSuspendOn
-	EnumerationRetryCount
-	ExtPropDescSemaphore
-	WaitWakeEnabled
-	D3ColdSupported
-	WdfDirectedPowerTransitionEnable
-	EnableIdlePowerManagement
-	IdleInWorkingState
-	IoLatencyCap
-	DmaRemappingCompatible
-	DmaRemappingCompatibleSelfhost
-) do for /f "delims=" %%b in ('reg query "HKLM\SYSTEM\CurrentControlSet\Enum" /s /f "%%a" ^| findstr "HKEY"') do reg add "%%b" /v "%%a" /t REG_DWORD /d "0" /f >NUL 2>&1
-powershell.exe %WINDIR%\TEMP\\disable-pnp-powersaving.ps1
+Echo "Disable Driver PowerSaving"
+%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\powershell.exe -Command "Get-WmiObject MSPower_DeviceEnable -Namespace root\wmi | ForEach-Object { $_.enable = $false; $_.psbase.put(); }"
 cls
 
 Echo "Enabling MSI mode & set to undefined"
@@ -270,175 +192,6 @@ Reg.exe add "HKLM\SOFTWARE\Policies\Microsoft\Windows\GameDVR" /v "AllowGameDVR"
 Reg.exe add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Serialize" /v "StartupDelayInMSec" /t REG_DWORD /d "0" /f
 Reg.exe add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\GameDVR" /v "AppCaptureEnabled" /t REG_DWORD /d "0" /f
 Reg.exe add "HKLM\SOFTWARE\Microsoft\PolicyManager\default\ApplicationManagement\AllowGameDVR" /v "value" /t REG_DWORD /d "0" /f
-cls
-
-Echo "Disabling Drivers and Services"
-Reg.exe add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Class\{4d36e96c-e325-11ce-bfc1-08002be10318}" /v "UpperFilters" /t REG_MULTI_SZ /d "" /f
-Reg.exe add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Class\{6bdd1fc6-810f-11d0-bec7-08002be2092f}" /v "UpperFilters" /t REG_MULTI_SZ /d "" /f
-Reg.exe add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Class\{ca3e7ab9-b4c3-4ae6-8251-579ef933890f}" /v "UpperFilters" /t REG_MULTI_SZ /d "" /f
-Reg.exe add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Class\{4d36e967-e325-11ce-bfc1-08002be10318}" /v "LowerFilters" /t REG_MULTI_SZ /d "" /f
-Reg.exe add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Class\{71a27cdd-812a-11d0-bec7-08002be2092f}" /v "LowerFilters" /t REG_MULTI_SZ /d "" /f
-Reg.exe add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Class\{71a27cdd-812a-11d0-bec7-08002be2092f}" /v "UpperFilters" /t REG_MULTI_SZ /d "" /f
-Reg.exe add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Dhcp" /v "DependOnService" /t REG_MULTI_SZ /d "NSI\0Afd" /f
-Reg.exe add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Dnscache" /v "DependOnService" /t REG_MULTI_SZ /d "nsi" /f
-reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SoftwareProtectionPlatform" /v "InactivityShutdownDelay" /t REG_DWORD /d "4294967295" /f
-for %%z in (
-	AppVClient
-        AJRouter
-        AppIDSvc
-	DiagTrack
-        DsmSvc
-	DialogBlockingService
-	Diagsvc
-        autotimesvc
-        W32Time
-	diagnosticshub.standardcollector.service
-	DPS
-        DsSvc
-	DusmSvc
-	FontCache
-	FontCache3.0.0.0
-	MsKeyboardFilter
-        icssvc
-        IKEEXT
-	PcaSvc
-	ShellHWDetection
-	SysMain
-	Themes
-	TrkWks
-	tzautoupdate
-	OneSyncSvc
-	WdiSystemHost
-	WdiServiceHost
-	SensorDataService
-	SensrSvc
-        SensorService
-	Beep
-	cdfs
-	cdrom
-        acpiex
-        acpipagr
-        acpipmi
-        acpitime
-	cnghwassist
-	GpuEnergyDrv
-	Telemetry
-	VerifierExt
-	udfs
-	MsLldp
-	lltdio
-	NdisVirtualBus
-	NDU
-        luafv
-        fvevol
-        CDPSvc
-        UsoSvc
-        cbdhsvc
-        BcastDVRUserService
-	rdyboost
-        rdpbus
-        umbus
-        vdrvroot
-        Vid
-        CompositeBus
-	rspndr
-	NdisCap
-	NetBIOS
-	NetBT
-	KSecPkg
-	spaceport
-        VaultSvc
-        EventSystem
-	storqosflt
-	bam
-	bowser
-        WarpJITSvc
-        Wecsvc
-        dmwappushservice
-        GraphicsPerfSvc
-        WMPNetworkSvc
-        TermService
-        UmRdpService
-        UnistoreSvc
-        PimIndexMaintenanceSvc
-        UserDataSvc
-        3ware
-        arcsas
-        buttonconverter
-        cdfs
-        circlass
-        Dfsc
-        ErrDev
-        mrxsmb
-        mrxsmb20
-        PEAUTH
-        QWAVEdrv
-        srv
-        SiSRaid2
-        SiSRaid4
-        Tcpip6
-        tcpipreg
-        vsmraid
-        VSTXRAID
-        wcnfs
-        WindowsTrustedRTProxy
-        SstpSvc
-        SSDPSRV
-        SmsRouter
-	CldFlt
-        DisplayEnhancementService
-	iphlpsvc
-        IpxlatCfgSvc
-        NetTcpPortSharing
-        KtmRm
-        LanmanWorkstation
-	LanmanServer
-	lmhosts
-        MSDTC
-        QWAVE
-	RmSvc
-	RFCOMM
-	BthEnum
-	bthleenum
-	BTHMODEM
-	BthA2dp
-	microsoft_bluetooth_avrcptransport
-	BthHFEnum
-	BTAGService
-	bthserv
-	BluetoothUserService
-	BthAvctpSvc
-	vmickvpexchange
-	vmicguestinterface
-	vmicshutdown
-	vmicheartbeat
-	vmicvmsession
-        vpci
-        TsUsbFlt
-        tsusbhub
-        storflt
-        RDPDR
-        RdpVideominiport
-        bttflt
-        HidBth
-        BthMini
-        BTHPORT
-        BTHUSB
-	vmicrdv
-	vmictimesync
-	vmicvss
-	hyperkbd
-	hypervideo
-	gencounter
-	vmgid
-	storflt
-	hvservice
-	hvcrash
-	HvHost
-	lfsvc
-) do (
-Reg.exe add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\%%z" /v "Start" /t REG_DWORD /d "4" /f
-)
 cls
 
 Echo "Disabling Intel Drivers on Amd Systems And Vice Versa
