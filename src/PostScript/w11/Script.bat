@@ -50,7 +50,7 @@ bcdedit /set uselegacyapicmode no
 bcdedit /timeout 3
 cls
 
-Echo "Disabling power throttling on desktops and enabling it along with setting the balanced powerplan on laptops"
+Echo "Disabling power throttling and setting the powerplan to SapphireOS Powerplan on desktops and enabling it along with setting the balanced powerplan on laptops"
 
 for /f "delims=:{}" %%a in ('wmic path Win32_SystemEnclosure get ChassisTypes ^| findstr [0-9]') do set "CHASSIS=%%a"
 set "DEVICE_TYPE=PC"
@@ -71,6 +71,9 @@ if "%DEVICE_TYPE%" == "LAPTOP" (
     Reg.exe add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DisplayEnhancementService" /v "Start" /t REG_DWORD /d "4" /f >nul 2>&1
     Reg.exe add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power\PowerThrottling" /v "PowerThrottlingOff" /t REG_DWORD /d "1" /f
     Reg.exe add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\wmiacpi" /v "Start" /t REG_DWORD /d "4" /f >nul 2>&1
+    powercfg -import ""C:\Windows\Temp\SapphireOS.pow"" 00000000-0000-0000-0000-000000000000
+    powercfg /setactive 00000000-0000-0000-0000-000000000000
+    powercfg -h off
     cls
 )
 
