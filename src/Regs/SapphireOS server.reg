@@ -245,7 +245,6 @@ Windows Registry Editor Version 5.00
 ; disable windows update
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate]
-"DoNotConnectToWindowsUpdateInternetLocations"=dword:00000001
 "DisableOSUpgrade"=dword:00000001
 
 ; disable search the web or display web results in Search
@@ -514,7 +513,6 @@ Windows Registry Editor Version 5.00
 ; disable windows update
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate]
-"DoNotConnectToWindowsUpdateInternetLocations"=dword:00000001
 "DisableOSUpgrade"=dword:00000001
 
 ; disable search the web or display web results in Search
@@ -869,16 +867,6 @@ Windows Registry Editor Version 5.00
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\DWM]
 "DisallowFlip3d"=dword:00000001 
-
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\WindowsUpdate]
-"DoNotConnectToWindowsUpdateInternetLocations"=dword:00000001
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate]
-"DoNotConnectToWindowsUpdateInternetLocations"=dword:00000001 
 
 ; Created by imribiy
 ; https://github.com/imribiy
@@ -1756,9 +1744,6 @@ Windows Registry Editor Version 5.00
 
 [HKEY_CURRENT_USER\Software\Microsoft\ServerManager]
 "CheckedUnattendLaunchSetting"=dword:0000001
-"DoNotOpenServerManagerAtLogon"=dword:0000001
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\ServerManager]
 "DoNotOpenServerManagerAtLogon"=dword:0000001
 "DoNotPopWACConsoleAtSMLaunch"=dword:0000001 
 
