@@ -26,7 +26,7 @@ label C: SapphireOS
 bcdedit /set {current} description "SapphireOS Server"
 bcdedit /set {current} nx optin
 bcdedit /set disabledynamictick yes
-bcdedit /set useplatformtick yes
+bcdedit /deletevalue useplatformtick
 bcdedit /deletevalue useplatformclock
 bcdedit /set bootmenupolicy legacy
 bcdedit /set hypervisorlaunchtype off
