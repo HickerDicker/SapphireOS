@@ -6,18 +6,6 @@ Windows Registry Editor Version 5.00
 [HKEY_CURRENT_USER\SOFTWARE\Classes\WOW6432Node\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}]
 "System.IsPinnedToNameSpaceTree"=dword:00000000
 
-; disable windows update
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate]
-"ExcludeWUDriversInQualityUpdate"=dword:00000001
-"SetDisableUXWUAccess"=dword:00000001
-
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WaaSMedicSvc]
-"Start"=dword:00000004
-
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\UsoSvc]
-"Start"=dword:00000004
-
 ; disable sign-in and lock last interactive user after a restart
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System]
@@ -40,6 +28,105 @@ Windows Registry Editor Version 5.00
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer]
 "AllowOnlineTips"=dword:00000000
+
+; disable typing insights
+
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\input\Settings]
+"InsightsEnabled"=dword:00000000
+
+; disable transparency
+
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize]
+"EnableTransparency"=dword:00000000
+
+
+; disable automatic maintenance
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\Maintenance]
+"MaintenanceDisabled"=dword:00000001
+
+; allocate processor resources primarily to programs
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\PriorityControl]
+"Win32PrioritySeparation"=dword:00000026
+
+; prevent windows marking file attachments with information about their zone of origin
+
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Attachments]
+"SaveZoneInformation"=dword:00000001
+
+; disable program compatibility assistant
+
+[HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\AppCompat]
+"DisablePCA"=dword:00000001
+
+; disable customer experience improvement program
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SQMClient\Windows]
+"CEIPEnable"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\SQMClient\Windows]
+"CEIPEnable"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\VSCommon\15.0\SQM]
+"OptIn"=dword:00000000
+
+; disable fault tolerant heap
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\FTH]
+"Enabled"=dword:00000000
+
+; disable powershell telemetry
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment]
+"POWERSHELL_TELEMETRY_OPTOUT"="1"
+
+; disable pointer acceleration
+
+[HKEY_CURRENT_USER\Control Panel\Mouse]
+"MouseSpeed"="0"
+"MouseThreshold1"="0"
+"MouseThreshold2"="0"
+
+; disable windows error reporting
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\PCHealth\ErrorReporting]
+"DoReport"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting]
+"Disabled"=dword:00000001
+
+; reserve 10% of CPU resources for low-priority tasks instead of the default 20%
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile]
+"SystemResponsiveness"=dword:0000000a
+
+; disable remote assistance
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Remote Assistance]
+"fAllowToGetHelp"=dword:00000000
+
+; show file extensions
+
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+"HideFileExt"=dword:00000000
+ 
+ 
+; disable search the web or display web results in Search
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Search]
+"ConnectedSearchUseWeb"=dword:00000000
+
+; disable notifications network usage
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\PushNotifications]
+"NoCloudApplicationNotification"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\Kernel DMA Protection]
+"DeviceEnumerationPolicy"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Kernel DMA Protection]
+"DeviceEnumerationPolicy"=dword:00000000 
 
 ; enable the legacy photo viewer
 
@@ -99,468 +186,12 @@ Windows Registry Editor Version 5.00
 
 [HKEY_CURRENT_USER\SOFTWARE\Microsoft\input\Settings]
 "InsightsEnabled"=dword:00000000
-
-; disable transparency
-
-[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize]
-"EnableTransparency"=dword:00000000
-
-; do not let apps run in the background
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy]
-"LetAppsRunInBackground"=dword:00000002
- 
-
-; disable windows update
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate]
-"WUServer"=" "
-"WUStatusServer"=" "
-"UpdateServiceUrlAlternate"=" "
-"DisableWindowsUpdateAccess"=dword:00000001
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU]
-"NoAutoUpdate"=dword:00000001
-"UseWUServer"=dword:00000001
-"AUOptions"=dword:00000002
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\DriverSearching]
-"SearchOrderConfig"=dword:00000000
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Device Metadata]
-"PreventDeviceMetadataFromNetwork"=dword:00000001
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DriverSearching]
-"SearchOrderConfig"=dword:00000000
-"DontSearchWindowsUpdate"=dword:00000001
-
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\wuauserv]
-"Start"=dword:00000004
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Auto Update]
-"IncludeRecommendedUpdates"=dword:00000000
-"SetupWizardLaunchTime"=-
-"AcceleratedInstallRequired"=-
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings]
-"ExcludeWUDriversInQualityUpdate"=dword:00000001
-
-; disable UAC
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System]
-"EnableLUA"=dword:00000000
-
-; disable automatic maintenance
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\Maintenance]
-"MaintenanceDisabled"=dword:00000001
-
-; allocate processor resources primarily to programs
-
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\PriorityControl]
-"Win32PrioritySeparation"=dword:00000026
-
-; prevent windows marking file attachments with information about their zone of origin
-
-[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Attachments]
-"SaveZoneInformation"=dword:00000001
-
-; disable search indexing
-
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WSearch]
-"Start"=dword:00000004
-
-; disable program compatibility assistant
-
-[HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\AppCompat]
-"DisablePCA"=dword:00000001
-
-; disable customer experience improvement program
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SQMClient\Windows]
-"CEIPEnable"=dword:00000000
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\SQMClient\Windows]
-"CEIPEnable"=dword:00000000
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\VSCommon\15.0\SQM]
-"OptIn"=dword:00000000
-
-; disable fault tolerant heap
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\FTH]
-"Enabled"=dword:00000000
-
-; disable sticky keys
-
-[HKEY_CURRENT_USER\Control Panel\Accessibility\StickyKeys]
-"Flags"="506"
-
-; disable powershell telemetry
-
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment]
-"POWERSHELL_TELEMETRY_OPTOUT"="1"
-
-; disable pointer acceleration
-
-[HKEY_CURRENT_USER\Control Panel\Mouse]
-"MouseSpeed"="0"
-"MouseThreshold1"="0"
-"MouseThreshold2"="0"
-
-; disable hibernation
-
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power]
-"HibernateEnabled"=dword:00000000
-
-; disable fast startup
-
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Power]
-"HiberbootEnabled"=dword:00000000
-
-; disable windows error reporting
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\PCHealth\ErrorReporting]
-"DoReport"=dword:00000000
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting]
-"Disabled"=dword:00000001
-
-; reserve 10% of CPU resources for low-priority tasks instead of the default 20%
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile]
-"SystemResponsiveness"=dword:0000000a
-
-; disable remote assistance
-
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Remote Assistance]
-"fAllowToGetHelp"=dword:00000000
-
-; show file extensions
-
-[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
-"HideFileExt"=dword:00000000
- 
-
-; disable windows update
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate]
-"DisableOSUpgrade"=dword:00000001
-
-; disable search the web or display web results in Search
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Search]
-"ConnectedSearchUseWeb"=dword:00000000
-
-; disable notifications network usage
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\PushNotifications]
-"NoCloudApplicationNotification"=dword:00000001
- 
-
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\Kernel DMA Protection]
-"DeviceEnumerationPolicy"=dword:00000000
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Kernel DMA Protection]
-"DeviceEnumerationPolicy"=dword:00000000 
-
-[HKEY_CURRENT_USER\SOFTWARE\Classes\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}]
-"System.IsPinnedToNameSpaceTree"=dword:00000000
-
-[HKEY_CURRENT_USER\SOFTWARE\Classes\WOW6432Node\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}]
-"System.IsPinnedToNameSpaceTree"=dword:00000000
-
-; disable windows update
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate]
-"ExcludeWUDriversInQualityUpdate"=dword:00000001
-"SetDisableUXWUAccess"=dword:00000001
-
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WaaSMedicSvc]
-"Start"=dword:00000004
-
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\UsoSvc]
-"Start"=dword:00000004
-
-; disable sign-in and lock last interactive user after a restart
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System]
-"DisableAutomaticRestartSignOn"=dword:00000001
-
-; disable gamebarpresencewriter
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsRuntime\ActivatableClassId\Windows.Gaming.GameBar.PresenceServer.Internal.PresenceWriter]
-"ActivationType"=dword:00000000
-
-; disable telemetry
-
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DiagTrack]
-"Start"=dword:00000004
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection]
-"AllowTelemetry"=dword:00000000
-
-; disable retrieval of online tips and help in the immersive control panel
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer]
-"AllowOnlineTips"=dword:00000000
-
-; enable the legacy photo viewer
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Photo Viewer\Capabilities\FileAssociations]
-".tif"="PhotoViewer.FileAssoc.Tiff"
-".tiff"="PhotoViewer.FileAssoc.Tiff"
-".bmp"="PhotoViewer.FileAssoc.Tiff"
-".dib"="PhotoViewer.FileAssoc.Tiff"
-".gif"="PhotoViewer.FileAssoc.Tiff"
-".jfif"="PhotoViewer.FileAssoc.Tiff"
-".jpe"="PhotoViewer.FileAssoc.Tiff"
-".jpeg"="PhotoViewer.FileAssoc.Tiff"
-".jpg"="PhotoViewer.FileAssoc.Tiff"
-".jxr"="PhotoViewer.FileAssoc.Tiff"
-".png"="PhotoViewer.FileAssoc.Tiff"
-
-[HKEY_CURRENT_USER\SOFTWARE\Classes\.jpg]
-@="PhotoViewer.FileAssoc.Tiff"
-
-[HKEY_CURRENT_USER\SOFTWARE\Classes\.jpeg]
-@="PhotoViewer.FileAssoc.Tiff"
-
-[HKEY_CURRENT_USER\SOFTWARE\Classes\.gif]
-@="PhotoViewer.FileAssoc.Tiff"
-
-[HKEY_CURRENT_USER\SOFTWARE\Classes\.png]
-@="PhotoViewer.FileAssoc.Tiff"
-
-[HKEY_CURRENT_USER\SOFTWARE\Classes\.bmp]
-@="PhotoViewer.FileAssoc.Tiff"
-
-[HKEY_CURRENT_USER\SOFTWARE\Classes\.tiff]
-@="PhotoViewer.FileAssoc.Tiff"
-
-[HKEY_CURRENT_USER\SOFTWARE\Classes\.ico]
-@="PhotoViewer.FileAssoc.Tiff"
-
-[HKEY_CURRENT_USER\SOFTWARE\Classes\.tif]
-@="PhotoViewer.FileAssoc.Tiff"
-
-[HKEY_CURRENT_USER\SOFTWARE\Classes\.wdp]
-@="PhotoViewer.FileAssoc.Wdp"
-
-[HKEY_CURRENT_USER\SOFTWARE\Classes\.jfif]
-@="PhotoViewer.FileAssoc.Tiff"
-
-[HKEY_CURRENT_USER\SOFTWARE\Classes\.dib]
-@="PhotoViewer.FileAssoc.Tiff"
-
-[HKEY_CURRENT_USER\SOFTWARE\Classes\.jpe]
-@="PhotoViewer.FileAssoc.Tiff"
-
-[HKEY_CURRENT_USER\SOFTWARE\Classes\.jxr]
-@="PhotoViewer.FileAssoc.Tiff"
-
-; disable typing insights
-
-[HKEY_CURRENT_USER\SOFTWARE\Microsoft\input\Settings]
-"InsightsEnabled"=dword:00000000
-
-; disable transparency
-
-[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize]
-"EnableTransparency"=dword:00000000
-
-; do not let apps run in the background
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy]
-"LetAppsRunInBackground"=dword:00000002
- 
-
-; disable windows update
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate]
-"WUServer"=" "
-"WUStatusServer"=" "
-"UpdateServiceUrlAlternate"=" "
-"DisableWindowsUpdateAccess"=dword:00000001
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU]
-"NoAutoUpdate"=dword:00000001
-"UseWUServer"=dword:00000001
-"AUOptions"=dword:00000002
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\DriverSearching]
-"SearchOrderConfig"=dword:00000000
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Device Metadata]
-"PreventDeviceMetadataFromNetwork"=dword:00000001
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DriverSearching]
-"SearchOrderConfig"=dword:00000000
-"DontSearchWindowsUpdate"=dword:00000001
-
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\wuauserv]
-"Start"=dword:00000004
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Auto Update]
-"IncludeRecommendedUpdates"=dword:00000000
-"SetupWizardLaunchTime"=-
-"AcceleratedInstallRequired"=-
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings]
-"ExcludeWUDriversInQualityUpdate"=dword:00000001
-
-; disable UAC
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System]
-"EnableLUA"=dword:00000000
-
-; disable automatic maintenance
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\Maintenance]
-"MaintenanceDisabled"=dword:00000001
-
-; allocate processor resources primarily to programs
-
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\PriorityControl]
-"Win32PrioritySeparation"=dword:00000026
-
-; prevent windows marking file attachments with information about their zone of origin
-
-[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Attachments]
-"SaveZoneInformation"=dword:00000001
-
-; disable search indexing
-
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WSearch]
-"Start"=dword:00000004
-
-; disable program compatibility assistant
-
-[HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\AppCompat]
-"DisablePCA"=dword:00000001
-
-; disable customer experience improvement program
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SQMClient\Windows]
-"CEIPEnable"=dword:00000000
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\SQMClient\Windows]
-"CEIPEnable"=dword:00000000
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\VSCommon\15.0\SQM]
-"OptIn"=dword:00000000
-
-; disable fault tolerant heap
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\FTH]
-"Enabled"=dword:00000000
-
-; disable sticky keys
-
-[HKEY_CURRENT_USER\Control Panel\Accessibility\StickyKeys]
-"Flags"="506"
-
-; disable powershell telemetry
-
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment]
-"POWERSHELL_TELEMETRY_OPTOUT"="1"
-
-; disable pointer acceleration
-
-[HKEY_CURRENT_USER\Control Panel\Mouse]
-"MouseSpeed"="0"
-"MouseThreshold1"="0"
-"MouseThreshold2"="0"
-
-; disable hibernation
-
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power]
-"HibernateEnabled"=dword:00000000
-
-; disable fast startup
-
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Power]
-"HiberbootEnabled"=dword:00000000
-
-; disable windows error reporting
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\PCHealth\ErrorReporting]
-"DoReport"=dword:00000000
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting]
-"Disabled"=dword:00000001
-
-; reserve 10% of CPU resources for low-priority tasks instead of the default 20%
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile]
-"SystemResponsiveness"=dword:0000000a
-
-; disable remote assistance
-
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Remote Assistance]
-"fAllowToGetHelp"=dword:00000000
-
-; show file extensions
-
-[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
-"HideFileExt"=dword:00000000
- 
-
-; disable windows update
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate]
-"DisableOSUpgrade"=dword:00000001
-
-; disable search the web or display web results in Search
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Search]
-"ConnectedSearchUseWeb"=dword:00000000
-
-; disable notifications network usage
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\PushNotifications]
-"NoCloudApplicationNotification"=dword:00000001
- 
-
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\Kernel DMA Protection]
-"DeviceEnumerationPolicy"=dword:00000000
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Kernel DMA Protection]
-"DeviceEnumerationPolicy"=dword:00000000 
-
-[HKEY_CURRENT_USER\SOFTWARE\Classes\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}]
-"System.IsPinnedToNameSpaceTree"=dword:00000000
-
-[HKEY_CURRENT_USER\SOFTWARE\Classes\WOW6432Node\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}]
-"System.IsPinnedToNameSpaceTree"=dword:00000000
-
-; disable windows update
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate]
-"ExcludeWUDriversInQualityUpdate"=dword:00000001
-"SetD 
-
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System]
 "EnableActivityFeed"=dword:00000000
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\System]
 "EnableActivityFeed"=dword:00000000 
-
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AppV\Client]
 "Enabled"=dword:00000000
@@ -572,30 +203,17 @@ Windows Registry Editor Version 5.00
 "Enabled"=dword:00000000
  
 
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
-
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\DeviceHealthAttestationService]
 "EnableDeviceHealthAttestationService"=dword:00000000
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\DeviceHealthAttestationService]
 "EnableDeviceHealthAttestationService"=dword:00000000
  
-
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
-
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System]
 "EnableFontProviders"=dword:00000000
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\System]
 "EnableFontProviders"=dword:00000000 
-
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\EdgeUI]
 "DisableHelpSticker"=dword:00000001
@@ -603,41 +221,23 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\EdgeUI]
 "DisableHelpSticker"=dword:00000001 
 
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
-
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\HotspotAuthentication]
 "Enabled"=dword:00000000
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\HotspotAuthentication]
 "Enabled"=dword:00000000
  
-
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
-
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\TextInput]
 "AllowLinguisticDataCollection"=dword:00000000
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Policies\TextInput]
 "AllowLinguisticDataCollection"=dword:00000000 
 
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
-
 [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\Windows Error Reporting]
 "LoggingDisabled"=dword:00000001
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting]
 "LoggingDisabled"=dword:00000001
- 
-
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\ScheduledDiagnostics]
 "EnabledExecution"=dword:00000000
@@ -646,10 +246,6 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\ScheduledDiagnostics]
 "EnabledExecution"=dword:00000000
 "EnabledExecutionLevel"=- 
-
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\WDI\{a7a5847a-7511-4e4e-90b1-45ad2a002f51}]
 "ScenarioExecutionEnabled"=dword:00000000
@@ -671,10 +267,6 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WDI\{ecfb03d1-58ee-4cc7-a1b5-9bc6febcb915}]
 "ScenarioExecutionEnabled"=dword:00000000 
 
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
-
 [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\UEV\Agent]
 "Enabled"=dword:00000000
 "RegisterInboxTemplates"=-
@@ -682,20 +274,6 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\UEV\Agent]
 "Enabled"=dword:00000000
 "RegisterInboxTemplates"=- 
-
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting]
-"Disabled"=dword:00000001
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\Windows Error Reporting]
-"Disabled"=dword:00000001 
-
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WDI\{67144949-5132-4859-8036-a737b43825d8}]
 "ScenarioExecutionEnabled"=dword:00000000
@@ -711,10 +289,6 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WDI\{86432a0b-3c7d-4ddf-a89c-172faa90485d}]
 "ScenarioExecutionEnabled"=dword:00000000 
 
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
-
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WDI\{eb73b633-3f4e-4ba0-8f60-8f3c6f53168f}]
 "ScenarioExecutionEnabled"=dword:00000000
 "EnabledScenarioExecutionLevel"=dword:00000001
@@ -722,10 +296,6 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\WDI\{eb73b633-3f4e-4ba0-8f60-8f3c6f53168f}]
 "ScenarioExecutionEnabled"=dword:00000000
 "EnabledScenarioExecutionLevel"=dword:00000001 
-
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\WDI\{2698178D-FDAD-40AE-9D3C-1371703ADC5B}]
 "ScenarioExecutionEnabled"=dword:00000000
@@ -735,10 +305,6 @@ Windows Registry Editor Version 5.00
 "ScenarioExecutionEnabled"=dword:00000000
 "EnabledScenarioExecutionLevel"=- 
 
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
-
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WDI\{ffc42108-4920-4acf-a4fc-8abdcc68ada4}]
 "ScenarioExecutionEnabled"=dword:00000000
 "EnabledScenarioExecutionLevel"=-
@@ -747,51 +313,12 @@ Windows Registry Editor Version 5.00
 "ScenarioExecutionEnabled"=dword:00000000
 "EnabledScenarioExecutionLevel"=- 
 
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU]
-"AutoInstallMinorUpdates"=dword:00000000
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\WindowsUpdate\AU]
-"AutoInstallMinorUpdates"=dword:00000000 
-
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\System]
-"AllowClipboardHistory"=dword:00000000
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System]
-"AllowClipboardHistory"=dword:00000000
- 
-
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System]
-"AllowCrossDeviceClipboard"=dword:00000000
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\System]
-"AllowCrossDeviceClipboard"=dword:00000000 
-
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
-
 [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Policies\Explorer]
 "AllowOnlineTips"=dword:00000000
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer]
 "AllowOnlineTips"=dword:00000000
  
-
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\System]
 "PublishUserActivities"=dword:00000000
@@ -799,20 +326,12 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System]
 "PublishUserActivities"=dword:00000000 
 
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
-
 [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\DeviceInstall\Settings]
 "AllowRemoteRPC"=dword:00000000
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeviceInstall\Settings]
 "AllowRemoteRPC"=dword:00000000
  
-
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WindowsInkWorkspace]
 "AllowSuggestedAppsInWindowsInkWorkspace"=dword:00000000
@@ -820,27 +339,15 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\WindowsInkWorkspace]
 "AllowSuggestedAppsInWindowsInkWorkspace"=dword:00000000 
 
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
-
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System]
 "UploadUserActivities"=dword:00000000
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\System]
 "UploadUserActivities"=dword:00000000 
 
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
-
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\ScriptedDiagnostics]
 "EnableDiagnostics"=dword:00000000
  
-
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\ScriptedDiagnosticsProvider\Policy]
 "EnableQueryRemoteServer"=dword:00000000
@@ -848,19 +355,11 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\ScriptedDiagnosticsProvider\Policy]
 "EnableQueryRemoteServer"=dword:00000000 
 
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
-
 [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\WindowsInkWorkspace]
 "AllowWindowsInkWorkspace"=-
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WindowsInkWorkspace]
 "AllowWindowsInkWorkspace"=- 
-
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DWM]
 "DisallowFlip3d"=dword:00000001
@@ -868,29 +367,12 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\DWM]
 "DisallowFlip3d"=dword:00000001 
 
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
-
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer]
 "NoWelcomeScreen"=dword:00000001
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Policies\Explorer]
 "NoWelcomeScreen"=dword:00000001 
 
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate]
-"ExcludeWUDriversInQualityUpdate"=dword:00000001
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\WindowsUpdate]
-"ExcludeWUDriversInQualityUpdate"=dword:00000001 
-
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeviceInstall\Settings]
 "DisableSendGenericDriverNotFoundToWER"=dword:00000001
@@ -899,29 +381,17 @@ Windows Registry Editor Version 5.00
 "DisableSendGenericDriverNotFoundToWER"=dword:00000001
  
 
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
-
 [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\Windows Error Reporting]
 "DontSendAdditionalData"=dword:00000001
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting]
 "DontSendAdditionalData"=dword:00000001 
 
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
-
 [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\CloudContent]
 "DisableSoftLanding"=dword:00000001
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CloudContent]
 "DisableSoftLanding"=dword:00000001 
-
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\SettingSync]
 "DisableApplicationSettingSync"=dword:00000002
@@ -931,10 +401,6 @@ Windows Registry Editor Version 5.00
 "DisableApplicationSettingSync"=dword:00000002
 "DisableApplicationSettingSyncUserOverride"=dword:00000000 
 
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
-
 [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\SettingSync]
 "DisableAppSyncSettingSync"=dword:00000002
 "DisableAppSyncSettingSyncUserOverride"=dword:00000000
@@ -942,10 +408,6 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\SettingSync]
 "DisableAppSyncSettingSync"=dword:00000002
 "DisableAppSyncSettingSyncUserOverride"=dword:00000000 
-
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\SettingSync]
 "DisableWebBrowserSettingSync"=dword:00000002
@@ -955,10 +417,6 @@ Windows Registry Editor Version 5.00
 "DisableWebBrowserSettingSync"=dword:00000002
 "DisableWebBrowserSettingSyncUserOverride"=dword:00000000 
 
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
-
 [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\SettingSync]
 "DisableDesktopThemeSettingSync"=dword:00000002
 "DisableDesktopThemeSettingSyncUserOverride"=dword:00000000
@@ -966,10 +424,6 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\SettingSync]
 "DisableDesktopThemeSettingSync"=dword:00000002
 "DisableDesktopThemeSettingSyncUserOverride"=dword:00000000 
-
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\SettingSync]
 "DisableWindowsSettingSync"=dword:00000002
@@ -979,10 +433,6 @@ Windows Registry Editor Version 5.00
 "DisableWindowsSettingSync"=dword:00000002
 "DisableWindowsSettingSyncUserOverride"=dword:00000000 
 
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
-
 [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\SettingSync]
 "DisableCredentialsSettingSync"=dword:00000002
 "DisableCredentialsSettingSyncUserOverride"=dword:00000000
@@ -990,10 +440,6 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\SettingSync]
 "DisableCredentialsSettingSync"=dword:00000002
 "DisableCredentialsSettingSyncUserOverride"=dword:00000000 
-
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\SettingSync]
 "DisablePersonalizationSettingSync"=dword:00000002
@@ -1003,29 +449,17 @@ Windows Registry Editor Version 5.00
 "DisablePersonalizationSettingSync"=dword:00000002
 "DisablePersonalizationSettingSyncUserOverride"=dword:00000000 
 
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
-
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\UEV\Agent\Configuration]
 "SyncOverMeteredNetworkWhenRoaming"=dword:00000000
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\UEV\Agent\Configuration]
 "SyncOverMeteredNetworkWhenRoaming"=dword:00000000 
 
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
-
 [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\UEV\Agent\Configuration]
 "SyncOverMeteredNetwork"=dword:00000000
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\UEV\Agent\Configuration]
 "SyncOverMeteredNetwork"=dword:00000000 
-
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\SettingSync]
 "DisableStartLayoutSettingSync"=dword:00000002
@@ -1035,10 +469,6 @@ Windows Registry Editor Version 5.00
 "DisableStartLayoutSettingSync"=dword:00000002
 "DisableStartLayoutSettingSyncUserOverride"=dword:00000000 
 
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
-
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\SettingSync]
 "DisableSettingSync"=dword:00000002
 "DisableSettingSyncUserOverride"=dword:00000000
@@ -1047,20 +477,12 @@ Windows Registry Editor Version 5.00
 "DisableSettingSync"=dword:00000002
 "DisableSettingSyncUserOverride"=dword:00000000 
 
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
-
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\UEV\Agent\Configuration]
 "SyncEnabled"=dword:00000000
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\UEV\Agent\Configuration]
 "SyncEnabled"=dword:00000000
  
-
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\Group Policy\{7150F9BF-48AD-4da4-A49C-29EF4A8369BA}]
 "LogLevel"=dword:00000000
@@ -1107,10 +529,6 @@ Windows Registry Editor Version 5.00
 "TraceFileMaxSize"=dword:00000000
  
 
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
-
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Group Policy\{A3F3E39B-5D83-4940-B954-28315B82F0A8}]
 "LogLevel"=dword:00000000
 "TraceLevel"=dword:00000000
@@ -1156,10 +574,6 @@ Windows Registry Editor Version 5.00
 "TraceFileMaxSize"=dword:00000000
  
 
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
-
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Group Policy\{6232C319-91AC-4931-9385-E70C2B099F0E}]
 "LogLevel"=dword:00000000
 "TraceLevel"=dword:00000000
@@ -1204,10 +618,6 @@ Windows Registry Editor Version 5.00
 00
 "TraceFileMaxSize"=dword:00000000
  
-
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Group Policy\{74EE6C03-5363-4554-B161-627540339CAB}]
 "LogLevel"=dword:00000000
@@ -1255,10 +665,6 @@ Windows Registry Editor Version 5.00
 
  
 
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
-
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Group Policy\{E47248BA-94CC-49c4-BBB5-9EB7F05183D0}]
 "LogLevel"=dword:00000000
 "TraceLevel"=dword:00000000
@@ -1303,10 +709,6 @@ Windows Registry Editor Version 5.00
 00
 "TraceFileMaxSize"=dword:00000000
  
-
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Group Policy\{17D89FEC-5C44-4972-B12D-241CAEF74509}]
 "LogLevel"=dword:00000000
@@ -1353,10 +755,6 @@ Windows Registry Editor Version 5.00
 "TraceFileMaxSize"=dword:00000000
  
 
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
-
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Group Policy\{3A0DBA37-F8B2-4356-83DE-3E90BD5C261F}]
 "LogLevel"=dword:00000000
 "TraceLevel"=dword:00000000
@@ -1400,10 +798,6 @@ Windows Registry Editor Version 5.00
 50,00,6C,00,61,00,6E,00,6E,00,69,00,6E,00,67,00,2E,00,6C,00,6F,00,67,00,00,\
 00
 "TraceFileMaxSize"=dword:00000000 
-
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Group Policy\{6A4C88C6-C502-4f74-8F60-2CB23EDC24E2}]
 "LogLevel"=dword:00000000
@@ -1449,10 +843,6 @@ Windows Registry Editor Version 5.00
 00
 "TraceFileMaxSize"=dword:00000000 
 
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
-
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Group Policy\{E62688F0-25FD-4c90-BFF5-F508B9D2E31F}]
 "LogLevel"=dword:00000000
 "TraceLevel"=dword:00000000
@@ -1497,19 +887,11 @@ Windows Registry Editor Version 5.00
 00
 "TraceFileMaxSize"=dword:00000000 
 
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
-
 [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\DeviceInstall\Settings]
 "DisableSystemRestore"=dword:00000001
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeviceInstall\Settings]
 "DisableSystemRestore"=dword:00000001 
-
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Device Metadata]
 "PreventDeviceMetadataFromNetwork"=dword:00000001
@@ -1518,29 +900,17 @@ Windows Registry Editor Version 5.00
 "PreventDeviceMetadataFromNetwork"=dword:00000001
  
 
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
-
 [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\WindowsMediaPlayer]
 "PreventLibrarySharing"=dword:00000001
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WindowsMediaPlayer]
 "PreventLibrarySharing"=dword:00000001 
 
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
-
 [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\DeviceInstall\Settings]
 "DisableSendRequestAdditionalSoftwareToWER"=dword:00000001
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeviceInstall\Settings]
 "DisableSendRequestAdditionalSoftwareToWER"=dword:00000001 
-
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Group Policy\{BC75B1ED-5833-4858-9BB8-CBF0B166DF9D}]
 "LogLevel"=dword:00000000
@@ -1586,10 +956,6 @@ Windows Registry Editor Version 5.00
 00
 "TraceFileMaxSize"=dword:00000000 
 
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
-
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Group Policy\{E5094040-C46C-4115-B030-04FB2E545B00}]
 "LogLevel"=dword:00000000
 "TraceLevel"=dword:00000000
@@ -1633,10 +999,6 @@ Windows Registry Editor Version 5.00
 50,00,6C,00,61,00,6E,00,6E,00,69,00,6E,00,67,00,2E,00,6C,00,6F,00,67,00,00,\
 00
 "TraceFileMaxSize"=dword:00000000 
-
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Group Policy\{B087BE9D-ED37-454f-AF9C-04291E351182}]
 "LogLevel"=dword:00000000
@@ -1682,19 +1044,11 @@ Windows Registry Editor Version 5.00
 00
 "TraceFileMaxSize"=dword:00000000 
 
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
-
 [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\WindowsUpdate]
 "SetDisableUXWUAccess"=dword:00000001
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate]
 "SetDisableUXWUAccess"=dword:00000001 
-
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Group Policy\{AADCED64-746C-4633-A97C-D61349046527}]
 "LogLevel"=dword:00000000
@@ -1739,10 +1093,6 @@ Windows Registry Editor Version 5.00
 50,00,6C,00,61,00,6E,00,6E,00,69,00,6E,00,67,00,2E,00,6C,00,6F,00,67,00,00,\
 00
 "TraceFileMaxSize"=dword:00000000 
-
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Group Policy\{91FBB303-0CD5-4055-BF42-E512A681B325}]
 "LogLevel"=dword:00000000
@@ -1789,10 +1139,6 @@ Windows Registry Editor Version 5.00
 "TraceFileMaxSize"=dword:00000000
 
  
-
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Group Policy\{C418DD9D-0D14-4efb-8FBF-CFE535C8FAC7}]
 "LogLevel"=dword:00000000
@@ -1847,15 +1193,6 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem]
 "DisableDeleteNotification"=dword:00000000
 
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\FontCache]
-"Start"=dword:00000004
-
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SysMain]
-"Start"=dword:00000004 
-
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Assistance\Client\1.0]
 "NoActiveHelp"=dword:00000001
@@ -1863,19 +1200,11 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Assistance\Client\1.0]
 "NoActiveHelp"=dword:00000001 
 
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
-
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System]
 "DisableLockScreenAppNotifications"=dword:00000001
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\System]
 "DisableLockScreenAppNotifications"=dword:00000001 
-
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\AppCompat]
 "AITEnable"=dword:00000000
@@ -1883,19 +1212,6 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\AppCompat]
 "AITEnable"=dword:00000000 
 
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WindowsStore]
-"AutoDownload"=dword:00000002
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\WindowsStore]
-"AutoDownload"=dword:00000002 
-
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\InputPersonalization]
 "RestrictImplicitTextCollection"=dword:00000001
@@ -1914,40 +1230,12 @@ Windows Registry Editor Version 5.00
 "RestrictImplicitInkCollection"=dword:00000001
  
 
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
-
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\PeerDist\Service]
 "Enable"=dword:00000000
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\PeerDist\Service]
 "Enable"=dword:00000000
- 
 
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Windows\Sidebar]
-"TurnOffSidebar"=dword:00000001
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Policies\Windows\Sidebar]
-"TurnOffSidebar"=dword:00000001 
-
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\FileHistory]
-"Disabled"=dword:00000001
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\FileHistory]
-"Disabled"=dword:00000001 
-
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\FindMyDevice]
 "AllowFindMyDevice"=dword:00000000
@@ -1955,19 +1243,11 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\FindMyDevice]
 "AllowFindMyDevice"=dword:00000000 
 
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
-
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeviceInstall\Settings]
 "DisableBalloonTips"=dword:00000001
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\DeviceInstall\Settings]
 "DisableBalloonTips"=dword:00000001 
-
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\TabletPC]
 "PreventHandwritingDataSharing"=dword:00000001
@@ -1975,19 +1255,11 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\TabletPC]
 "PreventHandwritingDataSharing"=dword:00000001 
 
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
-
 [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\HandwritingErrorReports]
 "PreventHandwritingErrorReports"=dword:00000001
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\HandwritingErrorReports]
 "PreventHandwritingErrorReports"=dword:00000001 
-
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\LLTD]
 "EnableLLTDIO"=dword:00000000
@@ -2002,19 +1274,11 @@ Windows Registry Editor Version 5.00
 "ProhibitLLTDIOOnPrivateNet"=dword:00000000
  
 
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
-
 [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\LocationAndSensors]
 "DisableLocationScripting"=dword:00000001
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors]
 "DisableLocationScripting"=dword:00000001 
-
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors]
 "DisableLocation"=dword:00000001
@@ -2022,19 +1286,11 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\LocationAndSensors]
 "DisableLocation"=dword:00000001 
 
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
-
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\PowerShell\ModuleLogging]
 "EnableModuleLogging"=dword:00000000
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\PowerShell\ModuleLogging]
 "EnableModuleLogging"=dword:00000000 
-
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\PowerShell\ScriptBlockLogging]
 "EnableScriptBlockLogging"=dword:00000000
@@ -2044,10 +1300,6 @@ Windows Registry Editor Version 5.00
 "EnableScriptBlockLogging"=dword:00000000
 "EnableScriptBlockInvocationLogging"=- 
 
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
-
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\LLTD]
 "EnableRspndr"=dword:00000000
 "AllowRspndrOnDomain"=dword:00000000
@@ -2061,19 +1313,11 @@ Windows Registry Editor Version 5.00
 "ProhibitRspndrOnPrivateNet"=dword:00000000
  
 
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
-
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services]
 "LoggingEnabled"=dword:00000000
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows NT\Terminal Services]
 "LoggingEnabled"=dword:00000000 
-
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\AdvertisingInfo]
 "DisabledByGroupPolicy"=dword:00000001
@@ -2081,104 +1325,17 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\AdvertisingInfo]
 "DisabledByGroupPolicy"=dword:00000001 
 
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\WindowsStore]
-"DisableOSUpgrade"=dword:00000001
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WindowsStore]
-"DisableOSUpgrade"=dword:00000001 
-
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Policies\Windows\Sidebar]
-"TurnOffUserInstalledGadgets"=dword:00000001
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Windows\Sidebar]
-"TurnOffUserInstalledGadgets"=dword:00000001 
-
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
+[HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\Windows Error Reporting]
+"Disabled"=dword:00000001
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\PCHealth\ErrorReporting]
 "DoReport"=dword:00000000
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\PCHealth\ErrorReporting]
-"DoReport"=dword:00000000
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting]
-"Disabled"=dword:00000001
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\Windows Error Reporting]
-"Disabled"=dword:00000001
- 
-
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors]
-"DisableWindowsLocationProvider"=dword:00000001
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\LocationAndSensors]
-"DisableWindowsLocationProvider"=dword:00000001 
-
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Messenger\Client]
 "CEIP"=dword:00000002
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Messenger\Client]
 "CEIP"=dword:00000002 
-
-; remove pin to quick access in context menu
-
-[-HKEY_CLASSES_ROOT\Folder\shell\pintohome]
-
-[-HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Folder\shell\pintohome]
-
-; hide frequent folders in quick access
-; hide recent folders in quick access
-
-[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer]
-"ShowFrequent"=dword:00000000
-"ShowRecent"=dword:00000000
-
-; hide quick access from File Explorer
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer]
-"HubMode"=dword:00000001
-
-; launch File Explorer to this pc
-
-[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
-"LaunchTo"=dword:00000001
-
-; turn off display of recent search entries in the File Explorer search box
-
-[HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\Explorer]
-"DisableSearchBoxSuggestions"=dword:00000001
-
-; clear history of recently opened documents on exit
-
-[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer]
-"ClearRecentDocsOnExit"=dword:00000001
-
-; disable recent items and frequent places in File Explorer and quick access
-
-[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
-"Start_TrackDocs"=dword:00000000 
-
-; Created by imribiy
-; https://github.com/imribiy
-; https://discord.gg/XTYEjZNPgX
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DWM]
 "DisableAccentGradient"=dword:00000001
