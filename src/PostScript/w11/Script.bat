@@ -11,10 +11,6 @@ Echo "Disabling Process Mitigations"
 call %WINDIR%\TEMP\disable-process-mitigations.bat
 cls
 
-Echo "Installing LowAudioLatency"
-start /b /wait "" "%WINDIR%\TEMP\LowAudioLatency_2.0.0.0.msi" /passive >nul 2>&1
-cls
-
 Echo "Disabling Write Cache Buffer"
 	for /f "tokens=*" %%i in ('reg query "HKLM\SYSTEM\CurrentControlSet\Enum\SCSI"^| findstr "HKEY"') do (
 		for /f "tokens=*" %%a in ('reg query "%%i"^| findstr "HKEY"') do reg.exe add "%%a\Device Parameters\Disk" /v "CacheIsPowerProtected" /t REG_DWORD /d "1" /f > NUL 2>&1
@@ -28,9 +24,8 @@ cls
 Echo "Editing Bcdedit"
 label C: SapphireOS
 bcdedit /set {current} description "SapphireOS 11"
-bcdedit /set {current} nx optin
+bcdedit /set {current} nx AlwaysOff
 bcdedit /set disabledynamictick yes
-bcdedit /set useplatformtick yes
 bcdedit /deletevalue useplatformclock
 bcdedit /set bootmenupolicy legacy
 bcdedit /set hypervisorlaunchtype off
@@ -62,8 +57,6 @@ if "%DEVICE_TYPE%" == "LAPTOP" (
     Reg.exe add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\serial" /v "Start" /t REG_DWORD /d "3" /f >nul 2>&1
     Reg.exe add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\wmiacpi" /v "Start" /t REG_DWORD /d "2" /f >nul 2>&1
     Reg.exe add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power\PowerThrottling" /v "PowerThrottlingOff" /t REG_DWORD /d "0" /f
-    :: made it like this because I could not get it to duplicate the balanced powerplan :3
-    powercfg -import C:\Windows\Temp\Balanced.pow 381b4222-f694-41f0-9685-ff5bb260df2e
     powercfg /setactive 381b4222-f694-41f0-9685-ff5bb260df2e
 	cls
 )
@@ -71,8 +64,6 @@ if "%DEVICE_TYPE%" == "LAPTOP" (
     Reg.exe add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DisplayEnhancementService" /v "Start" /t REG_DWORD /d "4" /f >nul 2>&1
     Reg.exe add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power\PowerThrottling" /v "PowerThrottlingOff" /t REG_DWORD /d "1" /f
     Reg.exe add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\wmiacpi" /v "Start" /t REG_DWORD /d "4" /f >nul 2>&1
-    powercfg -import ""C:\Windows\Temp\SapphireOS.pow"" 00000000-0000-0000-0000-000000000000
-    powercfg /setactive 00000000-0000-0000-0000-000000000000
     powercfg -h off
     cls
 )
@@ -99,7 +90,15 @@ reg delete "HKLM\System\CurrentControlSet\Services\SharedAccess\Parameters\Firew
 cls
 
 Echo "Removing leftover devices"
-C:\PostInstall\Tweaks\DeviceCleanupCmd.exe * -s
+C:\PostInstall\Tweaks\DeviceCleanupCmd.exe * -s >nul 2>&1
+cls
+
+Echo "Network Tweaks"
+netsh int tcp set heuristics disabled >nul 2>&1
+netsh int tcp set supplemental Internet congestionprovider=ctcp >nul 2>&1
+netsh int tcp set global timestamps=disabled >nul 2>&1
+netsh int tcp set global rsc=disabled >nul 2>&1
+cls
 
 Echo "Disabling Device Manager Devices"
 C:\PostInstall\Tweaks\DevManView.exe /disable "Microsoft Device Association Root Enumerator" > NUL 2>&1
@@ -129,18 +128,9 @@ C:\PostInstall\Tweaks\DevManView.exe /disable "Micosoft GS Wavetable Synth" > NU
 cls
 
 Echo "Changing fsutil behaviors"
-fsutil behavior set allowextchar 0 > NUL 2>&1
-fsutil behavior set Bugcheckoncorrupt 0 > NUL 2>&1
-fsutil repair set C: 0 > NUL 2>&1
 fsutil behavior set disable8dot3 1 > NUL 2>&1
-fsutil behavior set disableencryption 1 > NUL 2>&1
 fsutil behavior set disablelastaccess 1 > NUL 2>&1
-fsutil behavior set disablespotcorruptionhandling 1 > NUL 2>&1
-fsutil behavior set encryptpagingfile 0 > NUL 2>&1
-fsutil behavior set quotanotify 86400 > NUL 2>&1
-fsutil behavior set symlinkevaluation L2L:1 > NUL 2>&1
 Fsutil behaviour set memoryusage 2 
-fsutil behavior set disabledeletenotify 0 > NUL 2>&1
 cls
 
 Echo "Disable Driver PowerSaving"
@@ -186,6 +176,10 @@ Echo "RW Fix for w11"
 Reg add "HKLM\SYSTEM\CurrentControlSet\Control\CI\Config" /v "VulnerableDriverBlocklistEnable" /t REG_DWORD /d "0" /f >NUL 2>&1
 cls
 
+Echo "Set svchost to ffffffff works best for all RAM size"
+Reg add HKLM\SYSTEM\CurrentControlSet\Control /t REG_DWORD /v SvcHostSplitThresholdInKB /d 0xffffffff /f >nul 2>&1
+cls
+
 Echo "Fix explorer white bar bug"
 cmd /c "start C:\Windows\explorer.exe"
 taskkill /f /im explorer.exe >nul 2>&1
@@ -197,22 +191,22 @@ cmd /c "start C:\Windows\explorer.exe"
 cls
 
 Echo "fixing languages if needed"
-REG ADD HKLM\Software\Policies\Microsoft\Windows\WindowsUpdate /v DoNotConnectToWindowsUpdateInternetLocations /t REG_DWORD /d 0 /f
-REG ADD HKLM\Software\Policies\Microsoft\Windows\WindowsUpdate\AU /v UseWUServer /t REG_DWORD /d 0 /f
-
-REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\netprofm" /v "Start" /t REG_DWORD /d "2" /f
+REG ADD HKLM\Software\Policies\Microsoft\Windows\WindowsUpdate /v DoNotConnectToWindowsUpdateInternetLocations /t REG_DWORD /d 0 /f >nul 2>&1
+REG ADD HKLM\Software\Policies\Microsoft\Windows\WindowsUpdate\AU /v UseWUServer /t REG_DWORD /d 0 /f >nul 2>&1
+cls
 
 Echo "Attempting To Disable MemoryCompression"
 
 PowerShell Get-MMAgent
-
 PowerShell Disable-MMAgent -MemoryCompression
+cls
 
 del /q/f/s %TEMP%\*
 
 echo "We love Rax and everyone credited in the discord (This script is mostly taken from RaxOS [also the credits are stolen from RaxOS too lol])"
 
-shutdown -r -t 05
+shutdown -r -t 60 
+msg * your pc will restart in 60 seconds from now you can run shutdown -a to cancel it if you have to install any drivers or want to set up your pc BUT DO NOT FORGET TO RESTART
 
 del /q/f/s %WINDIR%\TEMP\*
 
