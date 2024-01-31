@@ -119,7 +119,6 @@ for %%z in (
 	lltdio
 	NdisVirtualBus
 	NDU
-        UdkUserSvc
         TieringEngineService
         WebClient
         wcnsvc
