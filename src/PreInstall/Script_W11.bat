@@ -50,6 +50,22 @@ Echo "RW Fix for w11"
 Reg add "HKLM\SYSTEM\CurrentControlSet\Control\CI\Config" /v "VulnerableDriverBlocklistEnable" /t REG_DWORD /d "0" /f >NUL 2>&1
 cls
 
+set BACKUP="C:\PostInstall\Windows-Default-services.reg"
+echo Windows Registry Editor Version 5.00 >>%BACKUP%
+
+for /f "delims=" %%a in ('reg query "HKLM\SYSTEM\CurrentControlSet\Services"') do (
+    for /f "tokens=3" %%b in ('reg query "%%~a" /v "Start" 2^>nul') do (
+        for /l %%c in (0,1,4) do (
+            if "%%b"=="0x%%c" (
+                echo. >>%BACKUP%
+                echo [%%~a] >>%BACKUP%
+                echo "Start"=dword:0000000%%c >>%BACKUP%
+            ) 
+        ) 
+    ) 
+) >nul 2>&1
+cls
+
 Echo "Disabling Drivers and Services"
 Reg.exe add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Class\{4d36e96c-e325-11ce-bfc1-08002be10318}" /v "UpperFilters" /t REG_MULTI_SZ /d "" /f
 Reg.exe add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Class\{6bdd1fc6-810f-11d0-bec7-08002be2092f}" /v "UpperFilters" /t REG_MULTI_SZ /d "" /f
@@ -239,6 +255,22 @@ for %%z in (
 ) do (
 Reg.exe add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\%%z" /v "Start" /t REG_DWORD /d "4" /f
 )
+cls
+
+set BACKUP="C:\PostInstall\SapphireOS-Default-services.reg"
+echo Windows Registry Editor Version 5.00 >>%BACKUP%
+
+for /f "delims=" %%a in ('reg query "HKLM\SYSTEM\CurrentControlSet\Services"') do (
+    for /f "tokens=3" %%b in ('reg query "%%~a" /v "Start" 2^>nul') do (
+        for /l %%c in (0,1,4) do (
+            if "%%b"=="0x%%c" (
+                echo. >>%BACKUP%
+                echo [%%~a] >>%BACKUP%
+                echo "Start"=dword:0000000%%c >>%BACKUP%
+            ) 
+        ) 
+    ) 
+) >nul 2>&1
 cls
 
 Echo "fixing languages if needed"
