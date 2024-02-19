@@ -16,6 +16,14 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsRuntime\ActivatableClassId\Windows.Gaming.GameBar.PresenceServer.Internal.PresenceWriter]
 "ActivationType"=dword:00000000
 
+; turn off smart card plug and play service
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\ScPnP]
+"EnableScPnP"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\ScPnP]
+"EnableScPnP"=dword:00000000
+
 ;	OEMinfo
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation]
@@ -1442,3 +1450,8 @@ Windows Registry Editor Version 5.00
 
 [HKEY_CLASSES_ROOT\*\shell\hash\shell\08menu\command]
 @="powershell -noexit get-filehash -literalpath '%1' -algorithm SHA1 | format-list;get-filehash -literalpath '%1' -algorithm SHA256 | format-list;get-filehash -literalpath '%1' -algorithm SHA384 | format-list;get-filehash -literalpath '%1' -algorithm SHA512 | format-list;get-filehash -literalpath '%1' -algorithm MACTripleDES | format-list;get-filehash -literalpath '%1' -algorithm MD5 | format-list;get-filehash -literalpath '%1' -algorithm RIPEMD160 | format-list"
+
+; return old context menu
+
+[HKEY_CURRENT_USER\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32]
+@=""

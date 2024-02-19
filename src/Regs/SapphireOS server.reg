@@ -24,6 +24,14 @@ Windows Registry Editor Version 5.00
 "SupportHours"="24Hrs"
 "SupportURL"="https://discord.gg/4aNYHSEHYw"
 
+; turn off smart card plug and play service
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\ScPnP]
+"EnableScPnP"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\ScPnP]
+"EnableScPnP"=dword:00000000
+
 ; disable telemetry
 
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DiagTrack]
