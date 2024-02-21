@@ -44,3 +44,4 @@
 - Windows update
 - Windows recovery
 - The OOBE by default (still can be accessed through sysprep(removed in w10) if you want to)
+- Some Drivers on Windows Server (Not my fault!) Like AMD Video Drivers and Some Network Drivers
