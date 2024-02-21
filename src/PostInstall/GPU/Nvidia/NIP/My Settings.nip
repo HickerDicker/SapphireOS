@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-16"?>
+<ArrayOfProfile>
+  <Profile>
+    <ProfileName>Base Profile</ProfileName>
+    <Executeables />
+    <Settings>
+      <ProfileSetting>
+        <SettingNameInfo> </SettingNameInfo>
+        <SettingID>390467</SettingID>
+        <SettingValue>1</SettingValue>
+        <ValueType>Dword</ValueType>
+      </ProfileSetting>
+      <ProfileSetting>
+        <SettingNameInfo>Texture filtering - Negative LOD bias</SettingNameInfo>
+        <SettingID>1686376</SettingID>
+        <SettingValue>0</SettingValue>
+        <ValueType>Dword</ValueType>
+      </ProfileSetting>
+      <ProfileSetting>
+        <SettingNameInfo>Texture filtering - Trilinear optimization</SettingNameInfo>
+        <SettingID>3066610</SettingID>
+        <SettingValue>0</SettingValue>
+        <ValueType>Dword</ValueType>
+      </ProfileSetting>
+      <ProfileSetting>
+        <SettingNameInfo>Vertical Sync Tear Control</SettingNameInfo>
+        <SettingID>5912412</SettingID>
+        <SettingValue>2525368439</SettingValue>
+        <ValueType>Dword</ValueType>
+      </ProfileSetting>
+      <ProfileSetting>
+        <SettingNameInfo>Maximum pre-rendered frames</SettingNameInfo>
+        <SettingID>8102046</SettingID>
+        <SettingValue>1</SettingValue>
+        <ValueType>Dword</ValueType>
+      </ProfileSetting>
+      <ProfileSetting>
+        <SettingNameInfo>Texture filtering - Anisotropic filter optimization</SettingNameInfo>
+        <SettingID>8703344</SettingID>
+        <SettingValue>0</SettingValue>
+        <ValueType>Dword</ValueType>
+      </ProfileSetting>
+      <ProfileSetting>
+        <SettingNameInfo>Vertical Sync</SettingNameInfo>
+        <SettingID>11041231</SettingID>
+        <SettingValue>138504007</SettingValue>
+        <ValueType>Dword</ValueType>
+      </ProfileSetting>
+      <ProfileSetting>
+        <SettingNameInfo>Shader disk cache maximum size</SettingNameInfo>
+        <SettingID>11306135</SettingID>
+        <SettingValue>4294967295</SettingValue>
+        <ValueType>Dword</ValueType>
+      </ProfileSetting>
+      <ProfileSetting>
+        <SettingNameInfo>Texture filtering - Quality</SettingNameInfo>
+        <SettingID>13510289</SettingID>
+        <SettingValue>20</SettingValue>
+        <ValueType>Dword</ValueType>
+      </ProfileSetting>
+      <ProfileSetting>
+        <SettingNameInfo>Texture filtering - Anisotropic sample optimization</SettingNameInfo>
+        <SettingID>15151633</SettingID>
+        <SettingValue>1</SettingValue>
+        <ValueType>Dword</ValueType>
+      </ProfileSetting>
+      <ProfileSetting>
+        <SettingNameInfo>Flag to control smooth AFR behavior</SettingNameInfo>
+        <SettingID>270198627</SettingID>
+        <SettingValue>0</SettingValue>
+        <ValueType>Dword</ValueType>
+      </ProfileSetting>
+      <ProfileSetting>
+        <SettingNameInfo>Anisotropic filtering setting</SettingNameInfo>
+        <SettingID>270426537</SettingID>
+        <SettingValue>1</SettingValue>
+        <ValueType>Dword</ValueType>
+      </ProfileSetting>
+      <ProfileSetting>
+        <SettingNameInfo>Power management mode</SettingNameInfo>
+        <SettingID>274197361</SettingID>
+        <SettingValue>1</SettingValue>
+        <ValueType>Dword</ValueType>
+      </ProfileSetting>
+      <ProfileSetting>
+        <SettingNameInfo>FRL Low Latency</SettingNameInfo>
+        <SettingID>277041152</SettingID>
+        <SettingValue>0</SettingValue>
+        <ValueType>Dword</ValueType>
+      </ProfileSetting>
+      <ProfileSetting>
+        <SettingNameInfo>Anisotropic filtering mode</SettingNameInfo>
+        <SettingID>282245910</SettingID>
+        <SettingValue>1</SettingValue>
+        <ValueType>Dword</ValueType>
+      </ProfileSetting>
+    </Settings>
+  </Profile>
+</ArrayOfProfile>
