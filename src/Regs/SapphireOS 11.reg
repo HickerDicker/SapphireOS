@@ -1494,7 +1494,7 @@ Windows Registry Editor Version 5.00
 "debugger"="noop.exe"
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\AggregatorHost.exe]
-"debugger"="%noop.exe"
+"debugger"="noop.exe"
 
 ; disable superfecth's eventlog connection
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Channels\Microsoft-Windows-Superfetch/Main]
