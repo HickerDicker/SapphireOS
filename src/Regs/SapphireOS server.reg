@@ -1529,3 +1529,12 @@ Windows Registry Editor Version 5.00
 [HKEY_CLASSES_ROOT\Drive\shell\runas\command]
 @="cmd.exe /c takeown /f \"%1\\\" /r /d y && icacls \"%1\\\" /grant *S-1-3-4:F /t /c"
 "IsolatedCommand"="cmd.exe /c takeown /f \"%1\\\" /r /d y && icacls \"%1\\\" /grant *S-1-3-4:F /t /c"
+
+; disable shake to minimize
+; disable sync provider notifications
+; show file extensions
+
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+"DisallowShaking"=dword:00000001
+"ShowSyncProviderNotifications"=dword:00000000
+"HideFileExt"=dword:00000000
