@@ -1551,3 +1551,52 @@ Windows Registry Editor Version 5.00
 "DisallowShaking"=dword:00000001
 "ShowSyncProviderNotifications"=dword:00000000
 "HideFileExt"=dword:00000000
+
+; double click to import pow
+
+[HKEY_CLASSES_ROOT\.pow]
+@="Power Plan"
+"FriendlyTypeName"="Power Plan"
+
+[HKEY_CLASSES_ROOT\.pow\DefaultIcon]
+@=hex(2):25,00,53,00,79,00,73,00,74,00,65,00,6d,00,52,00,6f,00,6f,00,74,00,25,\
+  00,5c,00,53,00,79,00,73,00,74,00,65,00,6d,00,33,00,32,00,5c,00,70,00,6f,00,\
+  77,00,65,00,72,00,63,00,66,00,67,00,2e,00,63,00,70,00,6c,00,2c,00,2d,00,32,\
+  00,30,00,32,00,00,00
+
+[HKEY_CLASSES_ROOT\.pow\shell]
+
+[HKEY_CLASSES_ROOT\.pow\shell\Import]
+
+[HKEY_CLASSES_ROOT\.pow\shell\Import\command]
+@="powercfg /import "%1""
+
+; make explorer not parse every file in a folder when opening a folder
+
+[HKEY_CURRENT_USER\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\Shell\Bags\AllFolders\Shell]
+"FolderType"="NotSpecified"
+
+; decrease Shutdown Time
+
+[HKEY_CURRENT_USER\Control Panel\Desktop]
+"HungAppTimeout"="2000"
+"WaitToKillAppTimeOut"="2000"
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control]
+"WaitToKillServiceTimeout"="2000"
+
+; classic alt-tab
+
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer]
+"AltTabSettings"=dword:00000001
+"HoverSelectDesktops"=dword:00000001
+
+; do not reduce sounds while in a call
+
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Multimedia\Audio]
+"UserDuckingPreference"=dword:00000003
+
+; disable printscreen for snipping tool
+
+[HKEY_CURRENT_USER\Control Panel\Keyboard]
+"PrintScreenKeyForSnippingEnabled"=dword:00000000
