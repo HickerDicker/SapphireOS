@@ -28,9 +28,17 @@ bcdedit /set {current} nx AlwaysOff
 bcdedit /set disabledynamictick yes
 bcdedit /deletevalue useplatformclock
 bcdedit /set bootmenupolicy legacy
+bcdedit /set hypervisorlaunchtype off
 bcdedit /set integrityservices disable
 bcdedit /set isolatedcontext No
+bcdedit /set loadoptions DISABLE-LSA-ISO,DISABLE-VBS
+bcdedit /set vsmlaunchtype Off
+bcdedit /set vm no
 bcdedit /timeout 3
+cls
+
+Echo "Font Cache"
+%WINDIR%\Modules\FontReg.exe
 cls
 
 Echo "Disabling power throttling and setting the powerplan to SapphireOS Powerplan on desktops and enabling it along with setting the balanced powerplan on laptops"
@@ -79,6 +87,7 @@ cls
 Echo "Renaming Microcode Updates"
 C:\PostInstall\Tweaks\MinSudo.exe --NoLogo --TrustedInstaller --Privileged cmd /c "ren mcupdate_GenuineIntel.dll mcupdate_GenuineIntel.old" >nul 2>&1
 C:\PostInstall\Tweaks\MinSudo.exe --NoLogo --TrustedInstaller --Privileged cmd /c "ren mcupdate_AuthenticAMD.dll mcupdate_AuthenticAMD.old" >nul 2>&1
+cls
 
 Echo "Network Tweaks"
 netsh int tcp set global dca=enabled

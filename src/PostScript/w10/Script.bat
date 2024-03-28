@@ -8,7 +8,7 @@ cls
 
 Echo "Disabling Process Mitigations"
 ::  Thanks AMIT
-call %WINDIR%\TEMP\disable-process-mitigations.bat >nul 2>&1
+call %WINDIR%\Modules\disable-process-mitigations.bat >nul 2>&1
 cls
 
 Echo "Disabling Write Cache Buffer"
@@ -28,9 +28,17 @@ bcdedit /set {current} nx AlwaysOff
 bcdedit /set disabledynamictick yes
 bcdedit /deletevalue useplatformclock
 bcdedit /set bootmenupolicy legacy
+bcdedit /set hypervisorlaunchtype off
 bcdedit /set integrityservices disable
 bcdedit /set isolatedcontext No
+bcdedit /set loadoptions DISABLE-LSA-ISO,DISABLE-VBS
+bcdedit /set vsmlaunchtype Off
+bcdedit /set vm no
 bcdedit /timeout 3
+cls
+
+Echo "Font Cache"
+%WINDIR%\Modules\FontReg.exe
 cls
 
 Echo "Disabling power throttling and setting the powerplan to SapphireOS Powerplan on desktops and enabling it along with setting the balanced powerplan on laptops"
@@ -79,6 +87,7 @@ cls
 Echo "Renaming Microcode Updates"
 C:\PostInstall\Tweaks\MinSudo.exe --NoLogo --TrustedInstaller --Privileged cmd /c "ren mcupdate_GenuineIntel.dll mcupdate_GenuineIntel.old" >nul 2>&1
 C:\PostInstall\Tweaks\MinSudo.exe --NoLogo --TrustedInstaller --Privileged cmd /c "ren mcupdate_AuthenticAMD.dll mcupdate_AuthenticAMD.old" >nul 2>&1
+cls
 
 Echo "Network Tweaks"
 netsh int tcp set global dca=enabled
@@ -239,17 +248,18 @@ REG ADD HKLM\Software\Policies\Microsoft\Windows\WindowsUpdate\AU /v UseWUServer
 cls
 
 Echo "Attempting To Disable MemoryCompression"
-
 C:\PostInstall\Tweaks\MinSudo.exe --NoLogo --TrustedInstaller --Privileged cmd /c "PowerShell Get-MMAgent"
 C:\PostInstall\Tweaks\MinSudo.exe --NoLogo --TrustedInstaller --Privileged cmd /c "PowerShell Disable-MMAgent -MemoryCompression"
 cls
 
-del /q /f /s %TEMP%\* >nul 2>&1
-
 shutdown -r -t 60 
 msg * your pc will restart in 60 seconds from now you can run shutdown -a to cancel it if you have to install any drivers or want to set up your pc BUT DO NOT FORGET TO RESTART
 
+Echo "Cleanup"
+
 del /q /f /s %WINDIR%\TEMP\* >nul 2>&1
+del /q /f /s %TEMP%\* >nul 2>&1
+del /q /f /s %WINDIR%\MODULES\* >nul 2>&1
 
 start /b "" cmd /c del "%~f0"&exit /b
 

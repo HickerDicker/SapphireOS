@@ -1585,12 +1585,6 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control]
 "WaitToKillServiceTimeout"="2000"
 
-; classic alt-tab
-
-[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer]
-"AltTabSettings"=dword:00000001
-"HoverSelectDesktops"=dword:00000001
-
 ; do not reduce sounds while in a call
 
 [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Multimedia\Audio]
@@ -1600,3 +1594,16 @@ Windows Registry Editor Version 5.00
 
 [HKEY_CURRENT_USER\Control Panel\Keyboard]
 "PrintScreenKeyForSnippingEnabled"=dword:00000000
+
+; disable sticky keys
+
+[HKEY_CURRENT_USER\Control Panel\Accessibility\StickyKeys]
+"Flags"=dword:00000000
+
+[HKEY_CURRENT_USER\Control Panel\Accessibility\Keyboard Response]
+"Flags"=dword:00000000
+
+[HKEY_CURRENT_USER\Control Panel\Accessibility\ToggleKeys]
+"Flags"=dword:00000000
+
+; This is more up to date than the one in 0.4.1 I use the same reg for 24H2 betas so this is why it is more up to date
