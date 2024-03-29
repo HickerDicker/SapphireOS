@@ -1,4 +1,8 @@
 # SapphireOS
+
+## Download
+- The Download Links Can Only Be Found In The Discord https://discord.gg/4aNYHSEHYw
+
 ### Credits:-
  Imribiy 
  Phlegm
