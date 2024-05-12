@@ -8,7 +8,7 @@ cls
 
 Echo "Disabling Process Mitigations"
 ::  Thanks AMIT
-call %WINDIR%\TEMP\disable-process-mitigations.bat
+call %WINDIR%\Modules\disable-process-mitigations.bat
 cls
 
 Echo "Disabling Write Cache Buffer"
@@ -31,7 +31,14 @@ bcdedit /set bootmenupolicy legacy
 bcdedit /set hypervisorlaunchtype off
 bcdedit /set integrityservices disable
 bcdedit /set isolatedcontext No
+bcdedit /set loadoptions DISABLE-LSA-ISO,DISABLE-VBS
+bcdedit /set vsmlaunchtype Off
+bcdedit /set vm no
 bcdedit /timeout 3
+cls
+
+Echo "Font Cache"
+%WINDIR%\Modules\FontReg.exe
 cls
 
 Echo "Disabling power throttling and setting the powerplan to SapphireOS Powerplan on desktops and enabling it along with setting the balanced powerplan on laptops"
@@ -53,6 +60,20 @@ if "%DEVICE_TYPE%" == "LAPTOP" (
     Reg.exe add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DisplayEnhancementService" /v "Start" /t REG_DWORD /d "4" /f >nul 2>&1
     Reg.exe add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power\PowerThrottling" /v "PowerThrottlingOff" /t REG_DWORD /d "1" /f
     Reg.exe add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\wmiacpi" /v "Start" /t REG_DWORD /d "4" /f >nul 2>&1
+Echo "Disabling powersaving features"
+	for %%a in (
+	EnhancedPowerManagementEnabled
+	AllowIdleIrpInD3
+	EnableSelectiveSuspend
+	DeviceSelectiveSuspended
+	SelectiveSuspendEnabled
+	SelectiveSuspendOn
+	WaitWakeEnabled
+	D3ColdSupported
+	WdfDirectedPowerTransitionEnable
+	EnableIdlePowerManagement
+	IdleInWorkingState
+	) do for /f "delims=" %%b in ('reg query "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Enum" /s /f "%%a" ^| findstr "HKEY"') do Reg.exe add "%%b" /v "%%a" /t REG_DWORD /d "0" /f > NUL 2>&1
     powercfg -h off
     cls
 )
@@ -89,7 +110,6 @@ netsh int tcp set global initialRto=2000
 netsh int tcp set supplemental template=custom icw=10
 netsh interface ip set interface ethernet currenthoplimit=64
 netsh int ip set global taskoffload=enabled >nul 2>&1
-netsh int tcp set global rss=enabled >nul 2>&1
 cls
 
 Echo "Disabling Device Manager Devices"
@@ -259,12 +279,15 @@ Echo "Attempting To Disable MemoryCompression"
 C:\PostInstall\Tweaks\MinSudo.exe --NoLogo --TrustedInstaller --Privileged cmd /c "PowerShell Disable-MMAgent -MemoryCompression"
 cls
 
-del /q/f/s %TEMP%\*
-
 shutdown -r -t 60 
 msg * your pc will restart in 60 seconds from now you can run shutdown -a to cancel it if you have to install any drivers or want to set up your pc BUT DO NOT FORGET TO RESTART
 
+Echo "Cleanup"
+
+del /q/f/s %TEMP%\*
 del /q/f/s %WINDIR%\TEMP\*
+del /q/f/s %WINDIR%\TEMP\Modules\*
+cls
 
 start /b "" cmd /c del "%~f0"&exit /b
 

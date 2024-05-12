@@ -8,7 +8,7 @@ cls
 
 Echo "Disabling Process Mitigations"
 ::  Thanks AMIT
-call %WINDIR%\TEMP\disable-process-mitigations.bat >nul 2>&1
+call %WINDIR%\Modules\disable-process-mitigations.bat >nul 2>&1
 cls
 
 Echo "Disabling Write Cache Buffer"
@@ -60,6 +60,20 @@ if "%DEVICE_TYPE%" == "LAPTOP" (
     Reg.exe add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DisplayEnhancementService" /v "Start" /t REG_DWORD /d "4" /f >nul 2>&1
     Reg.exe add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power\PowerThrottling" /v "PowerThrottlingOff" /t REG_DWORD /d "1" /f >nul 2>&1
     Reg.exe add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\wmiacpi" /v "Start" /t REG_DWORD /d "4" /f >nul 2>&1
+	Echo "Disabling powersaving features"
+	for %%a in (
+	EnhancedPowerManagementEnabled
+	AllowIdleIrpInD3
+	EnableSelectiveSuspend
+	DeviceSelectiveSuspended
+	SelectiveSuspendEnabled
+	SelectiveSuspendOn
+	WaitWakeEnabled
+	D3ColdSupported
+	WdfDirectedPowerTransitionEnable
+	EnableIdlePowerManagement
+	IdleInWorkingState
+	) do for /f "delims=" %%b in ('reg query "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Enum" /s /f "%%a" ^| findstr "HKEY"') do Reg.exe add "%%b" /v "%%a" /t REG_DWORD /d "0" /f > NUL 2>&1
     cls
 )
 
@@ -100,7 +114,6 @@ netsh int tcp set global initialRto=2000
 netsh int tcp set supplemental template=custom icw=10
 netsh interface ip set interface ethernet currenthoplimit=64
 netsh int ip set global taskoffload=enabled >nul 2>&1
-netsh int tcp set global rss=enabled >nul 2>&1
 cls
 
 Echo "Tweak NIC"
