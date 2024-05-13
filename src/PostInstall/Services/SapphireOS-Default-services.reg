@@ -9,7 +9,7 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\AarSvc] 
 "Start"=dword:00000003 
  
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\AarSvc_20fb2] 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\AarSvc_273a3] 
 "Start"=dword:00000003 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\ACPI] 
@@ -49,7 +49,7 @@ Windows Registry Editor Version 5.00
 "Start"=dword:00000004 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\ALG] 
-"Start"=dword:00000003 
+"Start"=dword:00000004 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\amdgpio2] 
 "Start"=dword:00000003 
@@ -69,6 +69,9 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\amdsbs] 
 "Start"=dword:00000000 
  
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\amdwps] 
+"Start"=dword:00000000 
+ 
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\amdxata] 
 "Start"=dword:00000000 
  
@@ -80,6 +83,9 @@ Windows Registry Editor Version 5.00
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Appinfo] 
 "Start"=dword:00000003 
+ 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\AppleSSD] 
+"Start"=dword:00000000 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\applockerfltr] 
 "Start"=dword:00000003 
@@ -105,6 +111,9 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\AppXSvc] 
 "Start"=dword:00000003 
  
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\ApxSvc] 
+"Start"=dword:00000003 
+ 
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\arcsas] 
 "Start"=dword:00000004 
  
@@ -126,6 +135,9 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\autotimesvc] 
 "Start"=dword:00000004 
  
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\AxInstSV] 
+"Start"=dword:00000004 
+ 
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\b06bdrv] 
 "Start"=dword:00000000 
  
@@ -139,10 +151,10 @@ Windows Registry Editor Version 5.00
 "Start"=dword:00000001 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\BcastDVRUserService] 
-"Start"=dword:00000004 
+"Start"=dword:00000003 
  
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\BcastDVRUserService_20fb2] 
-"Start"=dword:00000004 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\BcastDVRUserService_273a3] 
+"Start"=dword:00000003 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\bcmfn2] 
 "Start"=dword:00000003 
@@ -156,6 +168,9 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\BFE] 
 "Start"=dword:00000002 
  
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\bfs] 
+"Start"=dword:00000002 
+ 
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\bindflt] 
 "Start"=dword:00000002 
  
@@ -165,7 +180,7 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\BluetoothUserService] 
 "Start"=dword:00000004 
  
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\BluetoothUserService_20fb2] 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\BluetoothUserService_273a3] 
 "Start"=dword:00000004 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\bowser] 
@@ -225,14 +240,17 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\CaptureService] 
 "Start"=dword:00000003 
  
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\CaptureService_20fb2] 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\CaptureService_273a3] 
 "Start"=dword:00000003 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\cbdhsvc] 
 "Start"=dword:00000004 
  
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\cbdhsvc_20fb2] 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\cbdhsvc_273a3] 
 "Start"=dword:00000004 
+ 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\CDD] 
+"Start"=dword:00000003 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\cdfs] 
 "Start"=dword:00000004 
@@ -243,7 +261,7 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\CDPUserSvc] 
 "Start"=dword:00000002 
  
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\CDPUserSvc_20fb2] 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\CDPUserSvc_273a3] 
 "Start"=dword:00000002 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\cdrom] 
@@ -297,7 +315,7 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\ConsentUxUserSvc] 
 "Start"=dword:00000003 
  
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\ConsentUxUserSvc_20fb2] 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\ConsentUxUserSvc_273a3] 
 "Start"=dword:00000003 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\CoreMessagingRegistrar] 
@@ -306,7 +324,7 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\CredentialEnrollmentManagerUserSvc] 
 "Start"=dword:00000003 
  
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\CredentialEnrollmentManagerUserSvc_20fb2] 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\CredentialEnrollmentManagerUserSvc_273a3] 
 "Start"=dword:00000003 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\CryptSvc] 
@@ -331,12 +349,12 @@ Windows Registry Editor Version 5.00
 "Start"=dword:00000003 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\defragsvc] 
-"Start"=dword:00000003 
+"Start"=dword:00000004 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DeviceAssociationBrokerSvc] 
 "Start"=dword:00000003 
  
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DeviceAssociationBrokerSvc_20fb2] 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DeviceAssociationBrokerSvc_273a3] 
 "Start"=dword:00000003 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DeviceAssociationService] 
@@ -348,13 +366,16 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DevicePickerUserSvc] 
 "Start"=dword:00000003 
  
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DevicePickerUserSvc_20fb2] 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DevicePickerUserSvc_273a3] 
 "Start"=dword:00000003 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DevicesFlowUserSvc] 
 "Start"=dword:00000003 
  
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DevicesFlowUserSvc_20fb2] 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DevicesFlowUserSvc_273a3] 
+"Start"=dword:00000003 
+ 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\devmap] 
 "Start"=dword:00000003 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DevQueryBroker] 
@@ -385,7 +406,10 @@ Windows Registry Editor Version 5.00
 "Start"=dword:00000002 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DisplayEnhancementService] 
-"Start"=dword:00000004 
+"Start"=dword:00000003 
+ 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DisplayMux] 
+"Start"=dword:00000003 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DmEnrollmentSvc] 
 "Start"=dword:00000003 
@@ -421,15 +445,18 @@ Windows Registry Editor Version 5.00
 "Start"=dword:00000004 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DXGKrnl] 
-"Start"=dword:00000001 
+"Start"=dword:00000000 
  
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\e1i65x64] 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\e1i68x64] 
 "Start"=dword:00000003 
  
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Eaphost] 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\EapHost] 
 "Start"=dword:00000004 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\ebdrv] 
+"Start"=dword:00000000 
+ 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\ebdrv0] 
 "Start"=dword:00000000 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\EFS] 
@@ -441,8 +468,11 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\EhStorTcgDrv] 
 "Start"=dword:00000000 
  
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\EntAppSvc] 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\embeddedmode] 
 "Start"=dword:00000003 
+ 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\EntAppSvc] 
+"Start"=dword:00000004 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\ErrDev] 
 "Start"=dword:00000004 
@@ -453,13 +483,16 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\EventSystem] 
 "Start"=dword:00000004 
  
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\ExecutionContext] 
+"Start"=dword:00000003 
+ 
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\exfat] 
 "Start"=dword:00000003 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\fastfat] 
 "Start"=dword:00000003 
  
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Fax] 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\fdc] 
 "Start"=dword:00000003 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\fdPHost] 
@@ -480,6 +513,9 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Filetrace] 
 "Start"=dword:00000003 
  
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\flpydisk] 
+"Start"=dword:00000003 
+ 
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\FltMgr] 
 "Start"=dword:00000000 
  
@@ -487,9 +523,12 @@ Windows Registry Editor Version 5.00
 "Start"=dword:00000004 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\FontCache3.0.0.0] 
-"Start"=dword:00000003 
+"Start"=dword:00000004 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\FrameServer] 
+"Start"=dword:00000003 
+ 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\FrameServerMonitor] 
 "Start"=dword:00000003 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\FsDepends] 
@@ -499,7 +538,7 @@ Windows Registry Editor Version 5.00
 "Start"=dword:00000000 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\fvevol] 
-"Start"=dword:00000004 
+"Start"=dword:00000000 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\GameInputSvc] 
 "Start"=dword:00000003 
@@ -509,6 +548,9 @@ Windows Registry Editor Version 5.00
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\genericusbfn] 
 "Start"=dword:00000003 
+ 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\GenPass] 
+"Start"=dword:00000000 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\GPIOClx0101] 
 "Start"=dword:00000003 
@@ -558,6 +600,9 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HpSAMD] 
 "Start"=dword:00000000 
  
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Hsp] 
+"Start"=dword:00000003 
+ 
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HTTP] 
 "Start"=dword:00000003 
  
@@ -581,6 +626,9 @@ Windows Registry Editor Version 5.00
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HyperVideo] 
 "Start"=dword:00000004 
+ 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\I3CHost] 
+"Start"=dword:00000003 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\i8042prt] 
 "Start"=dword:00000003 
@@ -651,6 +699,9 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\intelpmax] 
 "Start"=dword:00000003 
  
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\IntelPMT] 
+"Start"=dword:00000000 
+ 
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\intelppm] 
 "Start"=dword:00000003 
  
@@ -690,7 +741,13 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\kbdhid] 
 "Start"=dword:00000003 
  
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\kbldfltr] 
+"Start"=dword:00000003 
+ 
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\kdnic] 
+"Start"=dword:00000003 
+ 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\kdnic_legacy] 
 "Start"=dword:00000003 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\KeyIso] 
@@ -700,7 +757,7 @@ Windows Registry Editor Version 5.00
 "Start"=dword:00000000 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\KSecPkg] 
-"Start"=dword:00000004 
+"Start"=dword:00000000 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\ksthunk] 
 "Start"=dword:00000003 
@@ -709,10 +766,10 @@ Windows Registry Editor Version 5.00
 "Start"=dword:00000004 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanServer] 
-"Start"=dword:00000004 
+"Start"=dword:00000002 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanWorkstation] 
-"Start"=dword:00000004 
+"Start"=dword:00000002 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\lfsvc] 
 "Start"=dword:00000004 
@@ -729,6 +786,9 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\lmhosts] 
 "Start"=dword:00000004 
  
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LocalKdc] 
+"Start"=dword:00000003 
+ 
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LSI_SAS] 
 "Start"=dword:00000000 
  
@@ -736,9 +796,6 @@ Windows Registry Editor Version 5.00
 "Start"=dword:00000000 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LSI_SAS3i] 
-"Start"=dword:00000000 
- 
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LSI_SSS] 
 "Start"=dword:00000000 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LSM] 
@@ -762,9 +819,6 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\McpManagementService] 
 "Start"=dword:00000003 
  
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\megasas] 
-"Start"=dword:00000000 
- 
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\megasas2i] 
 "Start"=dword:00000000 
  
@@ -777,14 +831,14 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\MessagingService] 
 "Start"=dword:00000003 
  
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\MessagingService_20fb2] 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\MessagingService_273a3] 
 "Start"=dword:00000003 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Microsoft_Bluetooth_AvrcpTransport] 
 "Start"=dword:00000004 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\MixedRealityOpenXRSvc] 
-"Start"=dword:00000003 
+"Start"=dword:00000004 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\mlx4_bus] 
 "Start"=dword:00000003 
@@ -805,6 +859,9 @@ Windows Registry Editor Version 5.00
 "Start"=dword:00000003 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\mountmgr] 
+"Start"=dword:00000000 
+ 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\mpi3drvi] 
 "Start"=dword:00000000 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\mpsdrv] 
@@ -844,7 +901,7 @@ Windows Registry Editor Version 5.00
 "Start"=dword:00000000 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\MSiSCSI] 
-"Start"=dword:00000003 
+"Start"=dword:00000004 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\msiserver] 
 "Start"=dword:00000003 
@@ -927,6 +984,9 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\ndiswanlegacy] 
 "Start"=dword:00000003 
  
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NDKPerf] 
+"Start"=dword:00000003 
+ 
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NDKPing] 
 "Start"=dword:00000003 
  
@@ -963,6 +1023,9 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\netvsc] 
 "Start"=dword:00000003 
  
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NetworkPrivacyPolicy] 
+"Start"=dword:00000002 
+ 
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NgcCtnrSvc] 
 "Start"=dword:00000003 
  
@@ -970,10 +1033,16 @@ Windows Registry Editor Version 5.00
 "Start"=dword:00000003 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NlaSvc] 
-"Start"=dword:00000002 
+"Start"=dword:00000003 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Npfs] 
 "Start"=dword:00000001 
+ 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NPSMSvc] 
+"Start"=dword:00000003 
+ 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NPSMSvc_273a3] 
+"Start"=dword:00000003 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\npsvctrig] 
 "Start"=dword:00000001 
@@ -993,6 +1062,9 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\nvdimm] 
 "Start"=dword:00000000 
  
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\nvmedisk] 
+"Start"=dword:00000000 
+ 
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\nvraid] 
 "Start"=dword:00000000 
  
@@ -1003,10 +1075,19 @@ Windows Registry Editor Version 5.00
 "Start"=dword:00000004 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\p2pimsvc] 
-"Start"=dword:00000003 
+"Start"=dword:00000004 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\p2psvc] 
+"Start"=dword:00000004 
+ 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\P9Rdr] 
 "Start"=dword:00000003 
+ 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\P9RdrService] 
+"Start"=dword:00000004 
+ 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\P9RdrService_273a3] 
+"Start"=dword:00000004 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Parport] 
 "Start"=dword:00000003 
@@ -1038,8 +1119,14 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PeerDistSvc] 
 "Start"=dword:00000003 
  
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\perceptionsimulation] 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PenService] 
 "Start"=dword:00000003 
+ 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PenService_273a3] 
+"Start"=dword:00000003 
+ 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\perceptionsimulation] 
+"Start"=dword:00000004 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\percsas2i] 
 "Start"=dword:00000000 
@@ -1050,10 +1137,13 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PerfHost] 
 "Start"=dword:00000003 
  
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PhoneSvc] 
+"Start"=dword:00000003 
+ 
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PimIndexMaintenanceSvc] 
 "Start"=dword:00000004 
  
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PimIndexMaintenanceSvc_20fb2] 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PimIndexMaintenanceSvc_273a3] 
 "Start"=dword:00000004 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PktMon] 
@@ -1065,6 +1155,12 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PlugPlay] 
 "Start"=dword:00000003 
  
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PlutonHeci] 
+"Start"=dword:00000003 
+ 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PlutonHsp2] 
+"Start"=dword:00000003 
+ 
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\pmem] 
 "Start"=dword:00000000 
  
@@ -1072,10 +1168,10 @@ Windows Registry Editor Version 5.00
 "Start"=dword:00000003 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PNRPAutoReg] 
-"Start"=dword:00000003 
+"Start"=dword:00000004 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PNRPsvc] 
-"Start"=dword:00000003 
+"Start"=dword:00000004 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PolicyAgent] 
 "Start"=dword:00000003 
@@ -1089,14 +1185,23 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PptpMiniport] 
 "Start"=dword:00000003 
  
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PrintDeviceConfigurationService] 
+"Start"=dword:00000003 
+ 
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PrintNotify] 
+"Start"=dword:00000003 
+ 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PrintScanBrokerService] 
 "Start"=dword:00000003 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PrintWorkflowUserSvc] 
 "Start"=dword:00000003 
  
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PrintWorkflowUserSvc_20fb2] 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PrintWorkflowUserSvc_273a3] 
 "Start"=dword:00000003 
+ 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PRM] 
+"Start"=dword:00000000 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Processor] 
 "Start"=dword:00000003 
@@ -1110,6 +1215,9 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PushToInstall] 
 "Start"=dword:00000003 
  
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\pvscsi] 
+"Start"=dword:00000000 
+ 
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\QWAVE] 
 "Start"=dword:00000004 
  
@@ -1117,9 +1225,15 @@ Windows Registry Editor Version 5.00
 "Start"=dword:00000004 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Ramdisk] 
-"Start"=dword:00000000 
+"Start"=dword:00000003 
+ 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasAcd] 
+"Start"=dword:00000003 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasAgileVpn] 
+"Start"=dword:00000003 
+ 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasAuto] 
 "Start"=dword:00000003 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Rasl2tp] 
@@ -1143,13 +1257,16 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RDPDR] 
 "Start"=dword:00000004 
  
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RdpVideoMiniport] 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RdpVideominiport] 
 "Start"=dword:00000004 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\rdyboost] 
 "Start"=dword:00000004 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\ReFS] 
+"Start"=dword:00000003 
+ 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\refsdedupsvc] 
 "Start"=dword:00000003 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\ReFSv1] 
@@ -1169,6 +1286,9 @@ Windows Registry Editor Version 5.00
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RmSvc] 
 "Start"=dword:00000004 
+ 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RoutePolicy] 
+"Start"=dword:00000003 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RpcEptMapper] 
 "Start"=dword:00000002 
@@ -1212,13 +1332,16 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\sdbus] 
 "Start"=dword:00000003 
  
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SDFRd] 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SDRSVC] 
 "Start"=dword:00000003 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\sdstor] 
 "Start"=dword:00000003 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\seclogon] 
+"Start"=dword:00000003 
+ 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SEMgrSvc] 
 "Start"=dword:00000003 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SENS] 
@@ -1251,19 +1374,25 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SessionEnv] 
 "Start"=dword:00000003 
  
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\sfloppy] 
+"Start"=dword:00000003 
+ 
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SgrmAgent] 
-"Start"=dword:00000000 
+"Start"=dword:00000004 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SgrmBroker] 
-"Start"=dword:00000002 
+"Start"=dword:00000004 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SharedAccess] 
-"Start"=dword:00000003 
+"Start"=dword:00000004 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SharedRealitySvc] 
-"Start"=dword:00000003 
+"Start"=dword:00000004 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\ShellHWDetection] 
+"Start"=dword:00000004 
+ 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\shpamsvc] 
 "Start"=dword:00000004 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SiSRaid2] 
@@ -1275,13 +1404,16 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SmartSAMD] 
 "Start"=dword:00000000 
  
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\smbdirect] 
+"Start"=dword:00000003 
+ 
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\smphost] 
 "Start"=dword:00000003 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SmsRouter] 
 "Start"=dword:00000004 
  
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SNMPTRAP] 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SNMPTrap] 
 "Start"=dword:00000003 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\spaceparser] 
@@ -1290,14 +1422,11 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\spaceport] 
 "Start"=dword:00000004 
  
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SpatialGraphFilter] 
-"Start"=dword:00000003 
- 
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SpbCx] 
 "Start"=dword:00000003 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\spectrum] 
-"Start"=dword:00000003 
+"Start"=dword:00000004 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Spooler] 
 "Start"=dword:00000004 
@@ -1324,12 +1453,12 @@ Windows Registry Editor Version 5.00
 "Start"=dword:00000004 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\StateRepository] 
-"Start"=dword:00000003 
+"Start"=dword:00000002 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\stexstor] 
 "Start"=dword:00000000 
  
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\stisvc] 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\StiSvc] 
 "Start"=dword:00000003 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\storahci] 
@@ -1354,15 +1483,12 @@ Windows Registry Editor Version 5.00
 "Start"=dword:00000000 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\svsvc] 
-"Start"=dword:00000003 
+"Start"=dword:00000004 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\swenum] 
 "Start"=dword:00000003 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\swprv] 
-"Start"=dword:00000003 
- 
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Synth3dVsc] 
 "Start"=dword:00000003 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SysMain] 
@@ -1371,7 +1497,7 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SystemEventsBroker] 
 "Start"=dword:00000002 
  
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\TabletInputService] 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\TapiSrv] 
 "Start"=dword:00000003 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip] 
@@ -1395,11 +1521,14 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\TermService] 
 "Start"=dword:00000004 
  
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\TextInputManagementService] 
+"Start"=dword:00000002 
+ 
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Themes] 
 "Start"=dword:00000004 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\TieringEngineService] 
-"Start"=dword:00000003 
+"Start"=dword:00000004 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\TimeBrokerSvc] 
 "Start"=dword:00000003 
@@ -1464,11 +1593,17 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\UdkUserSvc] 
 "Start"=dword:00000003 
  
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\UdkUserSvc_20fb2] 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\UdkUserSvc_273a3] 
 "Start"=dword:00000003 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\UEFI] 
 "Start"=dword:00000003 
+ 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\UevAgentDriver] 
+"Start"=dword:00000004 
+ 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\UevAgentService] 
+"Start"=dword:00000004 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Ufx01000] 
 "Start"=dword:00000003 
@@ -1479,6 +1614,9 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\ufxsynopsys] 
 "Start"=dword:00000003 
  
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\uiomap] 
+"Start"=dword:00000001 
+ 
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\umbus] 
 "Start"=dword:00000004 
  
@@ -1488,10 +1626,13 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\UmRdpService] 
 "Start"=dword:00000004 
  
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\UnionFS] 
+"Start"=dword:00000002 
+ 
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\UnistoreSvc] 
 "Start"=dword:00000004 
  
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\UnistoreSvc_20fb2] 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\UnistoreSvc_273a3] 
 "Start"=dword:00000004 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\upnphost] 
@@ -1504,6 +1645,12 @@ Windows Registry Editor Version 5.00
 "Start"=dword:00000003 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\UrsSynopsys] 
+"Start"=dword:00000003 
+ 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Usb4DeviceRouter] 
+"Start"=dword:00000003 
+ 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Usb4HostRouter] 
 "Start"=dword:00000003 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\usbaudio] 
@@ -1548,7 +1695,7 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\UserDataSvc] 
 "Start"=dword:00000004 
  
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\UserDataSvc_20fb2] 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\UserDataSvc_273a3] 
 "Start"=dword:00000004 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\UserManager] 
@@ -1558,7 +1705,7 @@ Windows Registry Editor Version 5.00
 "Start"=dword:00000004 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\VacSvc] 
-"Start"=dword:00000003 
+"Start"=dword:00000004 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\VaultSvc] 
 "Start"=dword:00000004 
@@ -1651,9 +1798,12 @@ Windows Registry Editor Version 5.00
 "Start"=dword:00000004 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WaaSMedicSvc] 
-"Start"=dword:00000003 
+"Start"=dword:00000004 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WacomPen] 
+"Start"=dword:00000003 
+ 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WalletService] 
 "Start"=dword:00000003 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\wanarp] 
@@ -1663,7 +1813,13 @@ Windows Registry Editor Version 5.00
 "Start"=dword:00000003 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WarpJITSvc] 
-"Start"=dword:00000004 
+"Start"=dword:00000003 
+ 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\wbengine] 
+"Start"=dword:00000003 
+ 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WbioSrvc] 
+"Start"=dword:00000003 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\wcifs] 
 "Start"=dword:00000002 
@@ -1675,6 +1831,9 @@ Windows Registry Editor Version 5.00
 "Start"=dword:00000003 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\wcnfs] 
+"Start"=dword:00000004 
+ 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\wcnsvc] 
 "Start"=dword:00000004 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Wdf01000] 
@@ -1693,7 +1852,16 @@ Windows Registry Editor Version 5.00
 "Start"=dword:00000003 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WebClient] 
+"Start"=dword:00000004 
+ 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\webthreatdefsvc] 
 "Start"=dword:00000003 
+ 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\webthreatdefusersvc] 
+"Start"=dword:00000002 
+ 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\webthreatdefusersvc_273a3] 
+"Start"=dword:00000002 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Wecsvc] 
 "Start"=dword:00000004 
@@ -1710,7 +1878,13 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WiaRpc] 
 "Start"=dword:00000003 
  
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Wificx] 
+"Start"=dword:00000003 
+ 
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WIMMount] 
+"Start"=dword:00000003 
+ 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WinAccelCx0101] 
 "Start"=dword:00000003 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WindowsTrustedRT] 
@@ -1721,6 +1895,9 @@ Windows Registry Editor Version 5.00
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WinHttpAutoProxySvc] 
 "Start"=dword:00000004 
+ 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WinI3C] 
+"Start"=dword:00000003 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WinMad] 
 "Start"=dword:00000003 
@@ -1747,7 +1924,7 @@ Windows Registry Editor Version 5.00
 "Start"=dword:00000003 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\wlpasvc] 
-"Start"=dword:00000003 
+"Start"=dword:00000004 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WManSvc] 
 "Start"=dword:00000003 
@@ -1764,6 +1941,9 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Wof] 
 "Start"=dword:00000000 
  
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WpcMonSvc] 
+"Start"=dword:00000003 
+ 
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WPDBusEnum] 
 "Start"=dword:00000003 
  
@@ -1771,12 +1951,12 @@ Windows Registry Editor Version 5.00
 "Start"=dword:00000003 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WpnService] 
-"Start"=dword:00000002 
+"Start"=dword:00000004 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WpnUserService] 
 "Start"=dword:00000002 
  
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WpnUserService_20fb2] 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WpnUserService_273a3] 
 "Start"=dword:00000002 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\ws2ifsl] 
@@ -1784,6 +1964,9 @@ Windows Registry Editor Version 5.00
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WSearch] 
 "Start"=dword:00000004 
+ 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\wtd] 
+"Start"=dword:00000002 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\wuauserv] 
 "Start"=dword:00000003 
@@ -1794,26 +1977,26 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WUDFRd] 
 "Start"=dword:00000003 
  
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WUDFWpdFs] 
-"Start"=dword:00000003 
- 
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WwanSvc] 
 "Start"=dword:00000003 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\XblAuthManager] 
-"Start"=dword:00000003 
+"Start"=dword:00000004 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\XblGameSave] 
-"Start"=dword:00000003 
+"Start"=dword:00000004 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\xboxgip] 
 "Start"=dword:00000003 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\XboxGipSvc] 
-"Start"=dword:00000003 
+"Start"=dword:00000004 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\XboxNetApiSvc] 
-"Start"=dword:00000003 
+"Start"=dword:00000004 
  
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\xinputhid] 
+"Start"=dword:00000003 
+ 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\ZTDNS] 
 "Start"=dword:00000003 
