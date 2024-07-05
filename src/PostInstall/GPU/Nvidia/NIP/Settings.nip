@@ -100,6 +100,12 @@
         <SettingValue>1</SettingValue>
         <ValueType>Dword</ValueType>
       </ProfileSetting>
+      <ProfileSetting>
+        <SettingNameInfo />
+        <SettingID>1343646814</SettingID>
+        <SettingValue>0</SettingValue>
+        <ValueType>Dword</ValueType>
+      </ProfileSetting>
     </Settings>
   </Profile>
 </ArrayOfProfile>

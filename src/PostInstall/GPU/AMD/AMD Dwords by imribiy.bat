@@ -116,6 +116,4 @@ Reg.exe add "HKLM\System\CurrentControlSet\Services\AMD External Events Utility"
 Reg.exe add "HKLM\System\CurrentControlSet\Services\amdfendr" /v "Start" /t REG_DWORD /d "4" /f > nul 2>&1
 Reg.exe add "HKLM\System\CurrentControlSet\Services\amdfendrmgr" /v "Start" /t REG_DWORD /d "4" /f > nul 2>&1
 Reg.exe add "HKLM\System\CurrentControlSet\Services\amdlog" /v "Start" /t REG_DWORD /d "4" /f > nul 2>&1
-sc config amdlog start=disabled
-sc config "AMD External Events Utility" start=disabled
 pause
