@@ -76,14 +76,6 @@ Windows Registry Editor Version 5.00
 [HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\AppCompat]
 "DisablePCA"=dword:00000001
 
-; disable customer experience improvement program
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SQMClient\Windows]
-"CEIPEnable"=dword:00000000
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\SQMClient\Windows]
-"CEIPEnable"=dword:00000000
-
 [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\VSCommon\15.0\SQM]
 "OptIn"=dword:00000000
 
@@ -1252,6 +1244,11 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\PeerDist\Service]
 "Enable"=dword:00000000
 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power]
+"LowLatencyScalingPercentage"=dword:64
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\default\DmaGuard\DeviceEnumerationPolicy]
+"value"=dword:00000002
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\FindMyDevice]
 "AllowFindMyDevice"=dword:00000000
@@ -1347,12 +1344,6 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\PCHealth\ErrorReporting]
 "DoReport"=dword:00000000
 
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Messenger\Client]
-"CEIP"=dword:00000002
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Messenger\Client]
-"CEIP"=dword:00000002 
-
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DWM]
 "DisableAccentGradient"=dword:00000001
 
@@ -1369,9 +1360,31 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\SearchIndexer.exe\PerfOptions]
 "CpuPriorityClass"=dword:00000005
 
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\OriginWebHelperService.exe\PerfOptions]
+"CpuPriorityClass"=dword:00000005
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\ShareX.exe\PerfOptions]
+"CpuPriorityClass"=dword:00000005
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\EpicWebHelper.exe\PerfOptions]
+"CpuPriorityClass"=dword:00000005
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\UplayWebCore.exe\PerfOptions]
+"CpuPriorityClass"=dword:00000005
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\SocialClubHelper.exe\PerfOptions]
+"CpuPriorityClass"=dword:00000005
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\steamwebhelper.exe\PerfOptions]
+"CpuPriorityClass"=dword:00000005
+
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\fontdrvhost.exe\PerfOptions]
 "CpuPriorityClass"=dword:00000001
 "IoPriority"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\winlogon.exe\PerfOptions]
+"CpuPriorityClass"=dword:00000002
+"IoPriority"=dword:00000002
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\lsass.exe\PerfOptions]
 "CpuPriorityClass"=dword:00000001
@@ -1383,6 +1396,10 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\sppsvc.exe\PerfOptions]
 "CpuPriorityClass"=dword:00000001
 "IoPriority"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\csrss.exe\PerfOptions] 
+"CpuPriorityClass"=dword:00000003
+"IoPriority"=dword:00000003
 
 ; these ones might be gone from the OS Too Bad!
 
@@ -1440,3 +1457,28 @@ Windows Registry Editor Version 5.00
 
 [HKEY_CURRENT_USER\Control Panel\Keyboard]
 "PrintScreenKeyForSnippingEnabled"=dword:00000000
+
+; lower right click menu appearing delay
+
+[HKEY_CURRENT_USER\Control Panel\Desktop]
+"MenuShowDelay"=dword:00000020
+
+; Disable CEIP
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\AppV\CEIP]
+"CEIPEnable"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\AppV\CEIP]
+"CEIPEnable"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\SQMClient\Windows]
+"CEIPEnable"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\Messenger\Client]
+"CEIP"=dword:00000002
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Policies\Microsoft\SQMClient\Windows]
+"CEIPEnable"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Messenger\Client]
+"CEIP"=dword:00000002

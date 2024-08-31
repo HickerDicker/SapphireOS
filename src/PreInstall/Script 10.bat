@@ -32,8 +32,6 @@ bcdedit /timeout 3
 cls
 
 Echo "editing POW & power tweaks"
-powercfg -import "C:\PostInstall\PreInstall\SapphireOS.pow" 00000000-0000-0000-0000-000000000000 >nul 2>&1
-powercfg /setactive 00000000-0000-0000-0000-000000000000 >nul 2>&1
 Reg.exe add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Power" /v "HiberbootEnabled" /t Reg_DWORD /d "0" /f  >nul 2>&1
 Reg.exe add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power\PowerThrottling" /v "PowerThrottlingOff" /t REG_DWORD /d "1" /f
 Reg.exe add "HKLM\SYSTEM\CurrentControlSet\Control\Power" /v "HibernateEnabled" /t Reg_DWORD /d "0" /f  >nul 2>&1
@@ -144,7 +142,6 @@ for %%z in (
 	NdisCap
 	NetBIOS
 	NetBT
-	KSecPkg
 	spaceport
         VaultSvc
         EventSystem
@@ -250,5 +247,3 @@ del /q/f/s %TEMP%\*
 echo "We love Rax and everyone credited in the discord (This script is mostly taken from RaxOS [also the credits are stolen from RaxOS too lol])"
 
 del /q/f/s %WINDIR%\TEMP\*
-
-Exit

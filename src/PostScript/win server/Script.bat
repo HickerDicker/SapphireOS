@@ -319,7 +319,8 @@ Echo "Changing fsutil behaviors"
 fsutil behavior set disable8dot3 1 > NUL 2>&1
 fsutil behavior set disablelastaccess 1 > NUL 2>&1
 Fsutil behavior set memoryusage 2 > NUL 2>&1
-cls
+fsutil behavior set encryptpagingfile 0 > NUL 2>&1
+cls 
 
 Echo "Disable Driver PowerSaving"
 %SYSTEMROOT%\System32\WindowsPowerShell\v1.0\powershell.exe -Command "Get-WmiObject MSPower_DeviceEnable -Namespace root\wmi | ForEach-Object { $_.enable = $false; $_.psbase.put(); }"

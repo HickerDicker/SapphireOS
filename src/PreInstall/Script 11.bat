@@ -18,7 +18,7 @@ cls
 
 Echo "Editing Bcdedit"
 label C: SapphireOS
-bcdedit /set {current} description "SapphireOS 11"
+bcdedit /set {current} description "SapphireOS Server"
 bcdedit /set {current} nx AlwaysOff
 bcdedit /set disabledynamictick yes
 bcdedit /deletevalue useplatformclock
@@ -201,20 +201,6 @@ cls
 Echo "Enabling FSE"
 Reg.exe add "HKCU\System\GameConfigStore" /v "GameDVR_FSEBehaviorMode" /t REG_DWORD /d "2" /f >nul 2>&1
 Reg.exe add "HKCU\System\GameConfigStore" /v "GameDVR_DXGIHonorFSEWindowsCompatible" /t REG_DWORD /d "1" /f >nul 2>&1
-cls
-
-Echo "RW Fix for w11"
-Reg add "HKLM\SYSTEM\CurrentControlSet\Control\CI\Config" /v "VulnerableDriverBlocklistEnable" /t REG_DWORD /d "0" /f >NUL 2>&1
-cls
-
-Echo "Fix explorer white bar bug"
-cmd /c "start C:\Windows\explorer.exe"
-taskkill /f /im explorer.exe >nul 2>&1
-taskkill /f /im explorer.exe >nul 2>&1
-taskkill /f /im explorer.exe >nul 2>&1
-taskkill /f /im explorer.exe >nul 2>&1
-taskkill /f /im explorer.exe >nul 2>&1
-cmd /c "start C:\Windows\explorer.exe"
 cls
 
 Echo "fixing languages if needed"

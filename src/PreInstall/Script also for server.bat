@@ -6,11 +6,6 @@ Echo Setting "Execution Policy To Unrestricted"
 powershell set-executionpolicy unrestricted -force >nul 2>&1
 cls
 
-Echo "Disabling Process Mitigations"
-::  Thanks AMIT
-call %WINDIR%\TEMP\disable-process-mitigations.bat >nul 2>&1
-cls
-
 Echo "Disabling Write Cache Buffer"
 	for /f "tokens=*" %%i in ('reg query "HKLM\SYSTEM\CurrentControlSet\Enum\SCSI"^| findstr "HKEY"') do (
 		for /f "tokens=*" %%a in ('reg query "%%i"^| findstr "HKEY"') do reg.exe add "%%a\Device Parameters\Disk" /v "CacheIsPowerProtected" /t REG_DWORD /d "1" /f > NUL 2>&1
@@ -19,44 +14,6 @@ Echo "Disabling Write Cache Buffer"
 		for /f "tokens=*" %%a in ('reg query "%%i"^| findstr "HKEY"') do reg.exe add "%%a\Device Parameters\Disk" /v "UserWriteCacheSetting" /t REG_DWORD /d "1" /f > NUL 2>&1
 	)
 )
-cls
-
-Echo "Editing Bcdedit"
-label C: SapphireOS
-bcdedit /set {current} description "SapphireOS Server"
-bcdedit /set {current} nx AlwaysOff
-bcdedit /set disabledynamictick yes
-bcdedit /deletevalue useplatformclock
-bcdedit /set bootmenupolicy legacy
-bcdedit /set integrityservices disable
-bcdedit /set isolatedcontext No
-bcdedit /timeout 3
-cls
-
-Echo "Disabling power throttling and setting the powerplan to SapphireOS Powerplan on desktops and enabling it along with setting the balanced powerplan on laptops"
-
-for /f "delims=:{}" %%a in ('wmic path Win32_SystemEnclosure get ChassisTypes ^| findstr [0-9]') do set "CHASSIS=%%a"
-set "DEVICE_TYPE=PC"
-for %%a in (8 9 10 11 12 13 14 18 21 30 31 32) do if "%CHASSIS%" == "%%a" (set "DEVICE_TYPE=LAPTOP")
-
-if "%DEVICE_TYPE%" == "LAPTOP" (
-    Reg.exe add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\serenum" /v "Start" /t REG_DWORD /d "3" /f >nul 2>&1
-    Reg.exe add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\sermouse" /v "Start" /t REG_DWORD /d "3" /f >nul 2>&1
-    Reg.exe add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\serial" /v "Start" /t REG_DWORD /d "3" /f >nul 2>&1
-    Reg.exe add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\wmiacpi" /v "Start" /t REG_DWORD /d "2" /f >nul 2>&1
-    Reg.exe add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power\PowerThrottling" /v "PowerThrottlingOff" /t REG_DWORD /d "0" /f >nul 2>&1
-    powercfg /setactive 381b4222-f694-41f0-9685-ff5bb260df2e >nul 2>&1
-	cls
-)
-) else (
-    Reg.exe add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DisplayEnhancementService" /v "Start" /t REG_DWORD /d "4" /f >nul 2>&1
-    Reg.exe add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power\PowerThrottling" /v "PowerThrottlingOff" /t REG_DWORD /d "1" /f >nul 2>&1
-    Reg.exe add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\wmiacpi" /v "Start" /t REG_DWORD /d "4" /f >nul 2>&1
-    cls
-)
-
-Echo "Disabling network adapters"
-powershell -NoProfile -Command "Disable-NetAdapterBinding -Name "*" -ComponentID ms_tcpip6, ms_msclient, ms_server, ms_rspndr, ms_lltdio, ms_implat, ms_lldp" >nul 2>&1
 cls
 
 Echo "Disabling NetBIOS over TCP/IP"
@@ -72,25 +29,8 @@ for /f "delims=" %%a in ('reg query HKLM\SOFTWARE\Microsoft\Windows\CurrentVersi
 for /f "delims=" %%a in ('reg query HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\MMDevices\Audio\Render') do Reg.exe add "%%a\Properties" /v "{b3f8fa53-0004-438e-9003-51a46e139bfc},4" /t REG_DWORD /d "0" /f >nul 2>&1
 cls
 
-Echo "Reset Firewall Rules"
-reg delete "HKLM\System\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules" /f && reg add "HKLM\System\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules" /f >nul 2>&1
-cls
-
 Echo "Removing leftover devices"
 C:\PostInstall\Tweaks\DeviceCleanupCmd.exe * -s >nul 2>&1
-cls
-
-Echo "Renaming Microcode Updates"
-C:\PostInstall\Tweaks\MinSudo.exe --NoLogo --TrustedInstaller --Privileged cmd /c "ren mcupdate_GenuineIntel.dll mcupdate_GenuineIntel.old" >nul 2>&1
-C:\PostInstall\Tweaks\MinSudo.exe --NoLogo --TrustedInstaller --Privileged cmd /c "ren mcupdate_AuthenticAMD.dll mcupdate_AuthenticAMD.old" >nul 2>&1
-
-Echo "Network Tweaks"
-netsh int tcp set heuristics disabled >nul 2>&1
-netsh int tcp set supplemental Internet congestionprovider=ctcp >nul 2>&1
-netsh int tcp set global timestamps=disabled >nul 2>&1
-netsh int tcp set global rsc=disabled >nul 2>&1
-netsh int ip set global taskoffload=enabled >nul 2>&1
-netsh int tcp set global rss=enabled >nul 2>&1
 cls
 
 Echo "Disabling Device Manager Devices"
@@ -166,11 +106,4 @@ cls
 
 del /q/f/s %TEMP%\* >nul 2>&1
 
-shutdown -r -t 60 
-msg * your pc will restart in 60 seconds from now you can run shutdown -a to cancel it if you have to install any drivers or want to set up your pc BUT DO NOT FORGET TO RESTART
-
 del /q/f/s %WINDIR%\TEMP\* >nul 2>&1
-
-start /b "" cmd /c del "%~f0"&exit /b
-
-Exit

@@ -30,7 +30,6 @@ label C: SapphireOS
 bcdedit /set {current} description "SapphireOS 10 22H2"
 bcdedit /set {current} nx AlwaysOff
 bcdedit /set disabledynamictick yes
-bcdedit /set useplatformtick yes
 bcdedit /deletevalue useplatformclock
 bcdedit /set bootmenupolicy legacy
 bcdedit /set hypervisorlaunchtype off
@@ -158,8 +157,8 @@ for /f %%a in ('reg query "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\C
     for /f %%i in ('reg query "%%a" /v "*WakeOnMagicPacket" ^| findstr "HKEY"') do (
         Reg.exe add "%%i" /v "*WakeOnMagicPacket" /t REG_SZ /d "0" /f >nul 2>&1   
     )
-	    for /f %%i in ('reg query "%%a" /v "AutoPowerSaveModeEnabled" ^| findstr "HKEY"') do (
-        Reg.exe add "%%i" /v "AutoPowerSaveModeEnabled" /t REG_SZ /d "0" /f >nul 2>&1
+	for /f %%i in ('reg query "%%a" /v "AutoPowerSaveModeEnabled" ^| findstr "HKEY"') do (
+    Reg.exe add "%%i" /v "AutoPowerSaveModeEnabled" /t REG_SZ /d "0" /f >nul 2>&1
     )
     for /f %%i in ('reg query "%%a" /v "*WakeOnPattern" ^| findstr "HKEY"') do (
         Reg.exe add "%%i" /v "*WakeOnPattern" /t REG_SZ /d "0" /f >nul 2>&1   
@@ -188,17 +187,17 @@ for /f %%a in ('reg query "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\C
     for /f %%i in ('reg query "%%a" /v "EEELinkAdvertisement" ^| findstr "HKEY"') do (
         Reg.exe add "%%i" /v "EEELinkAdvertisement" /t REG_SZ /d "0" /f >nul 2>&1   
     )
-	    for /f %%i in ('reg query "%%a" /v "EeePhyEnable" ^| findstr "HKEY"') do (
-        Reg.exe add "%%i" /v "EeePhyEnable" /t REG_SZ /d "0" /f >nul 2>&1
+	for /f %%i in ('reg query "%%a" /v "EeePhyEnable" ^| findstr "HKEY"') do (
+    Reg.exe add "%%i" /v "EeePhyEnable" /t REG_SZ /d "0" /f >nul 2>&1
     )
     for /f %%i in ('reg query "%%a" /v "ITR" ^| findstr "HKEY"') do (
         Reg.exe add "%%i" /v "ITR" /t REG_SZ /d "0" /f >nul 2>&1   
     )
     for /f %%i in ('reg query "%%a" /v "ReduceSpeedOnPowerDown" ^| findstr "HKEY"') do (
-        Reg.exe add "%%i" /v "ReduceSpeedOnPowerDown" /t REG_SZ /d "0" /f >nul 2>&1   
+    Reg.exe add "%%i" /v "ReduceSpeedOnPowerDown" /t REG_SZ /d "0" /f >nul 2>&1   
     )
-	    for /f %%i in ('reg query "%%a" /v "PowerDownPll" ^| findstr "HKEY"') do (
-        Reg.exe add "%%i" /v "PowerDownPll" /t REG_SZ /d "0" /f >nul 2>&1
+	for /f %%i in ('reg query "%%a" /v "PowerDownPll" ^| findstr "HKEY"') do (
+    Reg.exe add "%%i" /v "PowerDownPll" /t REG_SZ /d "0" /f >nul 2>&1
     )
     for /f %%i in ('reg query "%%a" /v "WaitAutoNegComplete" ^| findstr "HKEY"') do (
         Reg.exe add "%%i" /v "WaitAutoNegComplete" /t REG_SZ /d "0" /f >nul 2>&1   
@@ -320,6 +319,7 @@ Echo "Changing fsutil behaviors"
 fsutil behavior set disable8dot3 1 > NUL 2>&1
 fsutil behavior set disablelastaccess 1 > NUL 2>&1
 Fsutil behavior set memoryusage 2 > NUL 2>&1
+fsutil behavior set encryptpagingfile 0 > NUL 2>&1
 cls
 
 Echo "Disable Driver PowerSaving"
