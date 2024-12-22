@@ -29,6 +29,7 @@ Echo "Editing Bcdedit"
 label C: SapphireOS
 bcdedit /set {current} description "SapphireOS 10 22H2"
 bcdedit /set {current} nx AlwaysOff
+bcdedit /set useplatformtick no
 bcdedit /set disabledynamictick yes
 bcdedit /deletevalue useplatformclock
 bcdedit /set bootmenupolicy legacy

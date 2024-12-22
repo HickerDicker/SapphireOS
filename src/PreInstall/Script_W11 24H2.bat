@@ -91,6 +91,7 @@ for %%z in (
 	Themes
 	TrkWks
 	tzautoupdate
+	KSecPKG
 	OneSyncSvc
 	WdiSystemHost
 	WdiServiceHost

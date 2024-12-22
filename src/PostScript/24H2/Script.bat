@@ -30,6 +30,7 @@ label C: SapphireOS
 bcdedit /set {current} description "SapphireOS 11 24H2"
 bcdedit /set {current} nx AlwaysOff
 bcdedit /set disabledynamictick yes
+bcdedit /set useplatformtick no
 bcdedit /deletevalue useplatformclock
 bcdedit /set bootmenupolicy legacy
 bcdedit /set hypervisorlaunchtype off
@@ -142,6 +143,7 @@ Echo "Changing fsutil behaviors"
 fsutil behavior set disable8dot3 1 > NUL 2>&1
 fsutil behavior set disablelastaccess 1 > NUL 2>&1
 Fsutil behavior set memoryusage 2 > NUL 2>&1
+fsutil behavior set encryptpagingfile 0 > NUL 2>&1
 cls
 
 Echo "Disable Driver PowerSaving"
