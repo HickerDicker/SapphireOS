@@ -72,7 +72,7 @@ Windows Registry Editor Version 5.00
 ; allocate processor resources primarily to programs
 
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\PriorityControl]
-"Win32PrioritySeparation"=dword:00000026
+"Win32PrioritySeparation"=dword:0000002a
 
 ; prevent windows marking file attachments with information about their zone of origin
 
@@ -1732,3 +1732,8 @@ PauseFeatureUpdatesStartTime"="2021-10-05T16:02:16Z"
 
 [HKEY_CLASSES_ROOT\txtfilelegacy]
 @="Text Document"
+
+; Disable the Windows Platform Binary Table (Want To Install **Motherboard app**
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager]
+"DisableWpbtExecution"=dword:00000001

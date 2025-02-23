@@ -7,12 +7,42 @@ powershell set-executionpolicy unrestricted -force >nul 2>&1
 cls
 
 Echo "Opting Out Of PowerShell Telemetry
-setx POWERSHELL_TELEMETRY_OPTOUT 1 >nul 2>&1
+setx DOTNET_TRY_CLI_TELEMETRY_OPTOUT 1 >Nul 2>&1
+setx CLOUDSDK_CORE_DISABLE_PROMPTS 1 >Nul 2>&1
+setx POWERSHELL_TELEMETRY_OPTOUT 1 >Nul 2>&1
+setx DOTNET_CLI_TELEMETRY_OPTOUT 1 >Nul 2>&1
+setx DOCKER_CLI_TELEMETRY_OPTOUT 1 >Nul 2>&1
+setx npm_config_loglevel silent >Nul 2>&1
+setx VS_TELEMETRY_OPT_OUT 1 >Nul 2>&1
 cls
 
 Echo "Disabling Process Mitigations"
-::  Thanks AMIT
-call %WINDIR%\Modules\disable-process-mitigations.bat
+powershell "ForEach($v in (Get-Command -Name \"Set-ProcessMitigation\").Parameters[\"Disable\"].Attributes.ValidValues){Set-ProcessMitigation -SYSTEM -Disable $v.ToString() -ErrorAction SilentlyContinue}"
+for /f "tokens=3 skip=2" %%a in ('reg query "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\kernel" /v "MitigationAuditOptions"') do (
+    set "mitigation_mask=%%a"
+)
+echo info: current mask - %mitigation_mask%
+for /L %%a in (0,1,9) do (
+    set "mitigation_mask=!mitigation_mask:%%a=2!"
+)
+echo info: modified mask - %mitigation_mask%
+reg.exe add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\kernel" /v "MitigationOptions" /t REG_BINARY /d "%mitigation_mask%" /f > nul 2>&1
+reg.exe add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\kernel" /v "MitigationAuditOptions" /t REG_BINARY /d "%mitigation_mask%" /f > nul 2>&1
+for %%d in (
+	fontdrvhost.exe
+	dwm.exe
+	lsass.exe
+	svchost.exe
+	WmiPrvSE.exe
+	winlogon.exe
+	csrss.exe
+	audiodg.exe
+	ntoskrnl.exe
+	services.exe
+) do (
+	Reg.exe add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\%%d" /v "MitigationOptions" /t REG_BINARY /d "%mitigation_mask%" /f > NUL 2>&1
+	Reg.exe add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\%%d" /v "MitigationAuditOptions" /t REG_BINARY /d "%mitigation_mask%" /f > NUL 2>&1
+)
 cls
 
 Echo "Disabling Write Cache Buffer"
@@ -29,8 +59,8 @@ Echo "Editing Bcdedit"
 label C: SapphireOS
 bcdedit /set {current} description "SapphireOS 11 23H2"
 bcdedit /set {current} nx AlwaysOff
-bcdedit /set useplatformtick no
 bcdedit /set disabledynamictick yes
+bcdedit /set useplatformtick no
 bcdedit /deletevalue useplatformclock
 bcdedit /set bootmenupolicy legacy
 bcdedit /set hypervisorlaunchtype off
@@ -81,6 +111,77 @@ if "%DEVICE_TYPE%" == "LAPTOP" (
 Echo "Disabling NetBIOS over TCP/IP"
 for /f "delims=" %%u in ('reg query "HKLM\SYSTEM\CurrentControlSet\Services\NetBT\Parameters\Interfaces" /s /f "NetbiosOptions" ^| findstr "HKEY"') do (
     reg add "%%u" /v "NetbiosOptions" /t REG_DWORD /d "2" /f
+)
+cls
+
+Echo "Optimizing Scheduled Tasks"
+for %%a in (
+    "\Microsoft\Windows\.NET Framework\.NET Framework NGEN v4.0.30319 64 Critical",
+    "\Microsoft\Windows\.NET Framework\.NET Framework NGEN v4.0.30319 64",
+    "\Microsoft\Windows\.NET Framework\.NET Framework NGEN v4.0.30319 Critical",
+    "\Microsoft\Windows\.NET Framework\.NET Framework NGEN v4.0.30319",
+    "\Microsoft\Windows\Application Experience\StartupAppTask",
+    "\Microsoft\Windows\Autochk\Proxy",
+    "\Microsoft\Windows\BrokerInfrastructure\BgTaskRegistrationMaintenanceTask",
+    "\Microsoft\Windows\Diagnosis\Scheduled",
+    "\Microsoft\Windows\DiskCleanup\SilentCleanup",
+    "\Microsoft\Windows\DiskFootprint\StorageSense",
+    "\Microsoft\Windows\International\Synchronize Language Settings",
+    "\Microsoft\Windows\SoftwareProtectionPlatform\SvcRestartTaskLogon",
+    "\Microsoft\Windows\Time Synchronization\ForceSynchronizeTime",
+    "\Microsoft\Windows\Time Synchronization\SynchronizeTime",
+    "\Microsoft\Windows\UPnP\UPnPHostConfig",
+    "\Microsoft\Windows\Windows Filtering Platform\BfeOnServiceStartTypeChange",
+    "\Microsoft\Windows\CertificateServicesClient\AikCertEnrollTask",
+    "\Microsoft\Windows\CertificateServicesClient\KeyPreGenTask",
+    "\Microsoft\Windows\Clip\License Validation",
+    "\Microsoft\Windows\Defrag\ScheduledDefrag",
+    "\Microsoft\Windows\Device Setup\Metadata Refresh",
+    "\Microsoft\Windows\DiskDiagnostic\Microsoft-Windows-DiskDiagnosticDataCollector",
+    "\Microsoft\Windows\DiskDiagnostic\Microsoft-Windows-DiskDiagnosticResolver",
+    "\Microsoft\Windows\DiskFootprint\Diagnostics",
+    "\Microsoft\Windows\InstallService\ScanForUpdates",
+    "\Microsoft\Windows\InstallService\ScanForUpdatesAsUser",
+    "\Microsoft\Windows\InstallService\SmartRetry",
+    "\Microsoft\Windows\Registry\RegIdleBackup",
+    "\Microsoft\Windows\Security\Pwdless\IntelligentPwdlessTask",
+    "\Microsoft\Windows\SoftwareProtectionPlatform\SvcRestartTaskNetwork",
+    "\Microsoft\Windows\StateRepository\MaintenanceTasks",
+    "\Microsoft\Windows\Subscription\EnableLicenseAcquisition",
+    "\Microsoft\Windows\Subscription\LicenseAcquisition",
+    "\Microsoft\Windows\Sysmain\ResPriStaticDbSync",
+    "\Microsoft\Windows\Sysmain\WsSwapAssessmentTask",
+    "\Microsoft\Windows\WDI\ResolutionHost",
+    "\Microsoft\Windows\Windows Error Reporting\QueueReporting",
+    "\Microsoft\Windows\Windows Filtering Platform\BfeOnServiceStartTypeChange",
+    "\Microsoft\Windows\Wininet\CacheTask",
+    "\Microsoft\Windows\TaskScheduler",
+    "\Microsoft\Windows\WaaSMedic",
+    "\Microsoft\Windows\WindowsUpdate",
+    "\Microsoft\Windows\WindowsUpdate\Scheduled Start",
+    "\Microsoft\Windows\UpdateOrchestrator\Report policies",
+    "\Microsoft\Windows\UpdateOrchestrator\Schedule Scan",
+    "\Microsoft\Windows\UpdateOrchestrator\Schedule Scan Static Task",
+    "\Microsoft\Windows\UpdateOrchestrator\USO_UxBroker",
+    "\Microsoft\Windows\UpdateOrchestrator\Schedule Wake To Work",
+    "\Microsoft\Windows\UpdateOrchestrator\Start Oobe Expedite Work"
+) do (
+    C:\PostInstall\Tweaks\MinSudo.exe --NoLogo --TrustedInstaller --Privileged cmd /c "schtasks.exe /change /disable /TN %%a"
+)
+
+for %%a in (
+    "\Microsoft\Windows\TaskScheduler",
+    "\Microsoft\Windows\WaaSMedic",
+    "\Microsoft\Windows\WindowsUpdate",
+    "\Microsoft\Windows\WindowsUpdate\Scheduled Start",
+    "\Microsoft\Windows\UpdateOrchestrator\Report policies",
+    "\Microsoft\Windows\UpdateOrchestrator\Schedule Scan",
+    "\Microsoft\Windows\UpdateOrchestrator\Schedule Scan Static Task",
+    "\Microsoft\Windows\UpdateOrchestrator\USO_UxBroker",
+    "\Microsoft\Windows\UpdateOrchestrator\Schedule Wake To Work",
+    "\Microsoft\Windows\UpdateOrchestrator\Start Oobe Expedite Work"
+) do (
+    C:\PostInstall\Tweaks\MinSudo.exe --NoLogo --TrustedInstaller --Privileged cmd /c "schtasks.exe /delete /f /tn %%a"
 )
 cls
 
@@ -136,7 +237,7 @@ C:\PostInstall\Tweaks\DevManView.exe /disable "Programmable Interrupt Controller
 C:\PostInstall\Tweaks\DevManView.exe /disable "Numeric Data Processor" > NUL 2>&1
 C:\PostInstall\Tweaks\DevManView.exe /disable "Communications Port (COM1)" > NUL 2>&1
 C:\PostInstall\Tweaks\DevManView.exe /disable "Microsoft RRAS Root Enumerator" > NUL 2>&1
-C:\PostInstall\Tweaks\DevManView.exe /disable "Micosoft GS Wavetable Synth" > NUL 2>&1
+C:\PostInstall\Tweaks\DevManView.exe /disable "Microsoft GS Wavetable Synth" > NUL 2>&1
 cls
 
 Echo "Changing fsutil behaviors"
@@ -144,15 +245,16 @@ fsutil behavior set disable8dot3 1 > NUL 2>&1
 fsutil behavior set disablelastaccess 1 > NUL 2>&1
 Fsutil behavior set memoryusage 2 > NUL 2>&1
 fsutil behavior set encryptpagingfile 0 > NUL 2>&1
-cls
-
-Echo "Disable Driver PowerSaving"
-%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\powershell.exe -Command "Get-WmiObject MSPower_DeviceEnable -Namespace root\wmi | ForEach-Object { $_.enable = $false; $_.psbase.put(); }"
+fsutil behavior set disablelastaccess 1 > NUL 2>&1
 cls
 
 Echo "Renaming Microcode Updates"
 C:\PostInstall\Tweaks\MinSudo.exe --NoLogo --TrustedInstaller --Privileged cmd /c "ren C:\Windows\System32\mcupdate_GenuineIntel.dll mcupdate_GenuineIntel.old" >nul 2>&1
 C:\PostInstall\Tweaks\MinSudo.exe --NoLogo --TrustedInstaller --Privileged cmd /c "ren C:\Windows\System32\mcupdate_AuthenticAMD.dll mcupdate_AuthenticAMD.old" >nul 2>&1
+cls
+
+Echo "Disable Driver PowerSaving"
+%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\powershell.exe -Command "Get-WmiObject MSPower_DeviceEnable -Namespace root\wmi | ForEach-Object { $_.enable = $false; $_.psbase.put(); }"
 cls
 
 Echo "Tweak NIC"
@@ -355,11 +457,6 @@ cls
 
 Echo "Disabling StorPort Idle"
 for /f "tokens=*" %%s in ('reg query "HKLM\SYSTEM\CurrentControlSet\Enum" /s /f "StorPort" ^| findstr /e "StorPort"') do Reg.exe add "%%s" /v "EnableIdlePowerManagement" /t REG_DWORD /d "0" /f >nul 2>&1
-cls
-
-Echo "Enabling FSE"
-Reg.exe add "HKCU\System\GameConfigStore" /v "GameDVR_FSEBehaviorMode" /t REG_DWORD /d "2" /f >nul 2>&1
-Reg.exe add "HKCU\System\GameConfigStore" /v "GameDVR_DXGIHonorFSEWindowsCompatible" /t REG_DWORD /d "1" /f >nul 2>&1
 cls
 
 Echo "RW Fix for w11"

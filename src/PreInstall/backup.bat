@@ -1,5 +1,5 @@
-@echo off
-set BACKUP="C:\PostInstall\SapphireOS-Default-services.reg"
+Echo "Backing up Services"
+set BACKUP="C:\PostInstall\services\SapphireOS-Default-services.reg"
 echo Windows Registry Editor Version 5.00 >>%BACKUP%
 
 for /f "delims=" %%a in ('reg query "HKLM\SYSTEM\CurrentControlSet\Services"') do (
@@ -13,4 +13,3 @@ for /f "delims=" %%a in ('reg query "HKLM\SYSTEM\CurrentControlSet\Services"') d
         ) 
     ) 
 ) >nul 2>&1
-cls
