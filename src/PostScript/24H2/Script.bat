@@ -155,7 +155,6 @@ for %%a in (
     "\Microsoft\Windows\Windows Error Reporting\QueueReporting",
     "\Microsoft\Windows\Windows Filtering Platform\BfeOnServiceStartTypeChange",
     "\Microsoft\Windows\Wininet\CacheTask",
-    "\Microsoft\Windows\TaskScheduler",
     "\Microsoft\Windows\WaaSMedic",
     "\Microsoft\Windows\WindowsUpdate",
     "\Microsoft\Windows\WindowsUpdate\Scheduled Start",
@@ -170,7 +169,6 @@ for %%a in (
 )
 
 for %%a in (
-    "\Microsoft\Windows\TaskScheduler",
     "\Microsoft\Windows\WaaSMedic",
     "\Microsoft\Windows\WindowsUpdate",
     "\Microsoft\Windows\WindowsUpdate\Scheduled Start",
@@ -183,6 +181,8 @@ for %%a in (
 ) do (
     C:\PostInstall\Tweaks\MinSudo.exe --NoLogo --TrustedInstaller --Privileged cmd /c "schtasks.exe /delete /f /tn %%a"
 )
+
+MinSudo --NoLogo --TrustedInstaller --Privileged cmd /c reg.exe delete "HKLM\Software\Microsoft\Windows NT\CurrentVersion\Schedule\TaskCache\Tree\Microsoft\Windows\TaskScheduler" /f >nul 2>&1
 cls
 
 Echo "Disabling Exclusive Mode On Audio Devices"
@@ -443,7 +443,7 @@ wmic computersystem get manufacturer /format:value | findstr /i /C:VMWare && (
 cls
 
 Echo "Disabling DMA Remapping"
-for %%a in (DmaRemappingCompatible) do for /f "delims=" %%b in ('reg query "HKLM\SYSTEM\CurrentControlSet\Services" /s /f "%%a" ^| findstr "HKEY"') do Reg.exe add "%%b" /v "%%a" /t REG_DWORD /d "0" /f >nul 2>&1
+for %%a in (DmaRemappingCompatible DmaRemappingCompatibleSelfhost) do for /f "delims=" %%b in ('reg query "HKLM\SYSTEM\CurrentControlSet\Services" /s /f "%%a" ^| findstr "HKEY"') do Reg.exe add "%%b" /v "%%a" /t REG_DWORD /d "0" /f >nul 2>&1
 cls
 
 Echo "Disabling HIPM, DIPM and HDDParking"
