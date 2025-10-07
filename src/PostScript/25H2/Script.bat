@@ -57,16 +57,12 @@ cls
 
 Echo "Editing Bcdedit"
 label C: SapphireOS
-bcdedit /set {current} description "SapphireOS 11 24H2"
-bcdedit /set {current} nx AlwaysOff
+bcdedit /set {current} description "SapphireOS 11 25H2"
 bcdedit /set disabledynamictick yes
-bcdedit /set useplatformtick no
-bcdedit /deletevalue useplatformclock
 bcdedit /set bootmenupolicy legacy
 bcdedit /set hypervisorlaunchtype off
 bcdedit /set integrityservices disable
 bcdedit /set isolatedcontext No
-bcdedit /set loadoptions DISABLE-LSA-ISO,DISABLE-VBS
 bcdedit /set vsmlaunchtype Off
 bcdedit /set vm no
 bcdedit /timeout 3
@@ -120,66 +116,103 @@ for %%a in (
     "\Microsoft\Windows\.NET Framework\.NET Framework NGEN v4.0.30319 64",
     "\Microsoft\Windows\.NET Framework\.NET Framework NGEN v4.0.30319 Critical",
     "\Microsoft\Windows\.NET Framework\.NET Framework NGEN v4.0.30319",
+    "\Microsoft\Windows\AppID\EDP Policy Manager",
+    "\Microsoft\Windows\Application Experience\MareBackup",
     "\Microsoft\Windows\Application Experience\StartupAppTask",
+    "\Microsoft\Windows\ApplicationData\DsSvcCleanup",
     "\Microsoft\Windows\Autochk\Proxy",
+    "\Microsoft\Windows\BitLocker\BitLocker Encrypt All Drives",
+    "\Microsoft\Windows\BitLocker\BitLocker MDM Policy Refresh",
     "\Microsoft\Windows\BrokerInfrastructure\BgTaskRegistrationMaintenanceTask",
-    "\Microsoft\Windows\Diagnosis\Scheduled",
-    "\Microsoft\Windows\DiskCleanup\SilentCleanup",
-    "\Microsoft\Windows\DiskFootprint\StorageSense",
-    "\Microsoft\Windows\International\Synchronize Language Settings",
-    "\Microsoft\Windows\SoftwareProtectionPlatform\SvcRestartTaskLogon",
-    "\Microsoft\Windows\Time Synchronization\ForceSynchronizeTime",
-    "\Microsoft\Windows\Time Synchronization\SynchronizeTime",
-    "\Microsoft\Windows\UPnP\UPnPHostConfig",
-    "\Microsoft\Windows\Windows Filtering Platform\BfeOnServiceStartTypeChange",
     "\Microsoft\Windows\CertificateServicesClient\AikCertEnrollTask",
     "\Microsoft\Windows\CertificateServicesClient\KeyPreGenTask",
+    "\Microsoft\Windows\Chkdsk\ProactiveScan",
+    "\Microsoft\Windows\Chkdsk\SyspartRepair",
     "\Microsoft\Windows\Clip\License Validation",
+    "\Microsoft\Windows\CloudExperienceHost\CreateObjectTask",
+    "\Microsoft\Windows\Data Integrity Scan\Data Integrity Check and Scan",
+    "\Microsoft\Windows\Data Integrity Scan\Data Integrity Scan for Crash Recovery",
     "\Microsoft\Windows\Defrag\ScheduledDefrag",
+    "\Microsoft\Windows\Device Information\Device",
+    "\Microsoft\Windows\Device Information\Device User",
     "\Microsoft\Windows\Device Setup\Metadata Refresh",
+    "\Microsoft\Windows\Diagnosis\RecommendedTroubleshootingScanner",
+    "\Microsoft\Windows\Diagnosis\Scheduled",
+    "\Microsoft\Windows\Diagnosis\UnexpectedCodepath",
+    "\Microsoft\Windows\DirectX\DirectXDatabaseUpdater",
+    "\Microsoft\Windows\DiskCleanup\SilentCleanup",
     "\Microsoft\Windows\DiskDiagnostic\Microsoft-Windows-DiskDiagnosticDataCollector",
     "\Microsoft\Windows\DiskDiagnostic\Microsoft-Windows-DiskDiagnosticResolver",
     "\Microsoft\Windows\DiskFootprint\Diagnostics",
+    "\Microsoft\Windows\DiskFootprint\StorageSense",
+    "\Microsoft\Windows\FileHistory\File History (maintenance mode)",
     "\Microsoft\Windows\InstallService\ScanForUpdates",
     "\Microsoft\Windows\InstallService\ScanForUpdatesAsUser",
     "\Microsoft\Windows\InstallService\SmartRetry",
+    "\Microsoft\Windows\InstallService\WakeupAndContinueUpdates",
+    "\Microsoft\Windows\InstallService\WakeupAndScanForUpdates",
+    "\Microsoft\Windows\Maps\MapsUpdateTask",
+    "\Microsoft\Windows\PCRPF\Pcr Prediction Framework Firmware Update Task",
+    "\Microsoft\Windows\PI\Secure-Boot-Update",
+    "\Microsoft\Windows\Power Efficiency Diagnostics\AnalyzeSystem",
     "\Microsoft\Windows\Registry\RegIdleBackup",
     "\Microsoft\Windows\Security\Pwdless\IntelligentPwdlessTask",
+    "\Microsoft\Windows\Shell\UpdateUserPictureTask",
+    "\Microsoft\Windows\SoftwareProtectionPlatform\SvcRestartTaskLogon",
     "\Microsoft\Windows\SoftwareProtectionPlatform\SvcRestartTaskNetwork",
+    "\Microsoft\Windows\Spaceport\SpaceAgentTask",
+    "\Microsoft\Windows\Spaceport\SpaceManagerTask",
+    "\Microsoft\Windows\Speech\SpeechModelDownloadTask",
     "\Microsoft\Windows\StateRepository\MaintenanceTasks",
     "\Microsoft\Windows\Subscription\EnableLicenseAcquisition",
     "\Microsoft\Windows\Subscription\LicenseAcquisition",
     "\Microsoft\Windows\Sysmain\ResPriStaticDbSync",
     "\Microsoft\Windows\Sysmain\WsSwapAssessmentTask",
+    "\Microsoft\Windows\SystemRestore\SR",
+    "\Microsoft\Windows\TPM\Tpm-HASCertRetr",
+    "\Microsoft\Windows\TPM\Tpm-Maintenance",
+    "\Microsoft\Windows\TPM\Tpm-PreAttestationHealthCheck",
+    "\Microsoft\Windows\Time Synchronization\ForceSynchronizeTime",
+    "\Microsoft\Windows\Time Synchronization\SynchronizeTime",
+    "\Microsoft\Windows\UPnP\UPnPHostConfig",
     "\Microsoft\Windows\WDI\ResolutionHost",
+    "\Microsoft\Windows\Windows Defender\Windows Defender Cache Maintenance",
+    "\Microsoft\Windows\Windows Defender\Windows Defender Cleanup",
+    "\Microsoft\Windows\Windows Defender\Windows Defender Scheduled Scan",
+    "\Microsoft\Windows\Windows Defender\Windows Defender Verification",
     "\Microsoft\Windows\Windows Error Reporting\QueueReporting",
     "\Microsoft\Windows\Windows Filtering Platform\BfeOnServiceStartTypeChange",
-    "\Microsoft\Windows\Wininet\CacheTask",
-    "\Microsoft\Windows\TaskScheduler",
-    "\Microsoft\Windows\WaaSMedic",
-    "\Microsoft\Windows\WindowsUpdate",
-    "\Microsoft\Windows\WindowsUpdate\Scheduled Start",
-    "\Microsoft\Windows\UpdateOrchestrator\Report policies",
-    "\Microsoft\Windows\UpdateOrchestrator\Schedule Scan",
-    "\Microsoft\Windows\UpdateOrchestrator\Schedule Scan Static Task",
-    "\Microsoft\Windows\UpdateOrchestrator\USO_UxBroker",
-    "\Microsoft\Windows\UpdateOrchestrator\Schedule Wake To Work",
-    "\Microsoft\Windows\UpdateOrchestrator\Start Oobe Expedite Work"
+    "\Microsoft\Windows\Windows Media Sharing\UpdateLibrary",
+    "\Microsoft\Windows\Wininet\CacheTask"
 ) do (
     C:\PostInstall\Tweaks\MinSudo.exe --NoLogo --TrustedInstaller --Privileged cmd /c "schtasks.exe /change /disable /TN %%a"
 )
 
 for %%a in (
+    "\Microsoft\Windows\Application Experience\Microsoft Compatibility Appraiser",
+    "\Microsoft\Windows\Application Experience\Microsoft Compatibility Appraiser Exp",
+    "\Microsoft\Windows\Customer Experience Improvement Program\Consolidator",
+    "\Microsoft\Windows\Customer Experience Improvement Program\UsbCeip",
+    "\Microsoft\Windows\Feedback\Siuf\DmClient",
+    "\Microsoft\Windows\Feedback\Siuf\DmClientOnScenarioDownload",
     "\Microsoft\Windows\TaskScheduler",
-    "\Microsoft\Windows\WaaSMedic",
-    "\Microsoft\Windows\WindowsUpdate",
-    "\Microsoft\Windows\WindowsUpdate\Scheduled Start",
     "\Microsoft\Windows\UpdateOrchestrator\Report policies",
+    "\Microsoft\Windows\UpdateOrchestrator\Schedule Maintenance Work",
     "\Microsoft\Windows\UpdateOrchestrator\Schedule Scan",
     "\Microsoft\Windows\UpdateOrchestrator\Schedule Scan Static Task",
-    "\Microsoft\Windows\UpdateOrchestrator\USO_UxBroker",
     "\Microsoft\Windows\UpdateOrchestrator\Schedule Wake To Work",
-    "\Microsoft\Windows\UpdateOrchestrator\Start Oobe Expedite Work"
+    "\Microsoft\Windows\UpdateOrchestrator\Schedule Work",
+    "\Microsoft\Windows\UpdateOrchestrator\Start Oobe Expedite Work",
+    "\Microsoft\Windows\UpdateOrchestrator\StartOobeAppsScanAfterUpdate",
+    "\Microsoft\Windows\UpdateOrchestrator\StartOobeAppsScan_LicenseAccepted",
+    "\Microsoft\Windows\UpdateOrchestrator\StartOobeAppsScan_OobeAppReady",
+    "\Microsoft\Windows\UpdateOrchestrator\UIEOrchestrator",
+    "\Microsoft\Windows\UpdateOrchestrator\USO_UxBroker",
+    "\Microsoft\Windows\UpdateOrchestrator\Uus Failover Task",
+    "\Microsoft\Windows\WaaSMedic",
+    "\Microsoft\Windows\WindowsUpdate",
+    "\Microsoft\Windows\WindowsUpdate\Refresh Group Policy Cache",
+    "\Microsoft\Windows\WindowsUpdate\Scheduled Start"
 ) do (
     C:\PostInstall\Tweaks\MinSudo.exe --NoLogo --TrustedInstaller --Privileged cmd /c "schtasks.exe /delete /f /tn %%a"
 )
