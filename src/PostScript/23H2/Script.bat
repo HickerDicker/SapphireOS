@@ -6,7 +6,7 @@ Echo Setting "Execution Policy To Unrestricted"
 powershell set-executionpolicy unrestricted -force >nul 2>&1
 cls
 
-Echo "Opting Out Of PowerShell Telemetry
+Echo "Opting Out Of PowerShell Telemetry"
 setx DOTNET_TRY_CLI_TELEMETRY_OPTOUT 1 >Nul 2>&1
 setx CLOUDSDK_CORE_DISABLE_PROMPTS 1 >Nul 2>&1
 setx POWERSHELL_TELEMETRY_OPTOUT 1 >Nul 2>&1
@@ -110,6 +110,7 @@ for /f "delims=" %%u in ('reg query "HKLM\SYSTEM\CurrentControlSet\Services\NetB
 )
 cls
 
+Echo "Optimizing Scheduled Tasks"
 for %%a in (
     "\Microsoft\Windows\.NET Framework\.NET Framework NGEN v4.0.30319 64 Critical",
     "\Microsoft\Windows\.NET Framework\.NET Framework NGEN v4.0.30319 64",
@@ -278,18 +279,15 @@ cls
 Echo "Changing fsutil behaviors"
 fsutil behavior set disable8dot3 1 > NUL 2>&1
 fsutil behavior set disablelastaccess 1 > NUL 2>&1
-Fsutil behavior set memoryusage 2 > NUL 2>&1
-fsutil behavior set encryptpagingfile 0 > NUL 2>&1
-fsutil behavior set disablelastaccess 1 > NUL 2>&1
+cls
+
+Echo "Disable Driver PowerSaving"
+%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\powershell.exe -Command "Get-WmiObject MSPower_DeviceEnable -Namespace root\wmi | ForEach-Object { $_.enable = $false; $_.psbase.put(); }"
 cls
 
 Echo "Renaming Microcode Updates"
 C:\PostInstall\Tweaks\MinSudo.exe --NoLogo --TrustedInstaller --Privileged cmd /c "ren C:\Windows\System32\mcupdate_GenuineIntel.dll mcupdate_GenuineIntel.old" >nul 2>&1
 C:\PostInstall\Tweaks\MinSudo.exe --NoLogo --TrustedInstaller --Privileged cmd /c "ren C:\Windows\System32\mcupdate_AuthenticAMD.dll mcupdate_AuthenticAMD.old" >nul 2>&1
-cls
-
-Echo "Disable Driver PowerSaving"
-%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\powershell.exe -Command "Get-WmiObject MSPower_DeviceEnable -Namespace root\wmi | ForEach-Object { $_.enable = $false; $_.psbase.put(); }"
 cls
 
 Echo "Tweak NIC"
@@ -521,7 +519,7 @@ Echo "Cleanup"
 
 del /q/f/s %TEMP%\*
 del /q/f/s %WINDIR%\TEMP\*
-del /q/f/s %WINDIR%\Modules\*
+rd /s /q "%WINDIR%\Modules"
 cls
 
 start /b "" cmd /c del "%~f0"&exit /b

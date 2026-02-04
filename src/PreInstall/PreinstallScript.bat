@@ -21,6 +21,7 @@ cls
 
 Echo "Editing POW & power tweaks"
 Reg.exe add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Power" /v "HiberbootEnabled" /t Reg_DWORD /d "0" /f  >nul 2>&1
+Reg.exe add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Power" /v "SleepStudyDisabled" /t Reg_DWORD /d "1" /f  >nul 2>&1
 Reg.exe add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power\PowerThrottling" /v "PowerThrottlingOff" /t REG_DWORD /d "1" /f
 Reg.exe add "HKLM\SYSTEM\CurrentControlSet\Control\Power" /v "HibernateEnabled" /t Reg_DWORD /d "0" /f  >nul 2>&1
 Reg.exe add "HKLM\SYSTEM\CurrentControlSet\Control\Power" /v "HibernateEnabledDefault" /t Reg_DWORD /d "0" /f  >nul 2>&1
@@ -36,7 +37,6 @@ cls
 Echo "Changing fsutil behaviors"
 fsutil behavior set disable8dot3 1 > NUL 2>&1
 fsutil behavior set disablelastaccess 1 > NUL 2>&1
-Fsutil behavior set memoryusage 2 
 cls
 
 Echo "Disable Driver PowerSaving"
@@ -372,24 +372,8 @@ for %%z in (
 ) do (
 C:\PostInstall\Tweaks\MinSudo.exe --NoLogo --TrustedInstaller --Privileged cmd /c "Reg.exe add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\%%z" /v "Start" /t REG_DWORD /d "4" /f"
 )
-pause
-cls
-Echo "backup again"
-set BACKUP="C:\PostInstall\SapphireOS-Default-services.reg"
-echo Windows Registry Editor Version 5.00 >>%BACKUP%
+Reg.exe add "HKCU\Software\SapphireTool" /v "Services" /t REG_SZ /d "SapphireOS" /f >nul 2>&1
 
-for /f "delims=" %%a in ('reg query "HKLM\SYSTEM\CurrentControlSet\Services"') do (
-    for /f "tokens=3" %%b in ('reg query "%%~a" /v "Start" 2^>nul') do (
-        for /l %%c in (0,1,4) do (
-            if "%%b"=="0x%%c" (
-                echo. >>%BACKUP%
-                echo [%%~a] >>%BACKUP%
-                echo "Start"=dword:0000000%%c >>%BACKUP%
-            ) 
-        ) 
-    ) 
-) >nul 2>&1
-cls
 echo "Setting legacy photo viewer as default"
 :: Credits to Zusier
 for %%a in (tif tiff bmp dib gif jfif jpe jpeg jpg jxr png) do (
@@ -401,63 +385,10 @@ Reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplicat
 Reg add "HKLM\Software\Policies\Microsoft\Windows\AppPrivacy" /v "LetAppsRunInBackground" /t Reg_DWORD /d "2" /f >nul 2>&1
 Reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Search" /v "BackgroundAppGlobalToggle" /t Reg_DWORD /d "0" /f >nul 2>&1
 cls
-Echo "Optimizing Scheduled Tasks"
-schtasks.exe /change /disable /TN "\Microsoft\Windows\.NET Framework\.NET Framework NGEN v4.0.30319 64 Critical" 
-schtasks.exe /change /disable /TN "\Microsoft\Windows\.NET Framework\.NET Framework NGEN v4.0.30319 64" 
-schtasks.exe /change /disable /TN "\Microsoft\Windows\.NET Framework\.NET Framework NGEN v4.0.30319 Critical" 
-schtasks.exe /change /disable /TN "\Microsoft\Windows\.NET Framework\.NET Framework NGEN v4.0.30319" 
-schtasks.exe /change /disable /TN "\Microsoft\Windows\Application Experience\StartupAppTask" 
-schtasks.exe /change /disable /TN "\Microsoft\Windows\Autochk\Proxy" 
-schtasks.exe /change /disable /TN "\Microsoft\Windows\BrokerInfrastructure\BgTaskRegistrationMaintenanceTask" 
-schtasks.exe /change /disable /TN "\Microsoft\Windows\Diagnosis\Scheduled"
-schtasks.exe /change /disable /TN "\Microsoft\Windows\DiskCleanup\SilentCleanup" 
-schtasks.exe /change /disable /TN "\Microsoft\Windows\DiskFootprint\StorageSense" 
-schtasks.exe /change /disable /TN "\Microsoft\Windows\International\Synchronize Language Settings" 
-schtasks.exe /change /disable /TN "\Microsoft\Windows\SoftwareProtectionPlatform\SvcRestartTaskLogon"
-schtasks.exe /change /disable /TN "\Microsoft\Windows\Time Synchronization\ForceSynchronizeTime" 
-schtasks.exe /change /disable /TN "\Microsoft\Windows\Time Synchronization\SynchronizeTime" 
-schtasks.exe /change /disable /TN "\Microsoft\Windows\UPnP\UPnPHostConfig" 
-schtasks.exe /change /disable /TN "\Microsoft\Windows\Windows Filtering Platform\BfeOnServiceStartTypeChange" 
-schtasks.exe /change /disable /TN "\Microsoft\Windows\CertificateServicesClient\AikCertEnrollTask" 
-schtasks.exe /change /disable /TN "\Microsoft\Windows\CertificateServicesClient\KeyPreGenTask" 
-schtasks.exe /change /disable /TN "\Microsoft\Windows\Clip\License Validation" 
-schtasks.exe /change /disable /TN "\Microsoft\Windows\Defrag\ScheduledDefrag" 
-schtasks.exe /change /disable /TN "\Microsoft\Windows\Device Setup\Metadata Refresh" 
-schtasks.exe /change /disable /TN "\Microsoft\Windows\DiskDiagnostic\Microsoft-Windows-DiskDiagnosticDataCollector" 
-schtasks.exe /change /disable /TN "\Microsoft\Windows\DiskDiagnostic\Microsoft-Windows-DiskDiagnosticResolver" 
-schtasks.exe /change /disable /TN "\Microsoft\Windows\DiskFootprint\Diagnostics" 
-schtasks.exe /change /disable /TN "\Microsoft\Windows\InstallService\ScanForUpdates" 
-schtasks.exe /change /disable /TN "\Microsoft\Windows\InstallService\ScanForUpdatesAsUser" 
-schtasks.exe /change /disable /TN "\Microsoft\Windows\InstallService\SmartRetry" 
-schtasks.exe /change /disable /TN "\Microsoft\Windows\Registry\RegIdleBackup" 
-schtasks.exe /change /disable /TN "\Microsoft\Windows\Security\Pwdless\IntelligentPwdlessTask" 
-schtasks.exe /change /disable /TN "\Microsoft\Windows\SoftwareProtectionPlatform\SvcRestartTaskNetwork" 
-schtasks.exe /change /disable /TN "\Microsoft\Windows\StateRepository\MaintenanceTasks" 
-schtasks.exe /change /disable /TN "\Microsoft\Windows\Subscription\EnableLicenseAcquisition" 
-schtasks.exe /change /disable /TN "\Microsoft\Windows\Subscription\LicenseAcquisition" 
-schtasks.exe /change /disable /TN "\Microsoft\Windows\Sysmain\ResPriStaticDbSync" 
-schtasks.exe /change /disable /TN "\Microsoft\Windows\Sysmain\WsSwapAssessmentTask" 
-schtasks.exe /change /disable /TN "\Microsoft\Windows\WDI\ResolutionHost" 
-schtasks.exe /change /disable /TN "\Microsoft\Windows\Windows Error Reporting\QueueReporting" 
-schtasks.exe /change /disable /TN "\Microsoft\Windows\Windows Filtering Platform\BfeOnServiceStartTypeChange" 
-schtasks.exe /change /disable /TN "\Microsoft\Windows\Wininet\CacheTask" 
-schtasks.exe /delete /f /tn "\Microsoft\Windows\TaskScheduler" 
-schtasks.exe /delete /f /tn "\Microsoft\Windows\WaaSMedic" 
-schtasks.exe /delete /f /tn "\Microsoft\Windows\WindowsUpdate" 
-schtasks.exe /delete /f /tn "\Microsoft\Windows\WindowsUpdate\Scheduled Start" 
-schtasks.exe /delete /f /tn "\Microsoft\Windows\UpdateOrchestrator\Report policies" 
-schtasks.exe /delete /f /tn "\Microsoft\Windows\UpdateOrchestrator\Schedule Scan" 
-schtasks.exe /delete /f /tn "\Microsoft\Windows\UpdateOrchestrator\Schedule Scan Static Task" 
-schtasks.exe /delete /f /tn "\Microsoft\Windows\UpdateOrchestrator\USO_UxBroker" 
-schtasks.exe /delete /f /tn "\Microsoft\Windows\UpdateOrchestrator\Schedule Wake To Work" 
-schtasks.exe /delete /f /tn "\Microsoft\Windows\UpdateOrchestrator\Start Oobe Expedite Work"
 
 Echo "fixing languages if needed"
 REG ADD HKLM\Software\Policies\Microsoft\Windows\WindowsUpdate /v DoNotConnectToWindowsUpdateInternetLocations /t REG_DWORD /d 0 /f
 REG ADD HKLM\Software\Policies\Microsoft\Windows\WindowsUpdate\AU /v UseWUServer /t REG_DWORD /d 0 /f
 
 del /q/f/s %TEMP%\*
-
-echo "We love Rax and everyone credited in the discord (This script is mostly taken from RaxOS [also the credits are stolen from RaxOS too lol])"
-
 del /q/f/s %WINDIR%\TEMP\*

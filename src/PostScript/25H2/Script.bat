@@ -6,7 +6,7 @@ Echo Setting "Execution Policy To Unrestricted"
 powershell set-executionpolicy unrestricted -force >nul 2>&1
 cls
 
-Echo "Opting Out Of PowerShell Telemetry
+Echo "Opting Out Of PowerShell Telemetry"
 setx DOTNET_TRY_CLI_TELEMETRY_OPTOUT 1 >Nul 2>&1
 setx CLOUDSDK_CORE_DISABLE_PROMPTS 1 >Nul 2>&1
 setx POWERSHELL_TELEMETRY_OPTOUT 1 >Nul 2>&1
@@ -276,9 +276,6 @@ cls
 Echo "Changing fsutil behaviors"
 fsutil behavior set disable8dot3 1 > NUL 2>&1
 fsutil behavior set disablelastaccess 1 > NUL 2>&1
-Fsutil behavior set memoryusage 2 > NUL 2>&1
-fsutil behavior set encryptpagingfile 0 > NUL 2>&1
-fsutil behavior set disablelastaccess 1 > NUL 2>&1
 cls
 
 Echo "Disable Driver PowerSaving"
@@ -514,7 +511,7 @@ Echo "Cleanup"
 
 del /q/f/s %TEMP%\*
 del /q/f/s %WINDIR%\TEMP\*
-del /q/f/s %WINDIR%\Modules\*
+rd /s /q "%WINDIR%\Modules"
 cls
 
 start /b "" cmd /c del "%~f0"&exit /b
