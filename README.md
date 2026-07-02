@@ -60,7 +60,7 @@
 - mixed reality (steamvr with quest works (has been tested))
 - speech recognition (may break games like Hogwarts Legacy and phasmophobia iirc)
 - Virtualization Based Security (VBS)
-- asy Transfer
+- Easy Transfer
 - The Get Started and Windows Backup apps
 - Telephony
 - Floppy Disks
